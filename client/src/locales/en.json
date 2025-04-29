@@ -17,8 +17,31 @@
     "title": "About Me",
     "subtitle": "Full Stack Developer & UI Designer",
     "imageAlt": "Youssef working",
+    "introduction": "Passionate developer with a creative approach to problem-solving",
     "paragraph1": "Hello, I'm Youssef, a Full Stack Web Developer with a passion for building exceptional digital experiences. I have extensive experience in both frontend and backend development, with a special focus on modern JavaScript technologies and creative design.",
-    "paragraph2": "My skill set includes creating smooth interactive interfaces with React and Next.js, developing robust APIs, and designing efficient databases. I am deeply interested in user experience and always strive to achieve the perfect balance between aesthetics and functionality in every project."
+    "paragraph2": "My skill set includes creating smooth interactive interfaces with React and Next.js, developing robust APIs, and designing efficient databases. I am deeply interested in user experience and always strive to achieve the perfect balance between aesthetics and functionality in every project.",
+    "paragraph3": "I love exploring new technologies and frameworks, constantly seeking to improve my skills and stay at the forefront of web development trends. My goal is to create applications that not only function flawlessly but also provide engaging and intuitive user experiences.",
+    "bio": {
+      "title": "My Journey"
+    },
+    "education": {
+      "title": "Education",
+      "degree": "Bachelor of Computer Science",
+      "university": "King Saud University",
+      "period": "2015-2019"
+    },
+    "skills": {
+      "title": "Technical Skills",
+      "frontend": "Frontend Development",
+      "backend": "Backend Development",
+      "tools": "Tools & Others"
+    },
+    "stats": {
+      "experience": "Years Experience",
+      "projects": "Projects",
+      "clients": "Happy Clients",
+      "satisfaction": "Client Satisfaction"
+    }
   },
   "projects": {
     "title": "My Projects",

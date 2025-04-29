@@ -83,30 +83,26 @@ const Navbar: React.FC = () => {
           </div>
           
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-1 rtl:space-x-reverse">
+          <div className="hidden md:flex items-center space-x-2 rtl:space-x-reverse">
             <NavItem 
-              icon={<Home size={18} />}
               id="home"
               active={activeSection === "home"}
               label={t('nav.home')}
               onClick={() => scrollToSection("home")}
             />
             <NavItem 
-              icon={<User size={18} />}
               id="about"
               active={activeSection === "about"}
               label={t('nav.about')}
               onClick={() => scrollToSection("about")}
             />
             <NavItem 
-              icon={<Briefcase size={18} />}
               id="projects"
               active={activeSection === "projects"}
               label={t('nav.projects')}
               onClick={() => scrollToSection("projects")}
             />
             <NavItem 
-              icon={<Mail size={18} />}
               id="contact"
               active={activeSection === "contact"}
               label={t('nav.contact')}
@@ -176,7 +172,7 @@ const Navbar: React.FC = () => {
 };
 
 interface NavItemProps {
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
   id: string;
   label: string;
   active: boolean;
@@ -188,16 +184,18 @@ const NavItem: React.FC<NavItemProps> = ({ icon, id, label, active, onClick }) =
     <button 
       onClick={onClick}
       className={cn(
-        "group flex items-center space-x-1 rtl:space-x-reverse px-4 py-2 rounded-full text-sm font-medium transition-all duration-300",
+        "relative px-5 py-2 rounded-full text-sm font-medium transition-all duration-300",
         active ? 
           "bg-primary/10 text-primary" : 
           "hover:bg-background/80 hover:text-primary"
       )}
     >
-      <span className="transition-transform duration-300 group-hover:scale-110">
-        {icon}
+      <span className="relative z-10 after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300">
+        {label}
       </span>
-      <span>{label}</span>
+      {active && (
+        <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary transform scale-x-90 opacity-70 rounded-full"></span>
+      )}
     </button>
   );
 };
