@@ -19,47 +19,47 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <header className="fixed top-0 right-0 left-0 z-50 bg-white/70 dark:bg-dark-bg/70 backdrop-blur-md shadow-sm">
-      <nav className="container mx-auto py-4 px-6 flex justify-between items-center">
-        <div className="font-bold text-xl text-primary">
+    <header className="fixed top-0 right-0 left-0 z-50 glass border-b border-border/30">
+      <nav className="container mx-auto py-3 px-6 flex justify-between items-center">
+        <div className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
           {t('name')}
         </div>
         
-        <div className="hidden md:flex items-center space-x-4 rtl:space-x-reverse">
+        <div className="hidden md:flex items-center space-x-6 rtl:space-x-reverse">
           <a 
             href="#home" 
-            className="px-3 py-2 hover:text-primary transition-colors"
+            className="px-3 py-2 text-sm font-medium hover:text-primary relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"
           >
             {t('nav.home')}
           </a>
           <a 
             href="#about" 
-            className="px-3 py-2 hover:text-primary transition-colors"
+            className="px-3 py-2 text-sm font-medium hover:text-primary relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"
           >
             {t('nav.about')}
           </a>
           <a 
             href="#projects" 
-            className="px-3 py-2 hover:text-primary transition-colors"
+            className="px-3 py-2 text-sm font-medium hover:text-primary relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"
           >
             {t('nav.projects')}
           </a>
           <a 
             href="#contact" 
-            className="px-3 py-2 hover:text-primary transition-colors"
+            className="px-3 py-2 text-sm font-medium hover:text-primary relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"
           >
             {t('nav.contact')}
           </a>
         </div>
         
         <div className="flex items-center space-x-2 rtl:space-x-reverse">
-          <ThemeToggle className="text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800" />
-          <LanguageSwitcher className="text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800" />
+          <ThemeToggle className="hover:bg-muted text-foreground" />
+          <LanguageSwitcher className="hover:bg-muted text-foreground" />
           
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden rounded-full text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+            className="md:hidden rounded-full text-foreground hover:bg-muted"
             onClick={toggleMobileMenu}
             aria-label="Toggle mobile menu"
           >
@@ -71,35 +71,35 @@ const Navbar: React.FC = () => {
       {/* Mobile Menu */}
       <div 
         className={cn(
-          "md:hidden bg-white dark:bg-slate-900 shadow-md rounded-b-lg absolute w-full left-0 top-full transition-all duration-300 ease-in-out",
-          mobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+          "md:hidden glass shadow-lg rounded-b-lg absolute w-full left-0 top-full border-x border-b border-border/30 transition-all duration-300 ease-in-out",
+          mobileMenuOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2"
         )}
       >
         <div className="container mx-auto py-4 px-6 flex flex-col space-y-3">
           <a 
             href="#home" 
-            className="px-3 py-2 hover:text-primary transition-colors"
+            className="px-3 py-2 text-sm font-medium hover:text-primary transition-colors"
             onClick={closeMobileMenu}
           >
             {t('nav.home')}
           </a>
           <a 
             href="#about" 
-            className="px-3 py-2 hover:text-primary transition-colors"
+            className="px-3 py-2 text-sm font-medium hover:text-primary transition-colors"
             onClick={closeMobileMenu}
           >
             {t('nav.about')}
           </a>
           <a 
             href="#projects" 
-            className="px-3 py-2 hover:text-primary transition-colors"
+            className="px-3 py-2 text-sm font-medium hover:text-primary transition-colors"
             onClick={closeMobileMenu}
           >
             {t('nav.projects')}
           </a>
           <a 
             href="#contact" 
-            className="px-3 py-2 hover:text-primary transition-colors"
+            className="px-3 py-2 text-sm font-medium hover:text-primary transition-colors"
             onClick={closeMobileMenu}
           >
             {t('nav.contact')}

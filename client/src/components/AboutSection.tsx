@@ -104,63 +104,72 @@ const AboutSection: React.FC = () => {
     <section 
       id="about" 
       ref={sectionRef}
-      className="py-20 bg-white dark:bg-slate-900"
+      className="py-20 bg-pattern"
     >
       <div className="container mx-auto px-6">
         <div ref={titleRef} className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <div className="inline-block glass px-3 py-1 rounded-full text-xs font-medium mb-4 text-primary border border-primary/20">
             {t('about.title')}
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold mb-2">
+            {t('about.subtitle')}
           </h2>
-          <div className="w-20 h-1 bg-primary mx-auto"></div>
+          <div className="w-16 h-1 bg-primary/50 mx-auto rounded-full"></div>
         </div>
         
         <div className="flex flex-col md:flex-row items-center gap-12">
           <div ref={imageRef} className="md:w-2/5 mb-10 md:mb-0">
-            <img 
-              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2" 
-              alt={t('about.imageAlt')} 
-              className="rounded-lg shadow-xl w-full h-auto object-cover transform transition-transform hover:scale-[1.02]"
-            />
+            <div className="relative">
+              {/* Image decorative elements */}
+              <div className="absolute -z-10 bottom-0 right-0 w-full h-full translate-x-6 translate-y-6 rounded-lg bg-accent/10 blur-md"></div>
+              <div className="absolute -z-10 top-0 left-0 w-full h-full -translate-x-6 -translate-y-6 rounded-lg bg-primary/10 blur-md"></div>
+              
+              <div className="overflow-hidden rounded-lg shadow-xl border border-border/50 relative z-10">
+                <img 
+                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2" 
+                  alt={t('about.imageAlt')} 
+                  className="w-full h-auto object-cover transform transition-transform duration-700 hover:scale-[1.05]"
+                />
+              </div>
+            </div>
           </div>
           
           <div ref={contentRef} className="md:w-3/5">
-            <h3 className="text-2xl font-bold mb-4 text-primary">
-              {t('about.subtitle')}
-            </h3>
-            
-            <div className="space-y-4 text-slate-700 dark:text-slate-300">
-              <p>
-                {t('about.paragraph1')}
-              </p>
-              <p>
-                {t('about.paragraph2')}
-              </p>
-            </div>
-            
-            <div ref={skillsRef} className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="bg-white dark:bg-slate-800 shadow rounded-lg p-4 text-center">
-                <div className="text-primary text-3xl mb-2">
-                  <FaReact />
-                </div>
-                <div className="font-medium">React</div>
+            <div className="glass p-8 rounded-lg border border-border/50">
+              <div className="space-y-4 text-foreground">
+                <p className="text-lg">
+                  {t('about.paragraph1')}
+                </p>
+                <p className="text-lg">
+                  {t('about.paragraph2')}
+                </p>
               </div>
-              <div className="bg-white dark:bg-slate-800 shadow rounded-lg p-4 text-center">
-                <div className="text-primary text-3xl mb-2">
-                  <FaNodeJs />
+              
+              <div ref={skillsRef} className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div className="glass rounded-lg p-4 text-center border border-border/30 hover:border-primary/30 transition-colors">
+                  <div className="text-primary text-3xl mb-2">
+                    <FaReact />
+                  </div>
+                  <div className="font-medium">React</div>
                 </div>
-                <div className="font-medium">Node.js</div>
-              </div>
-              <div className="bg-white dark:bg-slate-800 shadow rounded-lg p-4 text-center">
-                <div className="text-primary text-3xl mb-2">
-                  <FaJs />
+                <div className="glass rounded-lg p-4 text-center border border-border/30 hover:border-primary/30 transition-colors">
+                  <div className="text-primary text-3xl mb-2">
+                    <FaNodeJs />
+                  </div>
+                  <div className="font-medium">Node.js</div>
                 </div>
-                <div className="font-medium">JavaScript</div>
-              </div>
-              <div className="bg-white dark:bg-slate-800 shadow rounded-lg p-4 text-center">
-                <div className="text-primary text-3xl mb-2">
-                  <FaDatabase />
+                <div className="glass rounded-lg p-4 text-center border border-border/30 hover:border-primary/30 transition-colors">
+                  <div className="text-primary text-3xl mb-2">
+                    <FaJs />
+                  </div>
+                  <div className="font-medium">JavaScript</div>
                 </div>
-                <div className="font-medium">MongoDB</div>
+                <div className="glass rounded-lg p-4 text-center border border-border/30 hover:border-primary/30 transition-colors">
+                  <div className="text-primary text-3xl mb-2">
+                    <FaDatabase />
+                  </div>
+                  <div className="font-medium">MongoDB</div>
+                </div>
               </div>
             </div>
           </div>

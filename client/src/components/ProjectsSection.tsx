@@ -179,45 +179,45 @@ const ProjectsSection: React.FC = () => {
     <section 
       id="projects" 
       ref={sectionRef}
-      className="py-20 bg-slate-50 dark:bg-slate-900"
+      className="py-20 bg-secondary/5 dark:bg-secondary/20 backdrop-blur-sm"
     >
       <div className="container mx-auto px-6">
         <div ref={titleRef} className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <div className="inline-block glass px-3 py-1 rounded-full text-xs font-medium mb-4 text-primary border border-primary/20">
             {t('projects.title')}
-          </h2>
-          <div className="w-20 h-1 bg-primary mx-auto"></div>
-          <p className="mt-4 max-w-xl mx-auto text-slate-600 dark:text-slate-400">
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold mb-2">
             {t('projects.subtitle')}
-          </p>
+          </h2>
+          <div className="w-16 h-1 bg-primary/50 mx-auto rounded-full"></div>
         </div>
         
-        <div ref={filtersRef} className="mb-8 flex flex-wrap justify-center gap-4">
+        <div ref={filtersRef} className="mb-12 flex flex-wrap justify-center gap-3">
           <Button 
             onClick={() => setActiveCategory("all")}
             variant={activeCategory === "all" ? "default" : "outline"}
-            className="rounded-full"
+            className={`rounded-full ${activeCategory === "all" ? "bg-primary hover:bg-primary/90" : "glass border-border/30 hover:border-primary/30"}`}
           >
             {t('projects.filters.all')}
           </Button>
           <Button 
             onClick={() => setActiveCategory("frontend")}
             variant={activeCategory === "frontend" ? "default" : "outline"}
-            className="rounded-full"
+            className={`rounded-full ${activeCategory === "frontend" ? "bg-primary hover:bg-primary/90" : "glass border-border/30 hover:border-primary/30"}`}
           >
             {t('projects.filters.frontend')}
           </Button>
           <Button 
             onClick={() => setActiveCategory("fullstack")}
             variant={activeCategory === "fullstack" ? "default" : "outline"}
-            className="rounded-full"
+            className={`rounded-full ${activeCategory === "fullstack" ? "bg-primary hover:bg-primary/90" : "glass border-border/30 hover:border-primary/30"}`}
           >
             {t('projects.filters.fullstack')}
           </Button>
           <Button 
             onClick={() => setActiveCategory("interactive")}
             variant={activeCategory === "interactive" ? "default" : "outline"}
-            className="rounded-full"
+            className={`rounded-full ${activeCategory === "interactive" ? "bg-primary hover:bg-primary/90" : "glass border-border/30 hover:border-primary/30"}`}
           >
             {t('projects.filters.interactive')}
           </Button>
