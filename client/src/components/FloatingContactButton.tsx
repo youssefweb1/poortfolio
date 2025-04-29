@@ -60,11 +60,11 @@ const FloatingContactButton: React.FC = () => {
   };
 
   return (
-    <div className="fixed bottom-2 left-2 z-40 flex flex-col items-center">
+    <div className="fixed bottom-8 left-8 z-40 flex flex-col items-center">
       {/* Social Links */}
       <div 
         className={cn(
-          "flex flex-col-reverse items-center space-y-2 space-y-reverse mb-2 transition-all duration-300",
+          "flex flex-col-reverse items-center space-y-3 space-y-reverse mb-3 transition-all duration-300",
           isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
         )}
       >
@@ -75,7 +75,7 @@ const FloatingContactButton: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             className={cn(
-              "w-10 h-10 rounded-full flex items-center justify-center bg-background shadow-lg border border-border/30 transition-all duration-300 hover-translate",
+              "w-10 h-10 rounded-full flex items-center justify-center bg-background/90 backdrop-blur-sm shadow-md border border-border/40 transition-all duration-300 hover-translate",
               link.color,
               `transition-all duration-300 delay-${index * 100}`
             )}
@@ -96,8 +96,8 @@ const FloatingContactButton: React.FC = () => {
         size="icon"
         onClick={toggleMenu}
         className={cn(
-          "w-12 h-12 rounded-full shadow-lg glow-on-hover transition-all duration-300",
-          isOpen ? "bg-red-500 hover:bg-red-600" : "bg-primary hover:bg-primary/90"
+          "w-12 h-12 rounded-full shadow-lg shadow-accent/20 glow-on-hover transition-all duration-300",
+          isOpen ? "bg-accent hover:bg-accent/90" : "bg-accent hover:bg-accent/90"
         )}
         aria-label={isOpen ? "Close contact menu" : "Open contact menu"}
       >

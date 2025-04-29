@@ -34,7 +34,7 @@ const BackToTop: React.FC = () => {
         variant="default"
         size="icon"
         onClick={scrollToTop}
-        className="rounded-full bg-primary hover:bg-primary/90 w-10 h-10 text-white shadow-lg shadow-primary/30 glow-on-hover"
+        className="rounded-full bg-primary hover:bg-primary/90 w-12 h-12 text-white shadow-lg shadow-primary/20 glow-on-hover transition-all duration-300"
         aria-label="Back to top"
       >
         <ChevronUp size={20} />

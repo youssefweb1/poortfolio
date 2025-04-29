@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Menu, X, Code, Home, User, Briefcase, Mail } from "lucide-react";
+import { Menu, X, Home, User, Briefcase, Mail, Code } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
 import { Button } from "@/components/ui/button";
