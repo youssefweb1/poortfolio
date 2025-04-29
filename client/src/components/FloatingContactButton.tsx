@@ -96,8 +96,8 @@ const FloatingContactButton: React.FC = () => {
         size="icon"
         onClick={toggleMenu}
         className={cn(
-          "w-11 h-11 rounded-full shadow-md hover:shadow-lg hover:shadow-accent/20 hover:-translate-y-1 transition-all duration-300",
-          isOpen ? "bg-accent hover:bg-accent/90" : "bg-accent hover:bg-accent/90"
+          "w-12 h-12 rounded-full shadow-md backdrop-blur-sm hover:shadow-lg hover:shadow-accent/20 hover:-translate-y-1 transition-all duration-300",
+          isOpen ? "bg-accent hover:bg-accent/90 text-white" : "bg-accent hover:bg-accent/90 text-white"
         )}
         aria-label={isOpen ? "Close contact menu" : "Open contact menu"}
       >

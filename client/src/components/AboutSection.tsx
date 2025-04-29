@@ -112,9 +112,10 @@ const AboutSection: React.FC = () => {
       ref={sectionRef}
       className="py-24 bg-pattern relative overflow-hidden"
     >
-      {/* Add 3D layered effects */}
+      {/* Enhanced 3D layered effects with animation */}
       <div className="bg-3d-layer-1"></div>
       <div className="bg-3d-layer-2"></div>
+      <div className="bg-3d-layer-3"></div>
       
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         {/* Section Header */}
