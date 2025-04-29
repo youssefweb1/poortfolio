@@ -1,0 +1,98 @@
+{
+  "name": "Youssef Al-Sabbahi",
+  "title": "Full Stack Web Developer",
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "description": "I build engaging digital experiences and advanced web applications that combine high performance with creative design.",
+    "viewWork": "View My Work",
+    "contact": "Contact Me"
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Full Stack Developer & UI Designer",
+    "imageAlt": "Youssef working",
+    "paragraph1": "Hello, I'm Youssef, a Full Stack Web Developer with a passion for building exceptional digital experiences. I have extensive experience in both frontend and backend development, with a special focus on modern JavaScript technologies and creative design.",
+    "paragraph2": "My skill set includes creating smooth interactive interfaces with React and Next.js, developing robust APIs, and designing efficient databases. I am deeply interested in user experience and always strive to achieve the perfect balance between aesthetics and functionality in every project."
+  },
+  "projects": {
+    "title": "My Projects",
+    "subtitle": "A collection of projects that showcase my skills and expertise in web development",
+    "filters": {
+      "all": "All",
+      "frontend": "Frontend",
+      "fullstack": "Full Stack",
+      "interactive": "Interactive"
+    },
+    "preview": "Preview",
+    "code": "Code",
+    "ecommerce": {
+      "title": "E-commerce Platform",
+      "description": "A comprehensive e-commerce platform with admin dashboard and secure payment system"
+    },
+    "social": {
+      "title": "Social Media App",
+      "description": "A social networking platform with messaging, sharing, and real-time interaction features"
+    },
+    "3d": {
+      "title": "3D Interactive Website",
+      "description": "An interactive 3D website using WebGL and Three.js for an immersive experience"
+    },
+    "management": {
+      "title": "Project Management App",
+      "description": "A comprehensive project management system with task tracking, member management, and reporting"
+    },
+    "delivery": {
+      "title": "Food Delivery App",
+      "description": "A complete food delivery application with interactive maps and order tracking system"
+    },
+    "dashboard": {
+      "title": "Interactive Dashboard",
+      "description": "An interactive analytics dashboard with charts and advanced data visualizations"
+    }
+  },
+  "contact": {
+    "title": "Contact Me",
+    "subtitle": "Do you have a project in mind? Let's talk and make it a reality!",
+    "form": {
+      "title": "Send a Message",
+      "name": "Name",
+      "namePlaceholder": "Enter your name",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email address",
+      "message": "Message",
+      "messagePlaceholder": "Enter your message",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "success": {
+        "title": "Message Sent",
+        "message": "Thanks for reaching out! I'll get back to you soon."
+      },
+      "error": {
+        "title": "Error",
+        "message": "There was a problem sending your message. Please try again."
+      }
+    },
+    "info": {
+      "title": "Contact Information",
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Location",
+      "locationValue": "Riyadh, Saudi Arabia"
+    },
+    "social": {
+      "title": "Follow Me"
+    }
+  },
+  "footer": {
+    "copyright": "© {{year}} Youssef Al-Sabbahi. All rights reserved."
+  },
+  "name.error": "Name must be at least 2 characters",
+  "email.error": "Please enter a valid email address",
+  "message.error": "Message must be at least 10 characters"
+}
