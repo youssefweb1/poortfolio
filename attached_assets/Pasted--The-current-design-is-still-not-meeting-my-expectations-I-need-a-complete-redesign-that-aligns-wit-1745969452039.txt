@@ -1,0 +1,26 @@
+
+The current design is still not meeting my expectations. I need a complete redesign that aligns with the vision I initially had. Here's a more detailed list of what needs to be fixed:
+
+Full Redesign:
+The website needs a full rework to make it modern, professional, and visually cohesive. This includes all sections, colors, layout, and elements. Focus on making the design sleek, minimal, and polished. The current design feels incomplete and not up to standard.
+
+Background:
+One of the most important changes is the background. It should be full screen and visually engaging. Please add a grid network of subtle squares or something similar that creates a modern, 3D effect. This background should be smooth and not too overwhelming, but still add depth and texture to the design. Think of something like a grid of squares with soft transparency to give it that futuristic feel.
+
+Animations:
+The animations are still too heavy and causing lag. Please optimize them to be light and fast. Reduce the intensity and duration of animations so that the website feels smooth and doesn’t have any performance issues. The site should be fast, smooth, and fluid — no more feeling of lag or delay.
+
+Light and Dark Mode:
+Ensure both light mode and dark mode are balanced well. The default should still be dark mode, but the transition between modes should feel seamless and smooth. No harsh color changes — everything should flow naturally.
+
+Color Palette:
+The colors still need to be reworked. The current palette feels off. Please choose a modern, vibrant, and balanced color scheme that fits the sleek and professional design you're aiming for. Ensure the colors are easy on the eyes and provide enough contrast for readability.
+
+Button and Layout Adjustments:
+All buttons, including Back to Top and Social Contact, need to be properly aligned and consistent throughout the site. They should fit with the overall modern aesthetic and feel smooth to interact with.
+
+Overall Experience:
+The website must feel lightweight and responsive. The performance of the site should be a priority — it should load fast, the design should feel fluid, and there should be no lag when navigating or interacting with animations.
+
+Please apply these changes and ensure that everything feels high-quality, polished, and most importantly, user-friendly. Let me know once the redesign is ready, and I'll review it.
+

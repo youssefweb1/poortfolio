@@ -5,95 +5,95 @@
 @tailwind utilities;
 
 :root {
-  /* Refined and elegant color palette - light mode */
-  --background: 220 30% 98%;
-  --foreground: 230 35% 15%;
-  --muted: 220 25% 94%;
-  --muted-foreground: 230 20% 45%;
-  --popover: 220 30% 98%;
-  --popover-foreground: 230 35% 15%;
-  --card: 220 30% 98%;
-  --card-foreground: 230 35% 15%;
-  --border: 220 25% 90%;
-  --input: 220 25% 90%;
+  /* Modern, sleek light mode palette */
+  --background: 220 25% 99%;
+  --foreground: 230 40% 12%;
+  --muted: 220 20% 95%;
+  --muted-foreground: 230 20% 40%;
+  --popover: 220 25% 99%;
+  --popover-foreground: 230 40% 12%;
+  --card: 220 25% 99%;
+  --card-foreground: 230 40% 12%;
+  --border: 220 20% 92%;
+  --input: 220 20% 92%;
   
-  /* Modern primary color - Royal Blue with perfect saturation */
-  --primary: 225 90% 55%;
-  --primary-foreground: 220 30% 98%;
+  /* Vibrant, digital cobalt blue */
+  --primary: 224 85% 60%;
+  --primary-foreground: 220 25% 99%;
   
-  /* Refined deep secondary */
-  --secondary: 226 45% 12%;
-  --secondary-foreground: 220 30% 98%;
+  /* Sleek secondary */
+  --secondary: 230 40% 14%;
+  --secondary-foreground: 220 25% 99%;
   
-  /* Elegant accent - Vivid Purple */
-  --accent: 275 90% 65%;
-  --accent-foreground: 220 30% 98%;
+  /* Modernized electric purple accent */
+  --accent: 270 85% 65%;
+  --accent-foreground: 220 25% 99%;
   
-  /* Dangerous action color */
-  --destructive: 0 90% 60%;
-  --destructive-foreground: 220 30% 98%;
+  /* Alert color */
+  --destructive: 0 85% 60%;
+  --destructive-foreground: 220 25% 99%;
   
-  --ring: 220 25% 90%;
-  --radius: 0.5rem;
+  --ring: 224 85% 60%;
+  --radius: 0.6rem;
   
-  /* Harmonious chart colors for data visualization */
-  --chart-1: 225 90% 55%;  /* Primary blue */
-  --chart-2: 275 90% 65%;  /* Accent purple */
-  --chart-3: 340 90% 65%;  /* Warm pink */
-  --chart-4: 160 90% 45%;  /* Emerald */
-  --chart-5: 195 90% 55%;  /* Ocean blue */
+  /* Enhanced visualization colors */
+  --chart-1: 224 85% 60%;  /* Primary blue */
+  --chart-2: 270 85% 65%;  /* Electric purple */
+  --chart-3: 330 85% 65%;  /* Vibrant pink */
+  --chart-4: 160 85% 45%;  /* Bright emerald */
+  --chart-5: 195 85% 60%;  /* Cyan blue */
   
-  /* Sidebar consistent colors */
-  --sidebar-background: 220 30% 98%;
-  --sidebar-foreground: 230 35% 15%;
-  --sidebar-primary: 225 90% 55%;
-  --sidebar-primary-foreground: 220 30% 98%;
-  --sidebar-accent: 275 90% 65%;
-  --sidebar-accent-foreground: 220 30% 98%;
-  --sidebar-border: 220 25% 90%;
-  --sidebar-ring: 220 25% 90%;
+  /* UI component colors - light */
+  --sidebar-background: 220 25% 99%;
+  --sidebar-foreground: 230 40% 12%;
+  --sidebar-primary: 224 85% 60%;
+  --sidebar-primary-foreground: 220 25% 99%;
+  --sidebar-accent: 270 85% 65%;
+  --sidebar-accent-foreground: 220 25% 99%;
+  --sidebar-border: 220 20% 92%;
+  --sidebar-ring: 220 20% 92%;
 }
 
 .dark {
-  /* Rich dark mode colors with optimal contrast */
-  --background: 230 35% 6%;
-  --foreground: 220 40% 98%;
-  --muted: 230 30% 13%;
-  --muted-foreground: 220 30% 80%;
-  --popover: 230 35% 6%;
-  --popover-foreground: 220 40% 98%;
-  --card: 230 35% 6%;
-  --card-foreground: 220 40% 98%;
-  --border: 230 30% 15%;
-  --input: 230 30% 15%;
+  /* Sleek dark mode colors - deeper with perfect contrast */
+  --background: 230 30% 4%; /* Deeper, more premium dark */
+  --foreground: 220 25% 99%;
+  --muted: 230 25% 12%;
+  --muted-foreground: 220 20% 75%;
+  --popover: 230 30% 4%;
+  --popover-foreground: 220 25% 99%;
+  --card: 230 30% 6%;
+  --card-foreground: 220 25% 99%;
+  --border: 230 25% 14%;
+  --input: 230 25% 14%;
   
-  /* Luminous primary for dark mode */
-  --primary: 224 95% 66%;
-  --primary-foreground: 220 40% 98%;
+  /* Luminescent primary - brighter, more vibrant */
+  --primary: 224 90% 65%;
+  --primary-foreground: 220 25% 99%;
   
-  /* Rich secondary */
-  --secondary: 230 35% 12%;
-  --secondary-foreground: 220 40% 98%;
+  /* Rich secondary surface */
+  --secondary: 230 35% 10%;
+  --secondary-foreground: 220 25% 99%;
   
-  /* Vibrant accent for dark mode */
-  --accent: 280 95% 72%;
-  --accent-foreground: 220 40% 98%;
+  /* Electric accent for dark mode - more saturated */
+  --accent: 270 90% 70%;
+  --accent-foreground: 220 25% 99%;
   
-  /* Warning color */
-  --destructive: 0 95% 65%;
-  --destructive-foreground: 220 40% 98%;
+  /* Warning color - brighter for dark backgrounds */
+  --destructive: 0 90% 65%;
+  --destructive-foreground: 220 25% 99%;
   
-  --ring: 230 30% 20%;
+  --ring: 224 90% 65%;
   
-  /* Sidebar dark mode */
-  --sidebar-background: 230 35% 6%;
-  --sidebar-foreground: 220 40% 98%;
-  --sidebar-primary: 224 95% 66%;
-  --sidebar-primary-foreground: 220 40% 98%;
-  --sidebar-accent: 280 95% 72%;
-  --sidebar-accent-foreground: 220 40% 98%;
-  --sidebar-border: 230 30% 15%;
-  --sidebar-ring: 230 30% 20%;
+  /* UI component colors - dark */
+  --sidebar-background: 230 30% 4%;
+  --sidebar-foreground: 220 25% 99%;
+  --sidebar-primary: 224 90% 65%;
+  --sidebar-primary-foreground: 220 25% 99%;
+  --sidebar-accent: 270 90% 70%;
+  --sidebar-accent-foreground: 220 25% 99%;
+  --sidebar-border: 230 25% 14%;
+  --sidebar-ring: 230 25% 14%;
 }
 
 @layer base {
@@ -164,125 +164,251 @@
   @apply absolute top-0 left-0 w-full h-full bg-gradient-to-b from-secondary/80 to-secondary/95 dark:from-secondary/90 dark:to-secondary/100 z-[-1];
 }
 
-/* Modern 3D Grid Background Pattern */
+/* Modern 3D Grid Background Pattern - Complete Redesign */
 .bg-pattern {
   position: relative;
   overflow: hidden;
   background-color: hsl(var(--background));
   will-change: transform;
-  /* Simple subtle base texture */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%239C92AC' fill-opacity='0.05' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+  isolation: isolate; /* Create stacking context for better layering */
 }
 
-/* Primary 3D Grid Effect - Creates a layered depth pattern */
+/* Ultra-Sleek Fine Grid Layer (Base) */
 .bg-pattern::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background: 
     linear-gradient(to right, hsla(var(--primary), 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, hsla(var(--primary), 0.03) 1px, transparent 1px),
-    linear-gradient(to right, hsla(var(--primary), 0.06) 2px, transparent 2px) 50px 50px,
-    linear-gradient(to bottom, hsla(var(--primary), 0.06) 2px, transparent 2px) 50px 50px;
-  background-size: 25px 25px, 25px 25px, 100px 100px, 100px 100px;
-  transform: perspective(100px) rotateX(0.5deg);
+    linear-gradient(to bottom, hsla(var(--primary), 0.03) 1px, transparent 1px);
+  background-size: 16px 16px;
+  transform: perspective(1000px) rotateX(0.5deg) scale(1.05);
   transform-origin: top center;
   pointer-events: none;
   z-index: 1;
+  animation: subtle-grid-drift 60s linear infinite;
 }
 
-/* Secondary Grid for 3D layering effect with subtle minus sign pattern */
+/* Mid-size Grid with 3D Perspective */
 .bg-pattern::after {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg stroke='%239C92AC' stroke-width='0.6' stroke-opacity='0.08'%3E%3Cpath d='M15 0v30M0 15h30'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
-    radial-gradient(circle at 20% 30%, hsla(var(--primary), 0.12) 0%, transparent 50%),
-    radial-gradient(circle at 80% 70%, hsla(var(--accent), 0.08) 0%, transparent 50%);
-  transform: perspective(100px) rotateX(0.2deg);
-  transform-origin: bottom center;
+  inset: 0;
+  background: 
+    linear-gradient(to right, hsla(var(--primary), 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, hsla(var(--primary), 0.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+  transform: perspective(1000px) rotateX(0.8deg) translateZ(-5px) scale(1.1);
+  transform-origin: center bottom;
   pointer-events: none;
   z-index: 2;
+  animation: subtle-grid-drift-reverse 80s linear infinite;
 }
 
-/* Glass panel floating effect */
+/* Large Grid with Deeper Perspective - square pattern */
+.bg-pattern .grid-overlay {
+  position: absolute;
+  inset: -20px;
+  transform: perspective(1000px) rotateX(1deg) translateZ(-20px) scale(1.2);
+  transform-style: preserve-3d;
+  background: 
+    linear-gradient(to right, hsla(var(--primary), 0.08) 2px, transparent 2px),
+    linear-gradient(to bottom, hsla(var(--primary), 0.08) 2px, transparent 2px);
+  background-size: 120px 120px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.7;
+  animation: grid-pulse 15s ease-in-out infinite;
+}
+
+/* Interactive Depth Layer - Moves slightly with mouse (added via JS) */
+.bg-pattern .depth-layer {
+  position: absolute;
+  inset: -50px;
+  background-image: 
+    radial-gradient(circle at 30% 20%, hsla(var(--primary), 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 70% 60%, hsla(var(--accent), 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, hsla(var(--primary), 0.10) 0%, transparent 40%);
+  filter: blur(40px);
+  opacity: 0.6;
+  transform: translateZ(-100px);
+  pointer-events: none;
+  z-index: 0;
+  animation: ambient-drift 30s ease-in-out infinite alternate;
+}
+
+/* Digital dots pattern with reduced intensity */
+.bg-pattern .dot-matrix {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(hsla(var(--primary), 0.2) 1px, transparent 1px), 
+    radial-gradient(hsla(var(--primary), 0.15) 1px, transparent 1px);
+  background-position: 0 0, 25px 25px;
+  background-size: 50px 50px;
+  mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 70%);
+  transform: translateZ(-50px);
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ambient effect grid animations */
+@keyframes subtle-grid-drift {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: 16px 16px;
+  }
+}
+
+@keyframes subtle-grid-drift-reverse {
+  0% {
+    background-position: 60px 60px;
+  }
+  100% {
+    background-position: 0px 0px;
+  }
+}
+
+@keyframes grid-pulse {
+  0%, 100% {
+    opacity: 0.7;
+    transform: perspective(1000px) rotateX(1deg) translateZ(-20px) scale(1.2);
+  }
+  50% {
+    opacity: 0.9;
+    transform: perspective(1000px) rotateX(1.2deg) translateZ(-25px) scale(1.25);
+  }
+}
+
+@keyframes ambient-drift {
+  0% {
+    opacity: 0.5;
+    transform: translateY(-10px) scale(1);
+  }
+  100% {
+    opacity: 0.7;
+    transform: translateY(10px) scale(1.05);
+  }
+}
+
+/* Dark mode enhancements - Deeper, more vibrant grid */
+.dark .bg-pattern::before {
+  background: 
+    linear-gradient(to right, hsla(var(--primary), 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, hsla(var(--primary), 0.06) 1px, transparent 1px);
+  opacity: 0.8;
+}
+
+.dark .bg-pattern::after {
+  background: 
+    linear-gradient(to right, hsla(var(--primary), 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, hsla(var(--primary), 0.1) 1px, transparent 1px);
+  opacity: 0.9;
+}
+
+.dark .bg-pattern .grid-overlay {
+  background: 
+    linear-gradient(to right, hsla(var(--primary), 0.12) 2px, transparent 2px),
+    linear-gradient(to bottom, hsla(var(--primary), 0.12) 2px, transparent 2px);
+  opacity: 0.8;
+}
+
+.dark .bg-pattern .depth-layer {
+  background-image: 
+    radial-gradient(circle at 30% 20%, hsla(var(--primary), 0.25) 0%, transparent 60%),
+    radial-gradient(circle at 70% 60%, hsla(var(--accent), 0.20) 0%, transparent 60%),
+    radial-gradient(circle at 40% 80%, hsla(var(--primary), 0.15) 0%, transparent 50%);
+  opacity: 0.7;
+}
+
+.dark .bg-pattern .dot-matrix {
+  background-image: 
+    radial-gradient(hsla(var(--primary), 0.3) 1px, transparent 1px), 
+    radial-gradient(hsla(var(--primary), 0.2) 1px, transparent 1px);
+  opacity: 0.25;
+}
+
+/* Ultra Modern Glass Panel Effects */
 .glass-panel {
   position: relative;
   z-index: 5;
+  overflow: hidden;
+  isolation: isolate;
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* Edge highlight effect */
 .glass-panel::before {
   content: "";
   position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
+  inset: 0;
   background: linear-gradient(
     135deg, 
-    hsla(var(--primary), 0.15), 
+    hsla(var(--primary), 0.2) 0%, 
     transparent 30%, 
     transparent 70%, 
-    hsla(var(--accent), 0.15)
+    hsla(var(--accent), 0.2) 100%
   );
   border-radius: inherit;
   z-index: -1;
-  pointer-events: none;
   opacity: 0;
   transition: opacity 0.3s ease;
+  pointer-events: none;
+  will-change: opacity;
+}
+
+/* Subtle reflection/highlight effect */
+.glass-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.05) 5%,
+    rgba(255, 255, 255, 0) 20%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  border-radius: inherit;
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.glass-panel:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 10px 25px -5px rgba(0, 0, 0, 0.1),
+    0 5px 10px -5px rgba(0, 0, 0, 0.05);
 }
 
 .glass-panel:hover::before {
   opacity: 1;
 }
 
-/* Enhanced Dark Mode Grid and Glass Effects */
-.dark .bg-pattern {
-  background-color: hsl(var(--background));
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23FFFFFF' fill-opacity='0.05' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
-}
-
-/* Dark mode primary grid */
-.dark .bg-pattern::before {
-  background: 
-    linear-gradient(to right, hsla(var(--primary), 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, hsla(var(--primary), 0.04) 1px, transparent 1px),
-    linear-gradient(to right, hsla(var(--primary), 0.08) 2px, transparent 2px) 50px 50px,
-    linear-gradient(to bottom, hsla(var(--primary), 0.08) 2px, transparent 2px) 50px 50px;
-  background-size: 25px 25px, 25px 25px, 100px 100px, 100px 100px;
-}
-
-/* Dark mode secondary grid with minus sign pattern */
-.dark .bg-pattern::after {
-  background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg stroke='%23FFFFFF' stroke-width='0.6' stroke-opacity='0.1'%3E%3Cpath d='M15 0v30M0 15h30'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
-    radial-gradient(circle at 20% 30%, hsla(var(--primary), 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 80% 70%, hsla(var(--accent), 0.12) 0%, transparent 50%);
-}
-
-/* Ambient light effect for dark mode */
-.dark .glass-panel::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    circle at 50% 30%,
-    hsla(var(--primary), 0.15),
-    transparent 70%
+/* Dark mode glass enhancements */
+.dark .glass-panel::before {
+  background: linear-gradient(
+    135deg, 
+    hsla(var(--primary), 0.25) 0%, 
+    transparent 30%, 
+    transparent 70%, 
+    hsla(var(--accent), 0.25) 100%
   );
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-  z-index: -1;
 }
 
-.dark .glass-panel:hover::after {
-  opacity: 1;
+.dark .glass-panel::after {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.03) 5%,
+    rgba(255, 255, 255, 0) 20%,
+    rgba(255, 255, 255, 0) 100%
+  );
 }
 
 /* 3D Grid Frost Effect for glass areas */
