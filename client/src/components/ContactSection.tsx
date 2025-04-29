@@ -89,123 +89,129 @@ const ContactSection: React.FC = () => {
     <section 
       id="contact" 
       ref={sectionRef}
-      className="py-20 bg-white dark:bg-slate-900 relative overflow-hidden"
+      className="py-20 bg-pattern relative overflow-hidden"
     >
-      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full transform -translate-x-1/2 translate-y-1/2"></div>
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 blur-3xl rounded-full transform translate-x-1/2 -translate-y-1/2 opacity-50"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/10 blur-3xl rounded-full transform -translate-x-1/2 translate-y-1/2 opacity-50"></div>
       
       <div className="container mx-auto px-6 relative z-10">
         <div ref={titleRef} className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <div className="inline-block glass px-3 py-1 rounded-full text-xs font-medium mb-4 text-primary border border-primary/20">
             {t('contact.title')}
-          </h2>
-          <div className="w-20 h-1 bg-primary mx-auto"></div>
-          <p className="mt-4 max-w-xl mx-auto text-slate-600 dark:text-slate-400">
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold mb-2">
             {t('contact.subtitle')}
-          </p>
+          </h2>
+          <div className="w-16 h-1 bg-primary/50 mx-auto rounded-full"></div>
         </div>
         
-        <div className="flex flex-col md:flex-row gap-12">
-          <div ref={formRef} className="md:w-1/2 bg-white dark:bg-slate-800 rounded-xl shadow-lg p-8">
-            <h3 className="text-2xl font-bold mb-6">
+        <div className="flex flex-col md:flex-row gap-10">
+          <div ref={formRef} className="md:w-1/2 glass border border-border/50 rounded-2xl shadow-lg p-8">
+            <h3 className="text-xl font-bold mb-6 text-primary">
               {t('contact.form.title')}
             </h3>
             
             <ContactForm />
           </div>
           
-          <div ref={infoRef} className="md:w-1/2">
-            <div className="info-card bg-white dark:bg-slate-800 rounded-xl shadow-lg p-8 mb-8">
-              <h3 className="text-2xl font-bold mb-6">
+          <div ref={infoRef} className="md:w-1/2 space-y-8">
+            <div className="info-card glass border border-border/50 rounded-2xl shadow-lg p-8">
+              <h3 className="text-xl font-bold mb-6 text-primary">
                 {t('contact.info.title')}
               </h3>
               
-              <div className="space-y-4">
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary text-xl">
-                    <Mail />
+              <div className="space-y-6">
+                <div className="flex items-center group">
+                  <div className="w-12 h-12 glass border border-primary/30 group-hover:border-primary/60 transition-colors rounded-full flex items-center justify-center text-primary">
+                    <Mail className="w-5 h-5" />
                   </div>
-                  <div className="mr-4 rtl:mr-0 rtl:ml-4">
-                    <div className="text-sm text-slate-500 dark:text-slate-400">
+                  <div className="ms-4">
+                    <div className="text-xs font-medium text-muted-foreground mb-1">
                       {t('contact.info.email')}
                     </div>
-                    <div>youssef@example.com</div>
+                    <a href="mailto:youssef@example.com" className="hover:text-primary transition-colors">
+                      youssef@example.com
+                    </a>
                   </div>
                 </div>
                 
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary text-xl">
-                    <Phone />
+                <div className="flex items-center group">
+                  <div className="w-12 h-12 glass border border-primary/30 group-hover:border-primary/60 transition-colors rounded-full flex items-center justify-center text-primary">
+                    <Phone className="w-5 h-5" />
                   </div>
-                  <div className="mr-4 rtl:mr-0 rtl:ml-4">
-                    <div className="text-sm text-slate-500 dark:text-slate-400">
+                  <div className="ms-4">
+                    <div className="text-xs font-medium text-muted-foreground mb-1">
                       {t('contact.info.phone')}
                     </div>
-                    <div>+123 456 7890</div>
+                    <a href="tel:+1234567890" className="hover:text-primary transition-colors">
+                      +123 456 7890
+                    </a>
                   </div>
                 </div>
                 
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary text-xl">
-                    <MapPin />
+                <div className="flex items-center group">
+                  <div className="w-12 h-12 glass border border-primary/30 group-hover:border-primary/60 transition-colors rounded-full flex items-center justify-center text-primary">
+                    <MapPin className="w-5 h-5" />
                   </div>
-                  <div className="mr-4 rtl:mr-0 rtl:ml-4">
-                    <div className="text-sm text-slate-500 dark:text-slate-400">
+                  <div className="ms-4">
+                    <div className="text-xs font-medium text-muted-foreground mb-1">
                       {t('contact.info.location')}
                     </div>
-                    <div>{t('contact.info.locationValue')}</div>
+                    <div className="hover:text-primary transition-colors">
+                      {t('contact.info.locationValue')}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
             
-            <div className="info-card bg-white dark:bg-slate-800 rounded-xl shadow-lg p-8">
-              <h3 className="text-2xl font-bold mb-6">
+            <div className="info-card glass border border-border/50 rounded-2xl shadow-lg p-8">
+              <h3 className="text-xl font-bold mb-6 text-primary">
                 {t('contact.social.title')}
               </h3>
               
               <div className="flex flex-wrap gap-4">
                 <a 
                   href="#" 
-                  className="w-12 h-12 bg-primary/10 hover:bg-primary/20 rounded-full flex items-center justify-center text-primary text-xl transition-colors"
+                  className="w-10 h-10 glass border border-primary/30 hover:border-primary/60 hover:text-primary rounded-full flex items-center justify-center transition-colors"
                   aria-label="GitHub"
                 >
-                  <FaGithub />
+                  <FaGithub className="w-4 h-4" />
                 </a>
                 <a 
                   href="#" 
-                  className="w-12 h-12 bg-primary/10 hover:bg-primary/20 rounded-full flex items-center justify-center text-primary text-xl transition-colors"
+                  className="w-10 h-10 glass border border-primary/30 hover:border-primary/60 hover:text-primary rounded-full flex items-center justify-center transition-colors"
                   aria-label="LinkedIn"
                 >
-                  <FaLinkedin />
+                  <FaLinkedin className="w-4 h-4" />
                 </a>
                 <a 
                   href="#" 
-                  className="w-12 h-12 bg-primary/10 hover:bg-primary/20 rounded-full flex items-center justify-center text-primary text-xl transition-colors"
+                  className="w-10 h-10 glass border border-primary/30 hover:border-primary/60 hover:text-primary rounded-full flex items-center justify-center transition-colors"
                   aria-label="Twitter"
                 >
-                  <FaTwitter />
+                  <FaTwitter className="w-4 h-4" />
                 </a>
                 <a 
                   href="#" 
-                  className="w-12 h-12 bg-primary/10 hover:bg-primary/20 rounded-full flex items-center justify-center text-primary text-xl transition-colors"
+                  className="w-10 h-10 glass border border-primary/30 hover:border-primary/60 hover:text-primary rounded-full flex items-center justify-center transition-colors"
                   aria-label="Instagram"
                 >
-                  <FaInstagram />
+                  <FaInstagram className="w-4 h-4" />
                 </a>
                 <a 
                   href="#" 
-                  className="w-12 h-12 bg-primary/10 hover:bg-primary/20 rounded-full flex items-center justify-center text-primary text-xl transition-colors"
+                  className="w-10 h-10 glass border border-primary/30 hover:border-primary/60 hover:text-primary rounded-full flex items-center justify-center transition-colors"
                   aria-label="Dribbble"
                 >
-                  <FaDribbble />
+                  <FaDribbble className="w-4 h-4" />
                 </a>
                 <a 
                   href="#" 
-                  className="w-12 h-12 bg-primary/10 hover:bg-primary/20 rounded-full flex items-center justify-center text-primary text-xl transition-colors"
+                  className="w-10 h-10 glass border border-primary/30 hover:border-primary/60 hover:text-primary rounded-full flex items-center justify-center transition-colors"
                   aria-label="Behance"
                 >
-                  <FaBehance />
+                  <FaBehance className="w-4 h-4" />
                 </a>
               </div>
             </div>
