@@ -95,7 +95,16 @@
     }
   },
   "footer": {
-    "copyright": "© {{year}} Youssef Al-Sabbahi. All rights reserved."
+    "copyright": "© {{year}} Youssef Al-Sabbahi. All rights reserved.",
+    "about": "A passionate full stack developer specializing in creating modern, efficient, and visually stunning web applications.",
+    "quickLinks": "Quick Links",
+    "services": "Services",
+    "webDevelopment": "Web Development",
+    "uiDesign": "UI/UX Design",
+    "apiDevelopment": "API Development",
+    "consultation": "Technical Consultation",
+    "contactInfo": "Contact Info",
+    "madeWith": "Made with passion and modern technologies"
   },
   "name.error": "Name must be at least 2 characters",
   "email.error": "Please enter a valid email address",
