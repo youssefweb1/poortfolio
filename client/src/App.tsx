@@ -13,32 +13,20 @@ import AboutSection from "@/components/AboutSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import ContactSection from "@/components/ContactSection";
 import Cursor from "@/components/Cursor";
-import BackToTop from "@/components/BackToTop";
-import FloatingContactButton from "@/components/FloatingContactButton";
 
 function HomePage() {
   return (
-    <div className="bg-pattern min-h-screen">
+    <>
       <Cursor />
       <Navbar />
       <main className="pt-16">
-        <section id="home">
-          <HeroSection />
-        </section>
-        <section id="about">
-          <AboutSection />
-        </section>
-        <section id="projects">
-          <ProjectsSection />
-        </section>
-        <section id="contact">
-          <ContactSection />
-        </section>
+        <HeroSection />
+        <AboutSection />
+        <ProjectsSection />
+        <ContactSection />
       </main>
       <Footer />
-      <BackToTop />
-      <FloatingContactButton />
-    </div>
+    </>
   );
 }
 

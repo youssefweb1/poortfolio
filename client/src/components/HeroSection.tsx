@@ -1,270 +1,128 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Button } from "@/components/ui/button";
 import ThreeScene from "@/components/ThreeScene";
-import { ChevronDown, ArrowRight, ExternalLink } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
-// Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
 const HeroSection: React.FC = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const sectionRef = useRef<HTMLElement>(null);
-  const heroContentRef = useRef<HTMLDivElement>(null);
-  const heroImageRef = useRef<HTMLDivElement>(null);
-  const isRtl = i18n.dir() === 'rtl';
-  
-  // For animated typing effect
-  const [displayText, setDisplayText] = useState("");
-  const nameText = t('name');
-  const typingSpeed = 100; // ms per character
-  
-  // Typing animation effect
-  useEffect(() => {
-    let index = 0;
-    let timer: NodeJS.Timeout;
-    
-    if (index === 0) {
-      timer = setInterval(() => {
-        if (index < nameText.length) {
-          setDisplayText(prev => prev + nameText.charAt(index));
-          index++;
-        } else {
-          clearInterval(timer);
-        }
-      }, typingSpeed);
-    }
-    
-    return () => clearInterval(timer);
-  }, [nameText]);
+  const textRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLDivElement>(null);
 
-  // GSAP animations
   useEffect(() => {
-    if (!sectionRef.current || !heroContentRef.current || !heroImageRef.current) return;
+    if (!sectionRef.current || !textRef.current || !imageRef.current) return;
+
+    const textElements = textRef.current.querySelectorAll("h1, .hero-title, .hero-description, .hero-buttons");
     
-    // Timeline for smoother sequenced animations
-    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-    
-    // Hero text elements animation 
-    const textElements = heroContentRef.current.querySelectorAll(".animate-item");
-    
-    tl.fromTo(
+    gsap.fromTo(
       textElements,
-      { y: 30, opacity: 0 },
+      { y: 50, opacity: 0 },
       { 
         y: 0, 
         opacity: 1, 
-        duration: 0.8, 
-        stagger: 0.15,
-      },
-      0.2 // Start slightly after timeline begins
+        duration: 1, 
+        stagger: 0.2,
+        ease: "power3.out"
+      }
     );
-    
-    // Hero image container animation
-    tl.fromTo(
-      heroImageRef.current,
-      { 
-        opacity: 0,
-        scale: 0.9,
-        rotationY: isRtl ? -20 : 20,
-      },
-      { 
-        opacity: 1,
-        scale: 1,
-        rotationY: 0,
-        duration: 1.2,
-        ease: "back.out(1.4)"
-      },
-      0.4 // Start slightly after text animation
-    );
-    
-    // Decorative dots animations
-    const dots = document.querySelectorAll(".hero-dot");
-    tl.fromTo(
-      dots, 
-      { scale: 0, opacity: 0 },
+
+    gsap.fromTo(
+      imageRef.current,
+      { scale: 0.8, opacity: 0 },
       { 
         scale: 1, 
         opacity: 1, 
-        duration: 0.6, 
-        stagger: 0.1,
-        ease: "back.out(2)"
-      },
-      0.8 // Start after main elements
+        duration: 1,
+        delay: 0.5,
+        ease: "back.out(1.7)"
+      }
     );
-    
-    // Grid pattern subtle animation
-    gsap.to(".hero-grid", {
-      backgroundPosition: `${isRtl ? '-' : ''}20px 20px`,
-      duration: 20,
-      repeat: -1,
-      ease: "none"
-    });
-    
-    // Decorative blur gradient animation
-    gsap.to(".hero-gradient-blur", {
-      rotation: 360,
-      transformOrigin: "center center",
-      duration: 30,
-      repeat: -1,
-      ease: "none"
-    });
-    
+
     return () => {
-      // Cleanup
-      tl.kill();
+      // Cleanup any scroll triggers
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
-  }, [isRtl]);
+  }, []);
 
   return (
     <section 
       id="home" 
       ref={sectionRef}
-      className="relative min-h-[100vh] flex items-center justify-center overflow-hidden bg-pattern"
-      style={{ willChange: "transform" }}
+      className="relative min-h-screen flex items-center overflow-hidden bg-pattern"
     >
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Dynamic 3D background */}
-        <ThreeScene className="opacity-40" />
-        
-        {/* Animated gradient blurs */}
-        <div className="hero-gradient-blur absolute -top-[40%] -right-[20%] w-[80%] h-[80%] rounded-full bg-gradient-to-r from-primary/10 via-accent/5 to-transparent blur-3xl opacity-60"></div>
-        <div className="hero-gradient-blur absolute -bottom-[40%] -left-[20%] w-[80%] h-[80%] rounded-full bg-gradient-to-r from-accent/10 via-primary/5 to-transparent blur-3xl opacity-50"></div>
-        
-        {/* Grid pattern overlay with subtle movement */}
-        <div className="hero-grid absolute inset-0 opacity-[0.15] dark:opacity-20 z-10"
-          style={{ 
-            backgroundImage: `
-              linear-gradient(to right, hsla(var(--primary), 0.2) 1px, transparent 1px),
-              linear-gradient(to bottom, hsla(var(--primary), 0.2) 1px, transparent 1px)
-            `,
-            backgroundSize: '40px 40px',
-          }}
-        ></div>
-      </div>
+      <ThreeScene className="opacity-60" />
+      <div className="hero-overlay"></div>
       
-      {/* Frost glass hero content container */}
-      <div className="container relative z-20 px-6 py-4">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-6">
-          {/* Left side - Text content */}
+      <div className="container mx-auto px-6 py-20 relative z-10">
+        <div className="flex flex-col md:flex-row items-center">
           <div 
-            ref={heroContentRef} 
-            className={`lg:w-1/2 ${isRtl ? 'lg:pr-6' : 'lg:pl-6'}`}
+            ref={textRef}
+            className="md:w-1/2 md:pl-12 rtl:md:pr-12 rtl:md:pl-0 mb-10 md:mb-0 order-2 md:order-1"
           >
-            {/* Profession badge */}
-            <div className="animate-item frost-glass inline-flex items-center px-4 py-2 rounded-full text-sm font-medium mb-6 shadow-sm">
-              <span className="inline-block w-2 h-2 rounded-full bg-primary mr-2"></span>
-              <span>{t('title')}</span>
+            <div className="inline-block glass px-3 py-1 rounded-full text-xs font-medium mb-6 text-primary border border-primary/20">
+              {t('title')}
             </div>
             
-            {/* Main heading with animated name */}
-            <h1 className="animate-item text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-              <span className="block mb-2">{t('hero.greeting')}</span>
-              <div className="relative inline-flex h-[1.2em] overflow-hidden">
-                <span className="gradient-text text-transparent bg-clip-text drop-shadow-sm">
-                  {displayText}
-                </span>
-                <span className="absolute right-0 top-0 h-full w-[3px] bg-primary animate-pulse"></span>
-              </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 hero-title">
+              {t('hero.greeting')} <span className="gradient-text">{t('name')}</span>
             </h1>
             
-            {/* Description text */}
-            <p className="animate-item mb-8 text-lg leading-relaxed text-muted-foreground max-w-xl">
+            <p className="mb-8 hero-description text-muted-foreground max-w-lg text-lg">
               {t('hero.description')}
             </p>
             
-            {/* CTA buttons */}
-            <div className="animate-item flex flex-wrap gap-4">
+            <div className="flex space-x-4 rtl:space-x-reverse hero-buttons">
               <Button
                 asChild
-                size="lg"
-                className="rounded-full px-6 shadow-lg shadow-primary/10 frost-glass gap-2 group"
+                className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-full transform hover:-translate-y-1 transition-all shadow-lg btn-hover-effect"
               >
-                <a href="#projects">
-                  {t('hero.viewWork')}
-                  <ArrowRight className={`w-4 h-4 transition-transform group-hover:${isRtl ? '-translate-x-1' : 'translate-x-1'}`} />
-                </a>
+                <a href="#projects">{t('hero.viewWork')}</a>
               </Button>
 
               <Button
                 asChild
                 variant="outline"
-                size="lg"
-                className="rounded-full px-6 backdrop-blur-md border border-primary/20 hover:border-primary/40 gap-2 group"
+                className="glass border border-primary/30 text-foreground px-6 py-3 rounded-full transform hover:-translate-y-1 transition-all hover:border-primary/60 btn-hover-effect"
               >
-                <a href="#contact">
-                  {t('hero.contact')}
-                  <ExternalLink className="w-4 h-4 transition-transform group-hover:scale-110" />
-                </a>
+                <a href="#contact">{t('hero.contact')}</a>
               </Button>
-            </div>
-            
-            {/* Small decorative dots */}
-            <div className="relative mt-16 hidden md:block">
-              <div className="hero-dot absolute top-0 -left-4 w-2 h-2 rounded-full bg-primary"></div>
-              <div className="hero-dot absolute top-12 left-8 w-3 h-3 rounded-full bg-accent/80"></div>
-              <div className="hero-dot absolute -top-8 left-12 w-1.5 h-1.5 rounded-full bg-primary/80"></div>
             </div>
           </div>
           
-          {/* Right side - Image and decorative elements */}
           <div 
-            ref={heroImageRef}
-            className="lg:w-1/2 relative"
+            ref={imageRef}
+            className="md:w-1/2 order-1 md:order-2 flex justify-center"
           >
-            <div className="relative mx-auto max-w-md perspective-1000">
-              {/* Main spotlight effect */}
-              <div className="absolute -inset-10 bg-gradient-to-r from-primary/20 via-accent/20 to-transparent rounded-full blur-3xl opacity-70 z-0 animate-pulse animate-slower"></div>
+            <div className="relative">
+              {/* Background decoration */}
+              <div className="absolute -z-10 w-64 h-64 md:w-80 md:h-80 rounded-full bg-primary/10 dark:bg-primary/5 blur-2xl"></div>
+              <div className="absolute -z-10 w-72 h-72 md:w-[22rem] md:h-[22rem] rounded-full bg-accent/10 dark:bg-accent/5 blur-2xl -translate-x-8 translate-y-8"></div>
               
-              {/* 3D floating card effect */}
-              <div className="relative glass-panel frost-glass rounded-2xl overflow-hidden border border-white/20 shadow-2xl transition-transform duration-300 hover:translate-y-[-5px] hover:translate-x-[2px]">
-                {/* Profile image container */}
-                <div className="aspect-[4/5] overflow-hidden">
-                  <img 
-                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a"
-                    alt={t('name')} 
-                    className="w-full h-full object-cover transition-all duration-700 hover:scale-105"
-                  />
-                </div>
-                
-                {/* Overlay gradient for better text readability */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60"></div>
-                
-                {/* Text overlay */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-2 hover:translate-y-0 transition-transform duration-300">
-                  <div className="rounded-full px-3 py-1 text-xs font-semibold bg-white/10 backdrop-blur-sm inline-block mb-3">
-                    {t('title')}
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-1">{t('name')}</h3>
-                  <p className="text-white/80 text-sm">{t('hero.description').split(' ').slice(0, 5).join(' ')}...</p>
-                </div>
-                
-                {/* Interactive grid overlay */}
-                <div className="absolute inset-0 bg-grid-pattern opacity-20 backdrop-blur-[1px] pointer-events-none"></div>
+              {/* Profile image */}
+              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white/40 dark:border-white/10 shadow-xl relative z-10 backdrop-blur-sm bg-gradient-to-br from-white/30 to-white/10 dark:from-white/10 dark:to-white/5">
+                <img 
+                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a" 
+                  alt={t('name')} 
+                  className="w-full h-full object-cover"
+                />
               </div>
-              
-              {/* Decorative elements */}
-              <div className="absolute top-1/2 -right-8 w-20 h-20 rounded-full border border-primary/30 animate-spin-slow"></div>
-              <div className="absolute -bottom-4 right-1/4 w-16 h-16 rounded-full border border-accent/30 animate-reverse-spin-slow"></div>
-              <div className="hero-dot absolute top-0 right-0 w-3 h-3 rounded-full bg-primary"></div>
-              <div className="hero-dot absolute bottom-0 left-0 w-2 h-2 rounded-full bg-accent"></div>
             </div>
           </div>
         </div>
       </div>
       
-      {/* Scroll down indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-pulse animate-slower">
         <a 
           href="#about" 
-          className="frost-glass flex items-center justify-center w-12 h-12 rounded-full text-primary transition-all duration-300 hover:scale-110 hover:text-white hover:bg-primary/40"
+          className="glass flex items-center justify-center w-10 h-10 rounded-full text-primary hover:text-primary/80 transition-colors"
           aria-label={t('nav.about')}
         >
-          <ChevronDown className="w-5 h-5 animate-bounce animate-slower" />
+          <ChevronDown className="w-5 h-5" />
         </a>
       </div>
     </section>

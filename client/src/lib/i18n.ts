@@ -24,11 +24,10 @@ i18n
       }
     },
     detection: {
-      order: ['localStorage', 'htmlTag', 'navigator'],
+      order: ['localStorage', 'navigator'],
       lookupLocalStorage: 'portfolioLanguage',
       caches: ['localStorage']
-    },
-    lng: 'ar' // Force Arabic as default language
+    }
   });
 
 export default i18n;
