@@ -26,15 +26,15 @@ const BackToTop: React.FC = () => {
   return (
     <div 
       className={cn(
-        "fixed bottom-8 right-8 z-40 opacity-0 invisible translate-y-3 transition-all duration-300",
-        visible && "opacity-100 visible translate-y-0"
+        "back-to-top",
+        visible && "visible"
       )}
     >
       <Button
         variant="default"
         size="icon"
         onClick={scrollToTop}
-        className="rounded-full bg-primary hover:bg-primary/90 w-12 h-12 text-white shadow-md backdrop-blur-sm hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-1 transition-all duration-300"
+        className="rounded-full bg-primary hover:bg-primary/90 w-10 h-10 text-white shadow-lg shadow-primary/30 glow-on-hover"
         aria-label="Back to top"
       >
         <ChevronUp size={20} />

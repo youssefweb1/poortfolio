@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Menu, X, Home, User, Briefcase, Mail, Code } from "lucide-react";
+import { Menu, X, Code, Home, User, Briefcase, Mail } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
 import { Button } from "@/components/ui/button";
@@ -136,27 +136,31 @@ const Navbar: React.FC = () => {
       {/* Mobile Menu */}
       <div 
         className={cn(
-          "md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-lg border-t border-border/10 shadow-lg transition-all duration-300 ease-in-out overflow-hidden",
+          "md:hidden absolute top-full left-0 right-0 bg-background/90 backdrop-blur-lg border-t border-border/10 shadow-lg transition-all duration-300 ease-in-out overflow-hidden",
           mobileMenuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
         )}
       >
-        <div className="container mx-auto py-4 px-6 space-y-1">
+        <div className="container mx-auto py-4 px-6 space-y-2">
           <MobileNavItem 
+            icon={<Home size={18} />}
             label={t('nav.home')}
             onClick={() => scrollToSection("home")}
             active={activeSection === "home"}
           />
           <MobileNavItem 
+            icon={<User size={18} />}
             label={t('nav.about')}
             onClick={() => scrollToSection("about")}
             active={activeSection === "about"}
           />
           <MobileNavItem 
+            icon={<Briefcase size={18} />}
             label={t('nav.projects')}
             onClick={() => scrollToSection("projects")}
             active={activeSection === "projects"}
           />
           <MobileNavItem 
+            icon={<Mail size={18} />}
             label={t('nav.contact')}
             onClick={() => scrollToSection("contact")}
             active={activeSection === "contact"}
@@ -175,51 +179,47 @@ interface NavItemProps {
   onClick: () => void;
 }
 
-const NavItem: React.FC<NavItemProps> = ({ id, label, active, onClick }) => {
+const NavItem: React.FC<NavItemProps> = ({ icon, id, label, active, onClick }) => {
   return (
     <button 
       onClick={onClick}
       className={cn(
-        "relative px-5 py-2 text-sm font-medium transition-all duration-300 tracking-wide",
+        "relative px-5 py-2 rounded-full text-sm font-medium transition-all duration-300",
         active ? 
-          "text-primary" : 
-          "text-foreground/80 hover:text-primary"
+          "bg-primary/10 text-primary" : 
+          "hover:bg-background/80 hover:text-primary"
       )}
     >
-      <span className="relative">
+      <span className="relative z-10 after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300">
         {label}
       </span>
       {active && (
-        <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary transform scale-x-50 opacity-70 rounded-full"></span>
+        <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary transform scale-x-90 opacity-70 rounded-full"></span>
       )}
     </button>
   );
 };
 
 interface MobileNavItemProps {
-  icon?: React.ReactNode; // Made optional
+  icon: React.ReactNode;
   label: string;
   active: boolean;
   onClick: () => void;
 }
 
-const MobileNavItem: React.FC<MobileNavItemProps> = ({ label, active, onClick }) => {
+const MobileNavItem: React.FC<MobileNavItemProps> = ({ icon, label, active, onClick }) => {
   return (
     <button 
       onClick={onClick}
       className={cn(
-        "w-full relative px-6 py-3 text-sm font-medium tracking-wide text-center transition-all duration-200",
+        "w-full flex items-center space-x-3 rtl:space-x-reverse px-4 py-3 rounded-lg text-sm font-medium transition-all",
         active ? 
-          "text-primary" : 
-          "text-foreground/80 hover:text-primary"
+          "bg-primary/10 text-primary" : 
+          "hover:bg-background/80 hover:text-primary"
       )}
     >
-      <span className="relative">
-        {label}
-      </span>
-      {active && (
-        <span className="absolute left-2 top-1/2 -translate-y-1/2 w-1 h-1/2 bg-primary rounded-full opacity-70"></span>
-      )}
+      <span>{icon}</span>
+      <span className="font-medium">{label}</span>
     </button>
   );
 };

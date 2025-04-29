@@ -5,91 +5,81 @@
 @tailwind utilities;
 
 :root {
-  /* Ultra-Modern Light Theme with Pure Background */
-  --background: 210 40% 98%;
-  --foreground: 222 47% 12%;
-  --muted: 215 25% 93%;
-  --muted-foreground: 220 25% 35%;
-  --popover: 210 40% 98%;
-  --popover-foreground: 222 47% 12%;
-  --card: 210 40% 98%;
-  --card-foreground: 222 47% 12%;
-  --border: 214 32% 91%;
-  --input: 214 32% 91%;
-  
-  /* Vibrant Electric Turquoise Primary */
-  --primary: 178 85% 43%;
-  --primary-foreground: 210 40% 98%;
-  
-  /* Deep Indigo Secondary */
-  --secondary: 235 48% 18%;
-  --secondary-foreground: 210 40% 98%;
-  
-  /* Energetic Fuchsia Accent */
-  --accent: 332 90% 60%;
-  --accent-foreground: 210 40% 98%;
-  
-  --destructive: 0 85% 65%;
-  --destructive-foreground: 210 40% 98%;
-  --ring: 215 32% 85%;
+  --background: 210 25% 98%;
+  --foreground: 215 30% 22%;
+  --muted: 210 25% 94%;
+  --muted-foreground: 215 30% 40%;
+  --popover: 210 25% 98%;
+  --popover-foreground: 215 30% 22%;
+  --card: 210 25% 98%;
+  --card-foreground: 215 30% 22%;
+  --border: 215 20% 85%;
+  --input: 215 20% 85%;
+  /* Vibrant primary color - Bright Blue */
+  --primary: 214 100% 50%;
+  --primary-foreground: 210 25% 98%;
+  /* Deep Secondary */
+  --secondary: 220 40% 13%;
+  --secondary-foreground: 210 25% 98%;
+  /* Vibrant accent - Bright purple/pink */
+  --accent: 288 95% 60%;
+  --accent-foreground: 210 25% 98%;
+  --destructive: 0 95% 65%;
+  --destructive-foreground: 210 25% 98%;
+  --ring: 215 20% 85%;
   --radius: 0.5rem;
   
-  /* Enhanced coordinated palette */
-  --chart-1: 178 85% 43%;
-  --chart-2: 332 90% 60%;
-  --chart-3: 264 85% 65%;
-  --chart-4: 196 95% 50%;
-  --chart-5: 25 97% 65%;
+  /* Chart colors - more vibrant */
+  --chart-1: 214 100% 50%;
+  --chart-2: 288 95% 60%;
+  --chart-3: 340 100% 65%;
+  --chart-4: 165 100% 45%;
+  --chart-5: 195 100% 50%;
   
   /* Sidebar colors */
-  --sidebar-background: 210 40% 98%;
-  --sidebar-foreground: 222 47% 12%;
-  --sidebar-primary: 178 85% 43%;
-  --sidebar-primary-foreground: 210 40% 98%;
-  --sidebar-accent: 332 90% 60%;
-  --sidebar-accent-foreground: 210 40% 98%;
-  --sidebar-border: 214 32% 91%;
-  --sidebar-ring: 215 32% 85%;
+  --sidebar-background: 210 25% 98%;
+  --sidebar-foreground: 215 30% 22%;
+  --sidebar-primary: 214 100% 50%;
+  --sidebar-primary-foreground: 210 25% 98%;
+  --sidebar-accent: 288 95% 60%;
+  --sidebar-accent-foreground: 210 25% 98%;
+  --sidebar-border: 215 20% 85%;
+  --sidebar-ring: 215 20% 85%;
 }
 
 .dark {
-  /* Premium Dark Theme - Deeper, Richer & Ultra-Modern */
-  --background: 225 50% 5.5%;
+  /* Deeper background with more saturation for better contrast */
+  --background: 220 35% 7%;
   --foreground: 210 40% 98%;
-  --muted: 225 30% 12%;
-  --muted-foreground: 215 35% 80%;
-  --popover: 225 50% 5.5%; 
+  --muted: 215 30% 15%;
+  --muted-foreground: 210 40% 80%;
+  --popover: 220 35% 7%;
   --popover-foreground: 210 40% 98%;
-  --card: 225 50% 5.5%;
+  --card: 220 35% 7%;
   --card-foreground: 210 40% 98%;
-  --border: 225 30% 12%;
-  --input: 225 30% 12%;
-  
-  /* Neon Turquoise for Dark Mode - Ultra Vibrant */
-  --primary: 178 100% 55%;
-  --primary-foreground: 225 47% 11%;
-  
-  /* Deeper Indigo */
-  --secondary: 235 40% 10%;
+  --border: 215 30% 18%;
+  --input: 215 30% 18%;
+  /* More saturated primary for dark mode - Electric Blue */
+  --primary: 210 100% 63%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 215 35% 15%;
   --secondary-foreground: 210 40% 98%;
-  
-  /* Vibrant Fuchsia Accent */
-  --accent: 332 95% 65%;
+  /* More vibrant accent for dark mode - Electric Purple */
+  --accent: 285 100% 70%;
   --accent-foreground: 210 40% 98%;
-  
-  --destructive: 0 90% 65%;
+  --destructive: 0 95% 65%;
   --destructive-foreground: 210 40% 98%;
-  --ring: 215 32% 25%;
+  --ring: 215 30% 25%;
   
   /* Sidebar colors in dark mode */
-  --sidebar-background: 225 50% 5.5%;
+  --sidebar-background: 220 35% 7%;
   --sidebar-foreground: 210 40% 98%;
-  --sidebar-primary: 178 100% 55%;
-  --sidebar-primary-foreground: 225 47% 11%;
-  --sidebar-accent: 332 95% 65%;
+  --sidebar-primary: 210 100% 63%;
+  --sidebar-primary-foreground: 210 40% 98%;
+  --sidebar-accent: 285 100% 70%;
   --sidebar-accent-foreground: 210 40% 98%;
-  --sidebar-border: 225 30% 12%;
-  --sidebar-ring: 215 32% 25%;
+  --sidebar-border: 215 30% 18%;
+  --sidebar-ring: 215 30% 25%;
 }
 
 @layer base {
@@ -160,18 +150,18 @@
   @apply absolute top-0 left-0 w-full h-full bg-gradient-to-b from-secondary/80 to-secondary/95 dark:from-secondary/90 dark:to-secondary/100 z-[-1];
 }
 
-/* Premium Frosted Glass Background Effect */
+/* Enhanced background patterns and glassy effects */
 .bg-pattern {
   position: relative;
   overflow: hidden;
   background-color: hsl(var(--background));
   background-image: 
-    linear-gradient(135deg, hsla(var(--primary), 0.12) 0%, transparent 70%),
-    linear-gradient(to right bottom, hsla(var(--accent), 0.09) 0%, transparent 70%);
-  position: relative;
+    linear-gradient(135deg, hsla(var(--primary), 0.1) 0%, transparent 80%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23000000' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
 }
 
-/* Glass overlay pattern - enhanced for depth */
+/* Glass overlay pattern */
 .bg-pattern::before {
   content: "";
   position: absolute;
@@ -180,14 +170,13 @@
   width: 100%;
   height: 100%;
   background: 
-    radial-gradient(circle at 20% 30%, hsla(var(--primary), 0.25) 0%, transparent 65%),
-    radial-gradient(circle at 80% 70%, hsla(var(--accent), 0.2) 0%, transparent 65%);
+    radial-gradient(circle at 20% 30%, hsla(var(--primary), 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, hsla(var(--accent), 0.12) 0%, transparent 50%);
   pointer-events: none;
   z-index: 0;
-  opacity: 0.7;
 }
 
-/* Refined glass grid pattern - subtle but visible */
+/* Grid overlay */
 .bg-pattern::after {
   content: "";
   position: absolute;
@@ -196,182 +185,82 @@
   width: 100%;
   height: 100%;
   background-image: 
-    linear-gradient(to right, hsla(var(--primary), 0.1) 1px, transparent 1px),
-    linear-gradient(to bottom, hsla(var(--primary), 0.1) 1px, transparent 1px);
-  background-size: 24px 24px;
+    linear-gradient(to right, hsla(var(--primary), 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, hsla(var(--primary), 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.6;
 }
 
-/* Enhanced 3D layered effect with improved placement */
-.bg-pattern > * {
-  position: relative;
-  z-index: 1;
-}
-
-/* Premium 3D layered effect */
-.bg-3d-layer-1 {
-  position: absolute;
-  width: 55%;
-  height: 55%;
-  top: -15%;
-  right: -10%;
-  background: radial-gradient(ellipse, hsla(var(--primary), 0.15) 0%, transparent 75%);
-  border-radius: 40% 60% 60% 40% / 40% 30% 70% 60%;
-  filter: blur(50px);
-  z-index: 0;
-  pointer-events: none;
-  animation: float-slow 20s infinite alternate ease-in-out;
-  transform-origin: center center;
-  will-change: transform, opacity;
-}
-
-.bg-3d-layer-2 {
-  position: absolute;
-  width: 45%;
-  height: 45%;
-  bottom: -10%;
-  left: -5%;
-  background: radial-gradient(ellipse, hsla(var(--accent), 0.12) 0%, transparent 75%);
-  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-  filter: blur(45px);
-  z-index: 0;
-  pointer-events: none;
-  animation: float-slow-reverse 25s infinite alternate ease-in-out;
-  transform-origin: center center;
-  will-change: transform, opacity;
-}
-
-/* Additional interactive layers */
-.bg-3d-layer-3 {
-  position: absolute;
-  width: 35%;
-  height: 35%;
-  top: 30%;
-  left: 20%;
-  background: radial-gradient(circle, hsla(var(--chart-3), 0.08) 0%, transparent 80%);
-  border-radius: 30% 70% 50% 50% / 50% 50% 50% 50%;
-  filter: blur(40px);
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0.5;
-  animation: float-medium 15s infinite alternate-reverse ease-in-out;
-  will-change: transform, opacity;
-}
-
-@keyframes float-slow {
-  0% {
-    transform: translate(0, 0) rotate(0) scale(1);
-  }
-  100% {
-    transform: translate(-20px, -20px) rotate(5deg) scale(1.05);
-  }
-}
-
-@keyframes float-slow-reverse {
-  0% {
-    transform: translate(0, 0) rotate(0) scale(1);
-  }
-  100% {
-    transform: translate(25px, 10px) rotate(-3deg) scale(1.02);
-  }
-}
-
-@keyframes float-medium {
-  0% {
-    transform: translate(0, 0) scale(1);
-    opacity: 0.3;
-  }
-  100% {
-    transform: translate(15px, -15px) scale(1.1);
-    opacity: 0.6;
-  }
-}
-
-/* Dark mode enhanced glass effect - more dramatic */
+/* Dark mode pattern with enhanced visibility */
 .dark .bg-pattern {
   background-color: hsl(var(--background));
   background-image: 
-    linear-gradient(135deg, hsla(var(--primary), 0.15) 0%, transparent 75%),
-    linear-gradient(to right bottom, hsla(var(--accent), 0.12) 0%, transparent 75%);
+    linear-gradient(135deg, hsla(var(--primary), 0.12) 0%, transparent 80%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.07' fill-rule='evenodd'/%3E%3C/svg%3E");
 }
 
-/* Dark mode glass overlay - vibrant with subtle neon glow */
 .dark .bg-pattern::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: 
-    radial-gradient(circle at 20% 30%, hsla(var(--primary), 0.3) 0%, transparent 70%),
-    radial-gradient(circle at 80% 70%, hsla(var(--accent), 0.25) 0%, transparent 70%);
-  opacity: 0.8;
+    radial-gradient(circle at 20% 30%, hsla(var(--primary), 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, hsla(var(--accent), 0.18) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
 }
 
-/* Dark mode grid pattern - more vibrant */
 .dark .bg-pattern::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-image: 
-    linear-gradient(to right, hsla(var(--primary), 0.15) 1px, transparent 1px),
-    linear-gradient(to bottom, hsla(var(--primary), 0.15) 1px, transparent 1px);
-  background-size: 24px 24px;
-  opacity: 0.7;
+    linear-gradient(to right, hsla(var(--primary), 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, hsla(var(--primary), 0.07) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
 }
 
-/* Ultra-modern premium glass effect */
+/* Enhanced Glassy effect */
 .glass {
-  @apply bg-white/15 dark:bg-white/5 backdrop-blur-md;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 
-    0 10px 30px -5px rgba(0, 0, 0, 0.05),
-    0 3px 15px -3px rgba(0, 0, 0, 0.1),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+  @apply bg-white/15 dark:bg-white/5 backdrop-blur-md shadow-sm;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
-  transition: 
-    border-color 0.3s ease,
-    box-shadow 0.3s ease,
-    transform 0.3s ease;
 }
 
-/* Enhanced light reflection effect */
 .glass::before {
   content: "";
   position: absolute;
-  top: -100%;
-  left: -100%;
-  width: 250%;
-  height: 250%;
-  background: radial-gradient(
-    circle at center, 
-    rgba(255, 255, 255, 0.2) 0%, 
-    rgba(255, 255, 255, 0.1) 30%, 
-    transparent 70%
-  );
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
   transform: rotate(30deg);
   pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-/* More subtle hover effect */
-.glass:hover {
-  border-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 
-    0 15px 35px -5px rgba(0, 0, 0, 0.1),
-    0 5px 15px -5px rgba(0, 0, 0, 0.05),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.2);
 }
 
 .glass:hover::before {
-  animation: glass-shine 1.5s ease-in-out;
+  animation: glass-shine 2s ease-in-out;
 }
 
 @keyframes glass-shine {
   0% {
-    transform: rotate(30deg) translateY(-100%);
+    transform: rotate(30deg) translateY(0);
     opacity: 0;
   }
-  25% {
-    opacity: 0.5;
-  }
-  50% {
+  30% {
     opacity: 0.3;
   }
   100% {
@@ -380,44 +269,9 @@
   }
 }
 
-/* Optimized animations and transitions for better performance */
+/* Enhanced animations and transitions */
 .animate-slower {
-  animation-duration: 2.5s;
-}
-
-.animate-bounce-slow {
-  animation: bounce 1.5s ease-in-out infinite alternate;
-  will-change: transform;
-}
-
-.animate-pulse-slow {
-  animation: pulse 5s ease-in-out infinite alternate;
-  will-change: opacity, transform;
-}
-
-.animate-pulse-slow-reverse {
-  animation: pulse 6s ease-in-out infinite alternate-reverse;
-  will-change: opacity, transform;
-}
-
-@keyframes pulse {
-  0% {
-    opacity: 0.4;
-    transform: scale(0.97);
-  }
-  100% {
-    opacity: 0.8;
-    transform: scale(1.03);
-  }
-}
-
-@keyframes bounce {
-  0% {
-    transform: translateY(-15%);
-  }
-  100% {
-    transform: translateY(15%);
-  }
+  animation-duration: 3s;
 }
 
 @keyframes spin-slow {
@@ -433,56 +287,40 @@
 }
 
 .animate-spin-slow {
-  animation: spin-slow 30s linear infinite;
-  will-change: transform;
+  animation: spin-slow 20s linear infinite;
 }
 
 .animate-reverse-spin-slow {
-  animation: reverse-spin-slow 25s linear infinite;
-  will-change: transform;
-}
-
-/* Background grid pattern animation */
-.bg-grid-pattern {
-  background-image: 
-    linear-gradient(to right, hsla(var(--primary), 0.1) 1px, transparent 1px),
-    linear-gradient(to bottom, hsla(var(--primary), 0.1) 1px, transparent 1px);
-  background-size: 24px 24px;
-  mask-image: radial-gradient(ellipse 80% 50% at 50% 50%, black 40%, transparent 70%);
+  animation: reverse-spin-slow 15s linear infinite;
 }
 
 .fade-in {
   opacity: 0;
-  animation: fadeIn 0.5s ease-out forwards;
-  will-change: opacity;
+  animation: fadeIn 0.6s ease-out forwards;
 }
 
 .slide-up {
   opacity: 0;
-  transform: translateY(15px);
-  animation: slideUp 0.5s ease-out forwards;
-  will-change: transform, opacity;
+  transform: translateY(20px);
+  animation: slideUp 0.7s ease-out forwards;
 }
 
 .slide-right {
   opacity: 0;
-  transform: translateX(-15px);
-  animation: slideRight 0.5s ease-out forwards;
-  will-change: transform, opacity;
+  transform: translateX(-20px);
+  animation: slideRight 0.7s ease-out forwards;
 }
 
 .slide-left {
   opacity: 0;
-  transform: translateX(15px);
-  animation: slideLeft 0.5s ease-out forwards;
-  will-change: transform, opacity;
+  transform: translateX(20px);
+  animation: slideLeft 0.7s ease-out forwards;
 }
 
 .zoom-in {
   opacity: 0;
-  transform: scale(0.97);
-  animation: zoomIn 0.5s ease-out forwards;
-  will-change: transform, opacity;
+  transform: scale(0.95);
+  animation: zoomIn 0.7s ease-out forwards;
 }
 
 @keyframes fadeIn {
@@ -493,7 +331,7 @@
 @keyframes slideUp {
   0% { 
     opacity: 0;
-    transform: translateY(15px);
+    transform: translateY(20px);
   }
   100% { 
     opacity: 1;
@@ -504,7 +342,7 @@
 @keyframes slideRight {
   0% { 
     opacity: 0;
-    transform: translateX(-15px);
+    transform: translateX(-20px);
   }
   100% { 
     opacity: 1;
@@ -515,7 +353,7 @@
 @keyframes slideLeft {
   0% { 
     opacity: 0;
-    transform: translateX(15px);
+    transform: translateX(20px);
   }
   100% { 
     opacity: 1;
@@ -526,7 +364,7 @@
 @keyframes zoomIn {
   0% { 
     opacity: 0;
-    transform: scale(0.97);
+    transform: scale(0.95);
   }
   100% { 
     opacity: 1;
@@ -542,18 +380,6 @@
 .delay-500 { animation-delay: 500ms; }
 .delay-700 { animation-delay: 700ms; }
 .delay-1000 { animation-delay: 1000ms; }
-
-/* Animation for scroll elements */
-.animate-on-scroll {
-  opacity: 0;
-  transform: translateY(15px);
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-}
-
-.animate-on-scroll.animate {
-  opacity: 1;
-  transform: translateY(0);
-}
 
 /* Typing animation */
 .typing-animation {
@@ -659,7 +485,7 @@
 /* Floating Back to Top button */
 .back-to-top {
   position: fixed;
-  bottom: 8rem;
+  bottom: 2rem;
   right: 2rem;
   z-index: 40;
   opacity: 0;
