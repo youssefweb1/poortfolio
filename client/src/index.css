@@ -229,6 +229,26 @@
   animation-duration: 3s;
 }
 
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes reverse-spin-slow {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+.animate-reverse-spin-slow {
+  animation: reverse-spin-slow 15s linear infinite;
+}
+
 .fade-in {
   opacity: 0;
   animation: fadeIn 0.6s ease-out forwards;

@@ -69,7 +69,7 @@ const HeroSection: React.FC = () => {
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 hero-title">
-              {t('hero.greeting')} <span className="gradient-text">{t('name')}</span>
+              {t('hero.greeting')} <span className="typing-animation gradient-text">{t('name')}</span>
             </h1>
             
             <p className="mb-8 hero-description text-muted-foreground max-w-lg text-lg">
@@ -103,13 +103,27 @@ const HeroSection: React.FC = () => {
               <div className="absolute -z-10 w-64 h-64 md:w-80 md:h-80 rounded-full bg-primary/10 dark:bg-primary/5 blur-2xl"></div>
               <div className="absolute -z-10 w-72 h-72 md:w-[22rem] md:h-[22rem] rounded-full bg-accent/10 dark:bg-accent/5 blur-2xl -translate-x-8 translate-y-8"></div>
               
-              {/* Profile image */}
-              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white/40 dark:border-white/10 shadow-xl relative z-10 backdrop-blur-sm bg-gradient-to-br from-white/30 to-white/10 dark:from-white/10 dark:to-white/5">
-                <img 
-                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a" 
-                  alt={t('name')} 
-                  className="w-full h-full object-cover"
-                />
+              {/* Profile image with glow and hover effect */}
+              <div className="group relative">
+                {/* Glow effect */}
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/60 to-accent/60 blur-xl opacity-30 group-hover:opacity-60 transform group-hover:scale-110 transition-all duration-700"></div>
+                
+                {/* Orbit circles */}
+                <div className="absolute w-full h-full rounded-full border border-white/10 animate-spin-slow"></div>
+                <div className="absolute w-[105%] h-[105%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-accent/20 animate-reverse-spin-slow"></div>
+                
+                {/* Profile container */}
+                <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white/30 dark:border-white/10 shadow-2xl relative z-10 backdrop-blur-sm bg-gradient-to-br from-white/30 to-white/10 dark:from-white/10 dark:to-white/5 hover-scale glow-on-hover">
+                  <img 
+                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a" 
+                    alt={t('name')} 
+                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 group-hover:rotate-3"
+                  />
+                </div>
+                
+                {/* Small decorative dots */}
+                <div className="absolute top-5 right-8 w-3 h-3 rounded-full bg-primary animate-pulse"></div>
+                <div className="absolute bottom-8 left-5 w-2 h-2 rounded-full bg-accent animate-pulse"></div>
               </div>
             </div>
           </div>
