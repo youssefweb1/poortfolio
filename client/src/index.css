@@ -636,3 +636,17 @@
     linear-gradient(to bottom, hsla(var(--primary), 0.05) 1px, transparent 1px);
   background-size: 20px 20px;
 }
+
+/* Frosted glass effect */
+.frost-glass {
+  background-color: hsl(var(--background) / 0.6);
+  backdrop-filter: blur(10px) saturate(180%);
+  border: 1px solid hsl(var(--primary) / 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.frost-glass:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border-color: hsl(var(--primary) / 0.2);
+}
