@@ -113,29 +113,34 @@ const Navbar: React.FC = () => {
               ))}
             </div>
             
-            <div className="flex items-center space-x-1 rtl:space-x-reverse">
-              <div className="p-1 backdrop-blur-sm rounded-full border border-border/30">
+            <div className="flex items-center space-x-3 rtl:space-x-reverse">
+              <div className="flex overflow-hidden p-1 backdrop-blur-sm rounded-full border border-border/30">
                 <ThemeToggle className="hover:bg-muted text-foreground" />
-              </div>
-              <div className="p-1 backdrop-blur-sm rounded-full border border-border/30">
                 <LanguageSwitcher className="hover:bg-muted text-foreground" />
               </div>
+              
+              <Button 
+                variant="default" 
+                size="sm" 
+                className="rounded-full text-xs"
+                onClick={() => scrollToSection("contact")}
+              >
+                {t('hero.contact')}
+              </Button>
             </div>
           </div>
           
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center space-x-2 rtl:space-x-reverse">
-            <div className="p-1 backdrop-blur-sm rounded-full border border-border/30">
+            <div className="flex overflow-hidden p-1 backdrop-blur-sm rounded-full border border-border/30">
               <ThemeToggle className="hover:bg-muted text-foreground" />
-            </div>
-            <div className="p-1 backdrop-blur-sm rounded-full border border-border/30">
               <LanguageSwitcher className="hover:bg-muted text-foreground" />
             </div>
             
             <Button
-              variant="outline"
+              variant="default"
               size="icon"
-              className="rounded-full text-foreground border border-border/30"
+              className="rounded-full"
               onClick={toggleMobileMenu}
               aria-label="Toggle mobile menu"
             >

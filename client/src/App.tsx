@@ -13,19 +13,21 @@ import AboutSection from "@/components/AboutSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import ContactSection from "@/components/ContactSection";
 import Cursor from "@/components/Cursor";
+import FixedButtons from "@/components/FixedButtons";
 
 function HomePage() {
   return (
     <>
       <Cursor />
       <Navbar />
-      <main className="pt-16">
+      <main>
         <HeroSection />
         <AboutSection />
         <ProjectsSection />
         <ContactSection />
       </main>
       <Footer />
+      <FixedButtons />
     </>
   );
 }
