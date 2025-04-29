@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
 import { Button } from "@/components/ui/button";
@@ -9,6 +9,29 @@ import { cn } from "@/lib/utils";
 const Navbar: React.FC = () => {
   const { t } = useTranslation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
+
+  // Handle scroll to detect when the user has scrolled down
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      setIsScrolled(scrollPosition > 20);
+
+      // Update active section based on scroll position
+      const sections = ["home", "about", "projects", "contact"];
+      for (const section of sections.reverse()) {
+        const element = document.getElementById(section);
+        if (element && window.scrollY >= element.offsetTop - 200) {
+          setActiveSection(section);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -18,92 +41,146 @@ const Navbar: React.FC = () => {
     setMobileMenuOpen(false);
   };
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop - 80,
+        behavior: "smooth"
+      });
+      closeMobileMenu();
+    }
+  };
+
+  // Navigation items to avoid duplication
+  const navItems = [
+    { id: "home", label: t('nav.home') },
+    { id: "about", label: t('nav.about') },
+    { id: "projects", label: t('nav.projects') },
+    { id: "contact", label: t('nav.contact') }
+  ];
+
   return (
-    <header className="fixed top-0 right-0 left-0 z-50 glass border-b border-border/30">
-      <nav className="container mx-auto py-3 px-6 flex justify-between items-center">
-        <div className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
-          {t('name')}
-        </div>
-        
-        <div className="hidden md:flex items-center space-x-6 rtl:space-x-reverse">
-          <a 
-            href="#home" 
-            className="px-3 py-2 text-sm font-medium hover:text-primary relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"
-          >
-            {t('nav.home')}
-          </a>
-          <a 
-            href="#about" 
-            className="px-3 py-2 text-sm font-medium hover:text-primary relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"
-          >
-            {t('nav.about')}
-          </a>
-          <a 
-            href="#projects" 
-            className="px-3 py-2 text-sm font-medium hover:text-primary relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"
-          >
-            {t('nav.projects')}
-          </a>
-          <a 
-            href="#contact" 
-            className="px-3 py-2 text-sm font-medium hover:text-primary relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"
-          >
-            {t('nav.contact')}
-          </a>
-        </div>
-        
-        <div className="flex items-center space-x-2 rtl:space-x-reverse">
-          <ThemeToggle className="hover:bg-muted text-foreground" />
-          <LanguageSwitcher className="hover:bg-muted text-foreground" />
+    <header 
+      className={cn(
+        "fixed top-0 right-0 left-0 z-50 transition-all duration-300",
+        isScrolled 
+          ? "py-2 bg-background/80 backdrop-blur-lg shadow-md border-b border-border/20" 
+          : "py-4 bg-transparent"
+      )}
+    >
+      <div className="container mx-auto px-6">
+        <nav className="flex justify-between items-center">
+          {/* Logo */}
+          <div className="flex items-center">
+            <div className="relative z-10">
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary/60 to-accent/60 rounded-full blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+              <div className="relative font-bold text-xl lg:text-2xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
+                {t('name')}
+              </div>
+            </div>
+            
+            {isScrolled && (
+              <div className="hidden md:block ml-10">
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="rounded-full text-xs border-primary/30 hover:border-primary/70 hover:bg-primary/5"
+                  onClick={() => scrollToSection("contact")}
+                >
+                  {t('hero.contact')}
+                </Button>
+              </div>
+            )}
+          </div>
           
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden rounded-full text-foreground hover:bg-muted"
-            onClick={toggleMobileMenu}
-            aria-label="Toggle mobile menu"
-          >
-            {mobileMenuOpen ? <X /> : <Menu />}
-          </Button>
-        </div>
-      </nav>
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center">
+            <div className="bg-card/50 backdrop-blur-sm rounded-full border border-border/30 px-1 py-1 flex items-center mr-4">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={cn(
+                    "px-4 py-2 text-sm font-medium rounded-full transition-colors relative",
+                    activeSection === item.id 
+                      ? "text-primary-foreground bg-primary" 
+                      : "text-foreground hover:text-primary hover:bg-muted"
+                  )}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+            
+            <div className="flex items-center space-x-1 rtl:space-x-reverse">
+              <div className="p-1 backdrop-blur-sm rounded-full border border-border/30">
+                <ThemeToggle className="hover:bg-muted text-foreground" />
+              </div>
+              <div className="p-1 backdrop-blur-sm rounded-full border border-border/30">
+                <LanguageSwitcher className="hover:bg-muted text-foreground" />
+              </div>
+            </div>
+          </div>
+          
+          {/* Mobile Menu Button */}
+          <div className="md:hidden flex items-center space-x-2 rtl:space-x-reverse">
+            <div className="p-1 backdrop-blur-sm rounded-full border border-border/30">
+              <ThemeToggle className="hover:bg-muted text-foreground" />
+            </div>
+            <div className="p-1 backdrop-blur-sm rounded-full border border-border/30">
+              <LanguageSwitcher className="hover:bg-muted text-foreground" />
+            </div>
+            
+            <Button
+              variant="outline"
+              size="icon"
+              className="rounded-full text-foreground border border-border/30"
+              onClick={toggleMobileMenu}
+              aria-label="Toggle mobile menu"
+            >
+              {mobileMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+            </Button>
+          </div>
+        </nav>
+      </div>
       
       {/* Mobile Menu */}
       <div 
         className={cn(
-          "md:hidden glass shadow-lg rounded-b-lg absolute w-full left-0 top-full border-x border-b border-border/30 transition-all duration-300 ease-in-out",
-          mobileMenuOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2"
+          "md:hidden bg-background/95 backdrop-blur-md shadow-lg absolute w-full left-0 top-full border-y border-border/20 transition-all duration-300 ease-in-out",
+          mobileMenuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0 overflow-hidden"
         )}
       >
-        <div className="container mx-auto py-4 px-6 flex flex-col space-y-3">
-          <a 
-            href="#home" 
-            className="px-3 py-2 text-sm font-medium hover:text-primary transition-colors"
-            onClick={closeMobileMenu}
-          >
-            {t('nav.home')}
-          </a>
-          <a 
-            href="#about" 
-            className="px-3 py-2 text-sm font-medium hover:text-primary transition-colors"
-            onClick={closeMobileMenu}
-          >
-            {t('nav.about')}
-          </a>
-          <a 
-            href="#projects" 
-            className="px-3 py-2 text-sm font-medium hover:text-primary transition-colors"
-            onClick={closeMobileMenu}
-          >
-            {t('nav.projects')}
-          </a>
-          <a 
-            href="#contact" 
-            className="px-3 py-2 text-sm font-medium hover:text-primary transition-colors"
-            onClick={closeMobileMenu}
-          >
-            {t('nav.contact')}
-          </a>
+        <div className="container mx-auto py-4 px-6 flex flex-col space-y-1">
+          {navItems.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              className={cn(
+                "flex justify-between items-center px-3 py-3 text-sm font-medium rounded-lg transition-colors",
+                activeSection === item.id 
+                  ? "bg-primary/10 text-primary" 
+                  : "hover:bg-muted hover:text-primary"
+              )}
+            >
+              {item.label}
+              {activeSection === item.id && (
+                <ChevronDown className="h-4 w-4 text-primary" />
+              )}
+            </button>
+          ))}
+          
+          <div className="pt-2 mt-2 border-t border-border/20">
+            <Button 
+              variant="default" 
+              size="sm" 
+              className="w-full rounded-lg"
+              onClick={() => scrollToSection("contact")}
+            >
+              {t('hero.contact')}
+            </Button>
+          </div>
         </div>
       </div>
     </header>

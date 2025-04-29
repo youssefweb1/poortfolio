@@ -30,4 +30,16 @@ i18n
     }
   });
 
+// Set initial document direction and language
+i18n.on('initialized', () => {
+  document.documentElement.dir = i18n.language === 'ar' ? 'rtl' : 'ltr';
+  document.documentElement.lang = i18n.language;
+});
+
+// Set direction and language on language change
+i18n.on('languageChanged', (lng) => {
+  document.documentElement.dir = lng === 'ar' ? 'rtl' : 'ltr';
+  document.documentElement.lang = lng;
+});
+
 export default i18n;
