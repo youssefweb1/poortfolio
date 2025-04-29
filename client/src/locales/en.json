@@ -16,9 +16,14 @@
   "about": {
     "title": "About Me",
     "subtitle": "Full Stack Developer & UI Designer",
+    "shortDescription": "A passionate developer focused on creating immersive web experiences with modern technologies",
     "imageAlt": "Youssef working",
     "paragraph1": "Hello, I'm Youssef, a Full Stack Web Developer with a passion for building exceptional digital experiences. I have extensive experience in both frontend and backend development, with a special focus on modern JavaScript technologies and creative design.",
-    "paragraph2": "My skill set includes creating smooth interactive interfaces with React and Next.js, developing robust APIs, and designing efficient databases. I am deeply interested in user experience and always strive to achieve the perfect balance between aesthetics and functionality in every project."
+    "paragraph2": "My skill set includes creating smooth interactive interfaces with React and Next.js, developing robust APIs, and designing efficient databases. I am deeply interested in user experience and always strive to achieve the perfect balance between aesthetics and functionality in every project.",
+    "skills": "Technical Skills",
+    "skillsDescription": "Technologies and tools I work with",
+    "experience": "Experience",
+    "experienceDescription": "My professional journey"
   },
   "projects": {
     "title": "My Projects",

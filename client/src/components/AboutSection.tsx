@@ -197,7 +197,7 @@ const AboutSection: React.FC = () => {
           </h2>
           <div className="max-w-2xl mx-auto">
             <p className="text-muted-foreground">
-              A passionate developer focused on creating immersive web experiences with modern technologies
+              {t('about.shortDescription', 'A passionate developer focused on creating immersive web experiences with modern technologies')}
             </p>
           </div>
         </div>
@@ -236,7 +236,7 @@ const AboutSection: React.FC = () => {
               {/* Subtle animated accent in the corner */}
               <div className="absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br from-primary/10 to-accent/10 rounded-full blur-2xl"></div>
               
-              <h3 className="text-xl font-semibold text-primary mb-4 relative">About Me</h3>
+              <h3 className="text-xl font-semibold text-primary mb-4 relative">{t('about.title')}</h3>
               
               <div className="space-y-4 relative">
                 <p className="text-foreground leading-relaxed">
@@ -253,8 +253,8 @@ const AboutSection: React.FC = () => {
         {/* Skills Section */}
         <div ref={skillsRef} className="mb-20">
           <div className="text-center mb-10">
-            <h3 className="text-2xl font-bold text-foreground mb-2">Technical Skills</h3>
-            <p className="text-muted-foreground">Technologies and tools I work with</p>
+            <h3 className="text-2xl font-bold text-foreground mb-2">{t('about.skills')}</h3>
+            <p className="text-muted-foreground">{t('about.skillsDescription')}</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -279,8 +279,8 @@ const AboutSection: React.FC = () => {
         {/* Experience Timeline */}
         <div ref={timelineRef} className="relative">
           <div className="text-center mb-10">
-            <h3 className="text-2xl font-bold text-foreground mb-2">Experience</h3>
-            <p className="text-muted-foreground">My professional journey</p>
+            <h3 className="text-2xl font-bold text-foreground mb-2">{t('about.experience')}</h3>
+            <p className="text-muted-foreground">{t('about.experienceDescription')}</p>
           </div>
           
           {/* Timeline line */}
