@@ -5,7 +5,11 @@
     "home": "Home",
     "about": "About",
     "projects": "Projects",
-    "contact": "Contact"
+    "contact": "Contact",
+    "cta": {
+      "text": "Ready to start a project together?",
+      "button": "Get in Touch"
+    }
   },
   "hero": {
     "greeting": "Hi, I'm",
