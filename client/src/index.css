@@ -485,7 +485,7 @@
 /* Floating Back to Top button */
 .back-to-top {
   position: fixed;
-  bottom: 2rem;
+  bottom: 8rem;
   right: 2rem;
   z-index: 40;
   opacity: 0;
