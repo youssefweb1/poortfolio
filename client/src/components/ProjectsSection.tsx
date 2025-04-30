@@ -29,63 +29,123 @@ const ProjectsSection: React.FC = () => {
   const projects: Project[] = [
     {
       id: 1,
-      category: "fullstack",
+      category: "frontend",
       image: "https://images.unsplash.com/photo-1553877522-43269d4ea984",
-      titleKey: "projects.ecommerce.title",
-      descriptionKey: "projects.ecommerce.description",
-      technologies: ["React", "Node.js", "MongoDB"],
-      previewLink: "#",
-      codeLink: "#"
+      titleKey: "projects.project1.title",
+      descriptionKey: "projects.project1.description",
+      technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+      previewLink: "https://ecooshield.com",
+      codeLink: "https://github.com/youssefweb1"
     },
     {
       id: 2,
       category: "fullstack",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
-      titleKey: "projects.social.title",
-      descriptionKey: "projects.social.description",
-      technologies: ["Next.js", "Express", "Socket.io"],
-      previewLink: "#",
-      codeLink: "#"
+      image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa",
+      titleKey: "projects.project2.title",
+      descriptionKey: "projects.project2.description",
+      technologies: ["PHP", "MySQL", "Bootstrap", "jQuery"],
+      previewLink: "https://emaralmasakin.com",
+      codeLink: "https://github.com/youssefweb1"
     },
     {
       id: 3,
       category: "interactive",
-      image: "https://images.unsplash.com/photo-1560253023-3ec5d502959f",
-      titleKey: "projects.3d.title",
-      descriptionKey: "projects.3d.description",
+      image: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7",
+      titleKey: "projects.project3.title",
+      descriptionKey: "projects.project3.description",
       technologies: ["Three.js", "GSAP", "JavaScript"],
-      previewLink: "#",
-      codeLink: "#"
+      previewLink: "https://iou-studio.com",
+      codeLink: "https://github.com/youssefweb1"
     },
     {
       id: 4,
-      category: "fullstack",
-      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
-      titleKey: "projects.management.title",
-      descriptionKey: "projects.management.description",
-      technologies: ["React", "GraphQL", "PostgreSQL"],
-      previewLink: "#",
-      codeLink: "#"
+      category: "frontend",
+      image: "https://images.unsplash.com/photo-1552664730-d307ca884978",
+      titleKey: "projects.project4.title",
+      descriptionKey: "projects.project4.description",
+      technologies: ["HTML", "CSS", "JavaScript", "Tailwind CSS"],
+      previewLink: "https://giantwell.com", 
+      codeLink: "https://github.com/youssefweb1"
     },
     {
       id: 5,
       category: "frontend",
-      image: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2",
-      titleKey: "projects.delivery.title",
-      descriptionKey: "projects.delivery.description",
-      technologies: ["React Native", "Firebase", "Google Maps API"],
-      previewLink: "#",
-      codeLink: "#"
+      image: "https://images.unsplash.com/photo-1610484826917-0f191a211f59",
+      titleKey: "projects.project5.title",
+      descriptionKey: "projects.project5.description",
+      technologies: ["HTML", "CSS", "JavaScript", "RTL Design"],
+      previewLink: "https://ibracademy.sa",
+      codeLink: "https://github.com/youssefweb1"
     },
     {
       id: 6,
-      category: "interactive",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6",
-      titleKey: "projects.dashboard.title",
-      descriptionKey: "projects.dashboard.description",
-      technologies: ["Vue.js", "D3.js", "Tailwind CSS"],
+      category: "frontend",
+      image: "https://images.unsplash.com/photo-1586473219010-2ffc57b0d282",
+      titleKey: "projects.project6.title",
+      descriptionKey: "projects.project6.description",
+      technologies: ["HTML", "CSS", "JavaScript", "GSAP"],
+      previewLink: "https://fleex-task.web.app",
+      codeLink: "https://github.com/youssefweb1"
+    },
+    {
+      id: 7,
+      category: "fullstack",
+      image: "https://images.unsplash.com/photo-1506102383123-c8ef1e872756",
+      titleKey: "projects.project7.title",
+      descriptionKey: "projects.project7.description",
+      technologies: ["PHP", "MySQL", "Bootstrap", "Booking System"],
+      previewLink: "https://helpferererhof.at",
+      codeLink: "https://github.com/youssefweb1"
+    },
+    {
+      id: 8,
+      category: "frontend",
+      image: "https://images.unsplash.com/photo-1558655146-605d86becbc2",
+      titleKey: "projects.project8.title",
+      descriptionKey: "projects.project8.description",
+      technologies: ["HTML", "CSS", "JavaScript", "Dark Mode"],
       previewLink: "#",
-      codeLink: "#"
+      codeLink: "https://github.com/youssefweb1" 
+    },
+    {
+      id: 9,
+      category: "frontend",
+      image: "https://images.unsplash.com/photo-1517430816045-df4b7de11d1d",
+      titleKey: "projects.project9.title",
+      descriptionKey: "projects.project9.description",
+      technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+      previewLink: "#",
+      codeLink: "https://github.com/youssefweb1"
+    },
+    {
+      id: 10,
+      category: "fullstack",
+      image: "https://images.unsplash.com/photo-1499529112087-3cb3b73cec95",
+      titleKey: "projects.project10.title",
+      descriptionKey: "projects.project10.description",
+      technologies: ["Laravel", "MySQL", "Bootstrap", "jQuery"],
+      previewLink: "https://agritalent.com",
+      codeLink: "https://github.com/youssefweb1"
+    },
+    {
+      id: 11,
+      category: "fullstack",
+      image: "https://images.unsplash.com/photo-1557426272-fc759fdf7a8d",
+      titleKey: "projects.project11.title",
+      descriptionKey: "projects.project11.description",
+      technologies: ["Laravel", "MySQL", "Bootstrap", "Scheduling System"],
+      previewLink: "https://estisharati.sa",
+      codeLink: "https://github.com/youssefweb1"
+    },
+    {
+      id: 12,
+      category: "fullstack",
+      image: "https://images.unsplash.com/photo-1527529482837-4698179dc6ce",
+      titleKey: "projects.project12.title",
+      descriptionKey: "projects.project12.description",
+      technologies: ["Laravel", "MySQL", "Bootstrap", "eCommerce"],
+      previewLink: "https://partywizard.sa",
+      codeLink: "https://github.com/youssefweb1"
     }
   ];
 

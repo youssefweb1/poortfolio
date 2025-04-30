@@ -147,7 +147,7 @@ const AboutSection: React.FC = () => {
     };
   }, []);
 
-  // Skill data with categories
+  // Skill data with categories based on real experience
   const skillCategories = [
     {
       name: t('about.skillCategories.frontend'),
@@ -159,7 +159,8 @@ const AboutSection: React.FC = () => {
         { icon: <SiJquery className="w-6 h-6" />, name: "jQuery & Ajax" },
         { icon: <SiTailwindcss className="w-6 h-6" />, name: "Tailwind CSS" },
         { icon: <SiBootstrap className="w-6 h-6" />, name: "Bootstrap" },
-        { icon: <FaCode className="w-6 h-6" />, name: "GSAP" }
+        { icon: <FaCode className="w-6 h-6" />, name: "GSAP" },
+        { icon: <SiAframe className="w-6 h-6" />, name: "A-Frame" }
       ]
     },
     {
@@ -168,15 +169,17 @@ const AboutSection: React.FC = () => {
         { icon: <FaPhp className="w-6 h-6" />, name: "PHP" },
         { icon: <FaLaravel className="w-6 h-6" />, name: "Laravel" },
         { icon: <SiMysql className="w-6 h-6" />, name: "MySQL" },
-        { icon: <FaServer className="w-6 h-6" />, name: "RESTful API" }
+        { icon: <FaServer className="w-6 h-6" />, name: "RESTful APIs" }
       ]
     },
     {
       name: t('about.skillCategories.platforms'),
       skills: [
         { icon: <FaWordpress className="w-6 h-6" />, name: "WordPress" },
+        { icon: <FaCode className="w-6 h-6" />, name: "Shopify" },
         { icon: <FaCode className="w-6 h-6" />, name: "Salla" },
-        { icon: <SiAframe className="w-6 h-6" />, name: "A-Frame" }
+        { icon: <FaServer className="w-6 h-6" />, name: "Domain Setup" },
+        { icon: <FaServer className="w-6 h-6" />, name: "Email Config" }
       ]
     },
     {
@@ -188,17 +191,15 @@ const AboutSection: React.FC = () => {
         { icon: <FaCode className="w-6 h-6" />, name: "Design Patterns" },
         { icon: <FaDatabase className="w-6 h-6" />, name: "Data Structures" },
         { icon: <FaGitAlt className="w-6 h-6" />, name: "Git" },
-        { icon: <SiGithub className="w-6 h-6" />, name: "GitHub" },
-        { icon: <SiGitlab className="w-6 h-6" />, name: "GitLab" }
+        { icon: <SiArduino className="w-6 h-6" />, name: "Arduino (Level 1)" }
       ]
     },
     {
       name: t('about.skillCategories.softSkills'),
       skills: [
-        { icon: <FaUsers className="w-6 h-6" />, name: "Team Collaboration" },
-        { icon: <FaClock className="w-6 h-6" />, name: "Time Management" },
+        { icon: <FaUsers className="w-6 h-6" />, name: "Teamwork" },
         { icon: <FaComments className="w-6 h-6" />, name: "Communication" },
-        { icon: <FaBookOpen className="w-6 h-6" />, name: "Self-Learning" },
+        { icon: <FaBookOpen className="w-6 h-6" />, name: "Self-learning" },
         { icon: <FaSearch className="w-6 h-6" />, name: "Attention to Detail" },
         { icon: <FaTasks className="w-6 h-6" />, name: "Project Management" },
         { icon: <FaHeadset className="w-6 h-6" />, name: "Technical Support" }
@@ -216,22 +217,27 @@ const AboutSection: React.FC = () => {
     }
   ];
 
-  // Timeline data
+  // Timeline data with real experience
   const timelineItems = [
     {
-      year: "2022 - Present",
-      title: "Senior Web Developer",
-      company: "TechVision Inc."
+      year: "2023 - Present",
+      title: "Freelance Full Stack Developer",
+      company: "Self-employed"
     },
     {
-      year: "2019 - 2022",
-      title: "Full Stack Developer",
-      company: "Digital Innovations"
-    },
-    {
-      year: "2017 - 2019",
+      year: "2022 - 2023",
       title: "Frontend Developer",
-      company: "WebCraft Solutions"
+      company: "Giant Well"
+    },
+    {
+      year: "2021 - 2022",
+      title: "Web Developer & Digital Marketing",
+      company: "Agrital Talent"
+    },
+    {
+      year: "2020 - 2021",
+      title: "WordPress Developer",
+      company: "Freelance Projects"
     }
   ];
 
