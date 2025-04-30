@@ -112,7 +112,7 @@ const Navbar: React.FC = () => {
                 <Button 
                   variant="default" 
                   size="sm" 
-                  className="rounded-full text-xs bg-slate-900 hover:bg-slate-800 text-slate-50"
+                  className="rounded-full text-xs bg-[#25D366] hover:bg-[#20BD5C] text-slate-900 font-medium"
                   onClick={() => scrollToSection("contact")}
                 >
                   واتساب
@@ -182,7 +182,7 @@ const Navbar: React.FC = () => {
               <Button 
                 variant="default" 
                 size="sm" 
-                className="w-full rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-50"
+                className="w-full rounded-lg bg-[#25D366] hover:bg-[#20BD5C] text-slate-900 font-medium"
                 onClick={() => scrollToSection("contact")}
               >
                 واتساب
