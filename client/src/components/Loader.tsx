@@ -10,95 +10,90 @@ const Loader: React.FC<LoaderProps> = ({ setLoading }) => {
   const { t } = useTranslation();
   const [progress, setProgress] = useState(0);
   const loaderRef = useRef<HTMLDivElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const messageRef = useRef<HTMLParagraphElement>(null);
-  const progressBarRef = useRef<HTMLDivElement>(null);
+  const svgRef = useRef<SVGSVGElement>(null);
+  const pathRef = useRef<SVGPathElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
+  const progressRef = useRef<HTMLDivElement>(null);
   const counterRef = useRef<HTMLDivElement>(null);
-  const circlesRef = useRef<HTMLDivElement>(null);
-  
-  // Create animated circles
-  const createCircles = () => {
-    const circleElements = [];
-    for (let i = 0; i < 6; i++) {
-      circleElements.push(
-        <div 
-          key={i} 
-          className={`absolute w-40 h-40 rounded-full bg-gradient-to-br from-primary/${20 - i * 2} to-accent/${15 - i * 2} blur-xl`}
-          data-circle-index={i}
-        ></div>
-      );
-    }
-    return circleElements;
-  };
+  const containerRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
-    if (!loaderRef.current) return;
+    if (!loaderRef.current || !svgRef.current || !pathRef.current) return;
     
-    // Animate the circles
-    const circles = document.querySelectorAll('[data-circle-index]');
+    // Get the total length of the logo path for the drawing animation
+    const pathLength = pathRef.current.getTotalLength();
     
-    circles.forEach((circle, index) => {
-      const delay = index * 0.2;
-      
-      gsap.set(circle, {
-        x: () => Math.random() * window.innerWidth * 0.8 - window.innerWidth * 0.4,
-        y: () => Math.random() * window.innerHeight * 0.8 - window.innerHeight * 0.4,
-        scale: () => 0.5 + Math.random() * 0.5,
-        opacity: 0
-      });
-      
-      gsap.to(circle, {
-        opacity: 1,
-        duration: 1,
-        delay: delay * 0.5
-      });
-      
-      // Create random movement for each circle
-      gsap.to(circle, {
-        x: '+=70',
-        y: '-=40',
-        scale: '+=0.1',
-        duration: 4 + index,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut'
-      });
+    // Set initial path state
+    gsap.set(pathRef.current, {
+      strokeDasharray: pathLength,
+      strokeDashoffset: pathLength,
+      opacity: 0
     });
     
-    // Main animation timeline
-    const mainTl = gsap.timeline();
+    // Create main animation timeline
+    const tl = gsap.timeline();
     
-    // Initial animation
-    mainTl
-      .from(titleRef.current, {
-        y: 30,
-        opacity: 0,
-        duration: 0.8,
-        ease: 'power3.out'
-      })
-      .from(messageRef.current, {
-        y: 20,
-        opacity: 0,
-        duration: 0.6,
-        ease: 'power3.out'
-      }, '-=0.4')
-      .from(progressBarRef.current, {
-        scaleX: 0,
-        transformOrigin: 'left center',
-        duration: 0.6,
-        ease: 'power2.out'
-      }, '-=0.2')
-      .from(counterRef.current, {
-        opacity: 0,
-        y: 10,
-        duration: 0.4,
-        ease: 'power2.out'
-      }, '-=0.2');
+    // Initial animation - fade in and draw logo
+    tl.to(loaderRef.current, {
+      backgroundColor: 'rgba(0, 0, 0, 0.95)',
+      duration: 0.5
+    })
+    .to(pathRef.current, {
+      opacity: 1,
+      duration: 0.3
+    })
+    .to(pathRef.current, {
+      strokeDashoffset: 0,
+      duration: 1.5,
+      ease: "power2.inOut"
+    })
+    .to(svgRef.current, {
+      scale: 0.8,
+      y: -30,
+      duration: 0.7,
+      ease: "back.out(1.2)"
+    })
+    .from(textRef.current, {
+      y: 20,
+      opacity: 0,
+      duration: 0.5,
+      ease: "power2.out"
+    }, "-=0.2")
+    .from(progressRef.current, {
+      width: 0,
+      opacity: 0,
+      duration: 0.5,
+      ease: "power1.out"
+    }, "-=0.2")
+    .from(counterRef.current, {
+      opacity: 0,
+      y: 10,
+      duration: 0.3
+    }, "-=0.3");
     
-    // Progress counter
+    // Create subtle pulse animation for the SVG
+    gsap.to(svgRef.current, {
+      y: "-=5",
+      scale: 0.83,
+      duration: 1.5,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut"
+    });
+    
+    // Create subtle glow effect for the container
+    gsap.to(containerRef.current, {
+      boxShadow: "0 0 30px rgba(139, 92, 246, 0.3)",
+      duration: 2,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut"
+    });
+    
+    // Progress counter simulation
     let loadingProgress = 0;
     const interval = setInterval(() => {
-      loadingProgress += Math.floor(Math.random() * 5) + 1;
+      loadingProgress += Math.floor(Math.random() * 3) + 1;
       
       if (loadingProgress > 100) {
         loadingProgress = 100;
@@ -107,116 +102,112 @@ const Loader: React.FC<LoaderProps> = ({ setLoading }) => {
       }
       
       setProgress(loadingProgress);
-      gsap.to(progressBarRef.current, {
-        width: `${loadingProgress}%`,
-        duration: 0.3,
-        ease: 'power1.out'
-      });
-    }, 80);
+    }, 90);
     
     // Final animation when loading completes
     const completeLoading = () => {
       const completeTl = gsap.timeline({
-        onComplete: () => {
-          // After all animations, tell the parent component loading is done
-          setTimeout(() => setLoading(false), 200);
-        }
+        onComplete: () => setTimeout(() => setLoading(false), 300)
       });
       
       completeTl
-        .to(progressBarRef.current, {
-          backgroundColor: '#22c55e', // Change to green when complete
-          duration: 0.6,
-          ease: 'elastic.out(1, 0.3)'
+        .to(svgRef.current, {
+          scale: 1.3,
+          fill: "#8b5cf6",
+          stroke: "#d946ef",
+          ease: "back.out(1.7)",
+          duration: 0.6
         })
+        .to(progressRef.current, {
+          width: "100%",
+          backgroundColor: "#8b5cf6",
+          duration: 0.4,
+          ease: "power2.out"
+        }, "-=0.3")
         .to(counterRef.current, {
-          color: '#22c55e',
-          scale: 1.2,
-          duration: 0.4,
-          ease: 'back.out(2)'
-        }, '-=0.6')
-        .to([titleRef.current, messageRef.current, progressBarRef.current, counterRef.current], {
-          y: -30,
+          color: "#8b5cf6",
+          scale: 1.1,
+          fontWeight: "bold",
+          duration: 0.4
+        }, "-=0.4")
+        .to([textRef.current, progressRef.current, counterRef.current, containerRef.current], {
           opacity: 0,
+          y: -20,
           stagger: 0.1,
-          duration: 0.4,
-          delay: 0.5,
-          ease: 'power2.in'
+          duration: 0.5,
+          delay: 0.6
         })
-        .to(circles, {
+        .to(svgRef.current, {
+          y: 0,
+          scale: 15,
           opacity: 0,
-          scale: 2,
-          stagger: 0.05,
-          duration: 0.8,
-          ease: 'power2.inOut'
-        }, '-=0.4')
+          duration: 1,
+          ease: "power3.in"
+        }, "-=0.2")
         .to(loaderRef.current, {
           opacity: 0,
-          duration: 0.8,
-          ease: 'power2.inOut'
-        }, '-=0.4');
+          duration: 0.4,
+          ease: "power2.inOut"
+        }, "-=0.2");
     };
     
-    return () => {
-      clearInterval(interval);
-      gsap.killTweensOf(circles);
-    };
+    return () => clearInterval(interval);
   }, [setLoading]);
   
   return (
-    <div 
+    <div
       ref={loaderRef}
-      className="fixed inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-background to-background z-[100] backdrop-blur-md overflow-hidden"
+      className="fixed inset-0 flex flex-col items-center justify-center bg-black/80 backdrop-blur-md z-[100] overflow-hidden"
     >
-      {/* Animated background circles */}
-      <div ref={circlesRef} className="absolute inset-0 overflow-hidden">
-        {createCircles()}
-      </div>
-      
-      {/* Content container */}
-      <div className="relative max-w-md w-full px-6 z-10">
-        {/* Glassmorphism card */}
-        <div className="bg-white/5 dark:bg-black/20 backdrop-blur-lg rounded-2xl border border-white/10 dark:border-white/5 p-8 shadow-2xl">
-          <h1 
-            ref={titleRef}
-            className="text-4xl sm:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-500 to-accent text-center"
+      <div
+        ref={containerRef}
+        className="relative flex flex-col items-center max-w-md w-full px-6"
+      >
+        {/* Logo SVG with animated stroke */}
+        <svg 
+          ref={svgRef}
+          width="100" 
+          height="100" 
+          viewBox="0 0 100 100"
+          className="mb-8"
+        >
+          <path
+            ref={pathRef}
+            d="M50 10 C22 10 10 22 10 50 C10 78 22 90 50 90 C78 90 90 78 90 50 C90 22 78 10 50 10 Z M50 30 C38.954 30 30 38.954 30 50 C30 61.046 38.954 70 50 70 C61.046 70 70 61.046 70 50 C70 38.954 61.046 30 50 30 Z"
+            className="fill-none stroke-primary"
+            strokeWidth="4"
+            strokeLinecap="round"
+          />
+        </svg>
+        
+        {/* Text & progress */}
+        <div className="w-full mb-8">
+          <div 
+            ref={textRef}
+            className="text-center mb-6"
           >
-            {t('name')}
-          </h1>
+            <h2 className="text-2xl font-bold text-white mb-1">
+              {t('name')}
+            </h2>
+            <p className="text-white/80 text-sm">
+              {t('loader.message', 'Loading amazing experiences...')}
+            </p>
+          </div>
           
-          <p 
-            ref={messageRef}
-            className="text-center mb-8 text-foreground dark:text-white/70"
-          >
-            {t('loader.message', 'Loading amazing experiences...')}
-          </p>
-          
-          {/* Progress bar container */}
-          <div className="relative h-2 bg-white/10 dark:bg-white/5 rounded-full overflow-hidden mb-3">
+          {/* Progress tracker */}
+          <div className="h-1 w-full bg-white/10 rounded-full mb-1 overflow-hidden">
             <div 
-              ref={progressBarRef}
-              className="absolute top-0 left-0 h-full bg-gradient-to-r from-primary via-purple-500 to-accent rounded-full"
+              ref={progressRef}
+              className="h-full bg-gradient-to-r from-primary to-accent rounded-full"
               style={{ width: `${progress}%` }}
             ></div>
           </div>
           
-          {/* Counter text */}
           <div 
             ref={counterRef}
-            className="text-end text-sm font-medium text-primary"
+            className="text-right text-xs font-medium text-white/70"
           >
             {progress}%
-          </div>
-          
-          {/* Animated dots */}
-          <div className="flex justify-center mt-8 space-x-2">
-            {[0, 1, 2].map((index) => (
-              <div 
-                key={index}
-                className="w-2 h-2 rounded-full bg-primary animate-pulse"
-                style={{ animationDelay: `${index * 0.2}s` }}
-              ></div>
-            ))}
           </div>
         </div>
       </div>

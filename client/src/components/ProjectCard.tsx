@@ -71,7 +71,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <div 
       ref={cardRef}
-      className="project-card group relative overflow-hidden rounded-xl shadow-lg bg-gradient-to-br from-white/5 to-white/10 dark:from-background dark:to-secondary/20 backdrop-blur-sm dark:backdrop-blur-lg border border-white/10 dark:border-white/5 hover:border-primary/30 transition-all duration-500"
+      className="project-card group relative overflow-hidden rounded-xl shadow-lg bg-gradient-to-br from-white/5 to-white/10 dark:from-primary/5 dark:via-purple-900/10 dark:to-accent/5 backdrop-blur-sm dark:backdrop-blur-lg border border-white/10 dark:border-primary/10 hover:border-primary/30 transition-all duration-500"
     >
       {/* Decorative accent */}
       <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-xl blur-md opacity-0 group-hover:opacity-80 transition-opacity duration-700 -z-10"></div>
@@ -92,7 +92,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           {title}
         </h3>
         
-        <p className="text-foreground dark:text-gray-300 mb-5 line-clamp-2">
+        <p className="text-foreground dark:text-white/80 mb-5 line-clamp-2">
           {description}
         </p>
         
@@ -100,7 +100,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           {technologies.map((tech, index) => (
             <span 
               key={index} 
-              className="px-3 py-1 bg-primary/10 dark:bg-primary/10 text-primary dark:text-primary/90 text-xs font-medium rounded-full border border-primary/20 backdrop-blur-sm"
+              className="px-3 py-1 bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-foreground text-xs font-medium rounded-full border border-primary/20 dark:border-primary/30 backdrop-blur-sm"
             >
               {tech}
             </span>
