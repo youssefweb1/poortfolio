@@ -20,12 +20,13 @@ const AnimatedBackground = () => {
     
     // Set canvas size with adjusted dimensions for responsive layout
     const resizeCanvas = () => {
-      const displayWidth = window.innerWidth;
-      const displayHeight = window.innerHeight;
+      // Use clientWidth/Height to prevent any overflow issues
+      const displayWidth = document.documentElement.clientWidth;
+      const displayHeight = document.documentElement.clientHeight;
       
       // Set the canvas size in CSS pixels
-      canvas.style.width = `${displayWidth}px`;
-      canvas.style.height = `${displayHeight}px`;
+      canvas.style.width = '100%';
+      canvas.style.height = '100%';
       
       // Set the canvas buffer size (actual drawing surface)
       canvas.width = Math.floor(displayWidth * dpr);
@@ -51,19 +52,20 @@ const AnimatedBackground = () => {
     // Create gradient points - use fewer points on mobile
     let points: { x: number; y: number; vx: number; vy: number; radius: number }[] = [];
     
-    // Reduced number of points based on device
+    // Reduced number of points based on device - even fewer points on smaller screens
+    const displayWidth = document.documentElement.clientWidth;
     const pointCount = isMobile 
-      ? Math.min(4, Math.floor(window.innerWidth / 250)) 
-      : Math.min(6, Math.floor(window.innerWidth / 200));
+      ? Math.min(3, Math.floor(displayWidth / 300)) // Even fewer on mobile 
+      : Math.min(5, Math.floor(displayWidth / 250)); // Reduced on desktop too
 
     // Initialize points with slower movement and smaller radius
     for (let i = 0; i < pointCount; i++) {
       points.push({
-        x: Math.random() * window.innerWidth,
-        y: Math.random() * window.innerHeight,
-        vx: (Math.random() - 0.5) * 0.15, // Reduced velocity
-        vy: (Math.random() - 0.5) * 0.15, // Reduced velocity
-        radius: Math.random() * 100 + 50  // Smaller radius
+        x: Math.random() * displayWidth,
+        y: Math.random() * document.documentElement.clientHeight,
+        vx: (Math.random() - 0.5) * 0.12, // Even slower velocity
+        vy: (Math.random() - 0.5) * 0.12, // Even slower velocity
+        radius: Math.random() * 80 + 50  // Smaller radius
       });
     }
 
@@ -71,26 +73,27 @@ const AnimatedBackground = () => {
     let animationFrameId: number;
     let lastTime = 0;
     let frameSkip = 0; // For reducing frame rate on mobile
+    let frameSkipCount = isMobile ? 3 : 1; // Skip more frames on mobile
 
-    // Choose color palette based on theme (with reduced opacity)
+    // Choose color palette based on theme (with further reduced opacity)
     const getColors = () => {
       if (theme === 'dark') {
         return [
-          'rgba(20, 30, 48, 0.4)', // Reduced opacity
-          'rgba(30, 55, 90, 0.3)', // Reduced opacity
-          'rgba(25, 40, 65, 0.35)', // Reduced opacity
-          'rgba(15, 25, 40, 0.3)' // Reduced opacity
+          'rgba(20, 30, 48, 0.3)', // Further reduced opacity
+          'rgba(30, 55, 90, 0.2)', // Further reduced opacity
+          'rgba(25, 40, 65, 0.25)', // Further reduced opacity
+          'rgba(15, 25, 40, 0.2)' // Further reduced opacity
         ];
       }
       return [
-        'rgba(210, 230, 255, 0.3)', // Reduced opacity
-        'rgba(220, 240, 255, 0.2)', // Reduced opacity
-        'rgba(200, 225, 255, 0.25)', // Reduced opacity
-        'rgba(190, 215, 245, 0.3)' // Reduced opacity
+        'rgba(210, 230, 255, 0.2)', // Further reduced opacity
+        'rgba(220, 240, 255, 0.15)', // Further reduced opacity
+        'rgba(200, 225, 255, 0.2)', // Further reduced opacity
+        'rgba(190, 215, 245, 0.15)' // Further reduced opacity
       ];
     };
 
-    // Animation function with performance optimizations
+    // Animation function with additional performance optimizations
     const animate = (timestamp: number) => {
       if (!ctx || !canvas) return;
       
@@ -98,53 +101,39 @@ const AnimatedBackground = () => {
       const deltaTime = timestamp - lastTime;
       lastTime = timestamp;
       
-      // Skip frames on mobile devices for better performance
-      if (isMobile) {
-        frameSkip++;
-        if (frameSkip < 2) { // Render every 2nd frame on mobile
-          animationFrameId = requestAnimationFrame(animate);
-          return;
-        }
-        frameSkip = 0;
+      // Skip frames for better performance
+      frameSkip++;
+      if (frameSkip < frameSkipCount) { 
+        animationFrameId = requestAnimationFrame(animate);
+        return;
       }
+      frameSkip = 0;
       
-      // Clear canvas
-      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      // Clear canvas - use actual dimensions from canvas
+      const displayWidth = document.documentElement.clientWidth;
+      const displayHeight = document.documentElement.clientHeight;
+      ctx.clearRect(0, 0, displayWidth, displayHeight);
       
       // Get colors array just once per frame
       const colors = getColors();
       
-      // Base gradient (simpler, faster to render)
-      if (!isMobile) {
-        // Only draw base gradient on desktop for performance
-        const baseGradient = ctx.createRadialGradient(
-          window.innerWidth / 2, window.innerHeight / 2, 0,
-          window.innerWidth / 2, window.innerHeight / 2, window.innerWidth * 0.5
-        );
-        
-        baseGradient.addColorStop(0, theme === 'dark' ? 'rgba(22, 32, 50, 0.2)' : 'rgba(240, 248, 255, 0.2)');
-        baseGradient.addColorStop(1, theme === 'dark' ? 'rgba(10, 15, 25, 0.1)' : 'rgba(220, 235, 250, 0.1)');
-        
-        ctx.fillStyle = baseGradient;
-        ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
-      }
-      
       // Update and draw points with performance optimizations
       points.forEach((point, index) => {
-        // Slower movement for better performance
-        point.x += point.vx * deltaTime * 0.02;
-        point.y += point.vy * deltaTime * 0.02;
+        // Even slower movement for better performance
+        point.x += point.vx * deltaTime * 0.015;
+        point.y += point.vy * deltaTime * 0.015;
         
         // Wrap around edges instead of bouncing (more efficient)
-        if (point.x < -point.radius) point.x = window.innerWidth + point.radius;
-        if (point.x > window.innerWidth + point.radius) point.x = -point.radius;
-        if (point.y < -point.radius) point.y = window.innerHeight + point.radius;
-        if (point.y > window.innerHeight + point.radius) point.y = -point.radius;
+        if (point.x < -point.radius) point.x = displayWidth + point.radius;
+        if (point.x > displayWidth + point.radius) point.x = -point.radius;
+        if (point.y < -point.radius) point.y = displayHeight + point.radius;
+        if (point.y > displayHeight + point.radius) point.y = -point.radius;
         
-        // Draw gradient for each point
+        // Draw gradient for each point - smaller radius on all devices for better performance
+        const radius = isMobile ? point.radius * 0.6 : point.radius * 0.8;
         const gradient = ctx.createRadialGradient(
           point.x, point.y, 0,
-          point.x, point.y, isMobile ? point.radius * 0.7 : point.radius // Smaller radius on mobile
+          point.x, point.y, radius
         );
         
         const color = colors[index % colors.length];
@@ -152,7 +141,7 @@ const AnimatedBackground = () => {
         gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
         
         ctx.fillStyle = gradient;
-        ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
+        ctx.fillRect(0, 0, displayWidth, displayHeight);
       });
       
       // Request next frame
@@ -183,9 +172,9 @@ const AnimatedBackground = () => {
     };
   }, [theme, isMobile, isVisible]); // Re-run when theme or device type changes
 
-  // Hide animation on low-end devices or if performance is an issue
+  // Disable animation on low-end devices or if performance is an issue
   useEffect(() => {
-    // Simple performance detection
+    // More aggressive performance detection
     const checkPerformance = () => {
       const start = performance.now();
       
@@ -195,24 +184,35 @@ const AnimatedBackground = () => {
       }
       
       const duration = performance.now() - start;
-      // If the test takes too long, disable animation
-      if (duration > 5) {
+      // More aggressive threshold - disable if taking too long
+      if (duration > 4 || document.documentElement.clientWidth < 400) {
         setIsVisible(false);
       }
     };
     
     checkPerformance();
+    
+    // Also disable on very small screens where it might cause layout issues
+    const handleResize = () => {
+      if (document.documentElement.clientWidth < 400) {
+        setIsVisible(false);
+      }
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   if (!isVisible) return null;
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="animated-bg"
-      aria-hidden="true"
-      style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none' }}
-    />
+    <div className="animated-bg-container">
+      <canvas
+        ref={canvasRef}
+        className="animated-bg"
+        aria-hidden="true"
+      />
+    </div>
   );
 };
 

@@ -134,12 +134,15 @@
 
 /* Custom Styles */
 
-/* Animated gradient text - with reduced animation time for better performance */
+/* Animated gradient text - further optimized for all devices */
 .gradient-text {
   @apply bg-clip-text text-transparent;
   background-image: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)), hsl(var(--chart-3)));
   background-size: 200% auto;
-  animation: gradientText 8s ease infinite;
+  /* Pause animation on small screens and slow it down on others */
+  @media (min-width: 640px) {
+    animation: gradientText 12s ease infinite;
+  }
 }
 
 @keyframes gradientText {
@@ -233,11 +236,15 @@ button:focus {
 }
 
 /* Animated background enhancements */
-.animated-bg {
+.animated-bg-container {
   @apply fixed inset-0 -z-10 pointer-events-none overflow-hidden;
   max-width: 100vw;
   max-height: 100vh;
-  width: 100% !important;
+}
+
+.animated-bg {
+  @apply w-full h-full;
+  display: block;
 }
 
 /* Ensure sections have a slight background for better readability */
