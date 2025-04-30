@@ -318,18 +318,18 @@ const AboutSection: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {skillCategories.map((category, index) => (
               <div key={index} className="glass p-6 rounded-lg border border-border/40 hover:border-primary/20 transition-colors">
-                <h4 className="text-lg font-semibold text-primary mb-4 text-center relative">
+                <h4 className="text-lg font-semibold mb-4 text-center relative">
                   {/* Decorative accent */}
-                  <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-10 h-1 bg-gradient-to-r from-primary/30 to-accent/30 rounded-full"></span>
-                  {category.name}
+                  <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-primary/50 to-accent/50 rounded-full"></span>
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">{category.name}</span>
                 </h4>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-6">
                   {category.skills.map((skill, skillIndex) => (
                     <div 
                       key={skillIndex} 
-                      className="skill-item flex flex-col items-center p-3 rounded-lg hover:bg-primary/5 transition-colors group"
+                      className="skill-item flex flex-col items-center p-3 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/5 transition-all duration-300 group hover:shadow-sm"
                     >
-                      <div className="text-primary mb-2 group-hover:scale-110 transition-transform">
+                      <div className="text-primary mb-2 group-hover:scale-110 group-hover:text-accent transition-all duration-300">
                         {skill.icon}
                       </div>
                       <div className="text-sm font-medium text-center">{skill.name}</div>

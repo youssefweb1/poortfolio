@@ -5,25 +5,25 @@
 @tailwind utilities;
 
 :root {
-  --background: 220 25% 98%;
-  --foreground: 222 47% 15%;
+  --background: 220 30% 99%;
+  --foreground: 222 47% 12%;
   --muted: 215 25% 94%;
-  --muted-foreground: 222 20% 40%;
-  --popover: 220 25% 98%;
-  --popover-foreground: 222 47% 15%;
-  --card: 220 25% 98%;
-  --card-foreground: 222 47% 15%;
-  --border: 216 20% 88%;
-  --input: 216 20% 88%;
+  --muted-foreground: 222 25% 35%;
+  --popover: 220 30% 99%;
+  --popover-foreground: 222 47% 12%;
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 12%;
+  --border: 216 25% 90%;
+  --input: 216 25% 90%;
   --primary: 262 83% 58%;
-  --primary-foreground: 220 25% 98%;
+  --primary-foreground: 0 0% 100%;
   --secondary: 222 47% 11%;
-  --secondary-foreground: 220 25% 98%;
+  --secondary-foreground: 0 0% 100%;
   --accent: 327 73% 62%;
-  --accent-foreground: 220 25% 98%;
+  --accent-foreground: 0 0% 100%;
   --destructive: 0 84% 60%;
-  --destructive-foreground: 220 25% 98%;
-  --ring: 216 20% 88%;
+  --destructive-foreground: 0 0% 100%;
+  --ring: 262 83% 85%;
   --radius: 0.5rem;
   
   /* Chart colors */
@@ -34,14 +34,14 @@
   --chart-5: 300 76% 60%;
   
   /* Sidebar colors */
-  --sidebar-background: 220 25% 98%;
-  --sidebar-foreground: 222 47% 15%;
+  --sidebar-background: 0 0% 100%;
+  --sidebar-foreground: 222 47% 12%;
   --sidebar-primary: 262 83% 58%;
-  --sidebar-primary-foreground: 220 25% 98%;
+  --sidebar-primary-foreground: 0 0% 100%;
   --sidebar-accent: 327 73% 62%;
-  --sidebar-accent-foreground: 220 25% 98%;
-  --sidebar-border: 216 20% 88%;
-  --sidebar-ring: 216 20% 88%;
+  --sidebar-accent-foreground: 0 0% 100%;
+  --sidebar-border: 216 25% 90%;
+  --sidebar-ring: 262 83% 85%;
 }
 
 .dark {
@@ -130,13 +130,18 @@
 
 /* Project card hover effect - reduced motion */
 .project-card {
-  @apply border border-border/40 backdrop-blur-sm bg-card/90 overflow-hidden;
+  @apply border border-border/40 backdrop-blur-sm bg-card/90 overflow-hidden shadow-sm;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .project-card:hover {
-  @apply border-primary/30 shadow-lg shadow-primary/5;
+  @apply border-primary/30 shadow-lg shadow-primary/10;
   transform: translateY(-3px);
+}
+
+/* Enhanced card styling for light mode */
+:root .project-card {
+  @apply bg-white shadow-md border-primary/5;
 }
 
 /* Hero section styling */
@@ -147,7 +152,7 @@
 /* Subtle background pattern */
 .bg-pattern {
   background-color: hsl(var(--background));
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23a3a3a3' fill-opacity='0.03'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23a080ff' fill-opacity='0.02'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 /* Dark mode pattern */
@@ -158,7 +163,7 @@
 
 /* Glassy effect */
 .glass {
-  @apply bg-white/10 dark:bg-white/5 backdrop-blur-lg border border-white/20 dark:border-white/10;
+  @apply bg-white/70 dark:bg-white/5 backdrop-blur-lg border border-primary/10 dark:border-white/10 shadow-sm;
 }
 
 /* Reduced animation timing */
