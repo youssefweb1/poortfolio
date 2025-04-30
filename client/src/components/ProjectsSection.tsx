@@ -21,6 +21,7 @@ interface Project {
 const ProjectsSection: React.FC = () => {
   const { t } = useTranslation();
   const [activeCategory, setActiveCategory] = useState("all");
+  const [displayLimit, setDisplayLimit] = useState(4);
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
   const filtersRef = useRef<HTMLDivElement>(null);
@@ -183,6 +184,11 @@ const ProjectsSection: React.FC = () => {
     ? projects 
     : projects.filter(project => project.category === activeCategory);
 
+  // Reset display limit when category changes
+  useEffect(() => {
+    setDisplayLimit(4);
+  }, [activeCategory]);
+
   useEffect(() => {
     if (!sectionRef.current) return;
 
@@ -226,7 +232,7 @@ const ProjectsSection: React.FC = () => {
       const cards = projectsRef.current.querySelectorAll('.project-card');
       gsap.fromTo(
         cards,
-        { y: 100, opacity: 0 },
+        { y: 50, opacity: 0 },
         {
           y: 0,
           opacity: 1,

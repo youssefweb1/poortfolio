@@ -29,28 +29,21 @@ import {
 
 // Create validation schemas for each language
 const createFormSchema = (language: string) => {
-  // Different validation messages based on language
-  const errorMessages = {
-    name: language === 'ar' 
-      ? "يجب أن يكون الاسم على الأقل حرفين" 
-      : "Name must be at least 2 characters",
-    email: language === 'ar' 
-      ? "يرجى إدخال بريد إلكتروني صحيح" 
-      : "Please enter a valid email address",
-    message: language === 'ar' 
-      ? "يجب أن تكون الرسالة على الأقل 10 أحرف" 
-      : "Message must be at least 10 characters",
-  };
-
   return z.object({
     name: z.string().min(2, {
-      message: errorMessages.name,
+      message: language === 'ar' 
+        ? "الاسم مطلوب ويجب أن يتكون من حرفين على الأقل" 
+        : "Name is required and must be at least 2 characters",
     }),
     email: z.string().email({
-      message: errorMessages.email,
+      message: language === 'ar' 
+        ? "يرجى إدخال بريد إلكتروني صالح" 
+        : "Please enter a valid email address",
     }),
     message: z.string().min(10, {
-      message: errorMessages.message,
+      message: language === 'ar' 
+        ? "الرسالة مطلوبة ويجب أن تتكون من 10 أحرف على الأقل" 
+        : "Message is required and must be at least 10 characters",
     }),
   });
 };
@@ -106,8 +99,10 @@ const ContactForm: React.FC = () => {
     } catch (error) {
       // Show error toast
       toast({
-        title: t('contact.form.error.title'),
-        description: t('contact.form.error.message'),
+        title: currentLanguage === 'ar' ? 'خطأ في الإرسال' : 'Submission Error',
+        description: currentLanguage === 'ar' 
+          ? 'حدث خطأ أثناء إرسال النموذج. يرجى المحاولة مرة أخرى.' 
+          : 'There was an error submitting the form. Please try again.',
         variant: "destructive",
       });
       console.error(error);
