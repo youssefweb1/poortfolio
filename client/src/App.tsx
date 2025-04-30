@@ -15,6 +15,7 @@ import ContactSection from "@/components/ContactSection";
 import Cursor from "@/components/Cursor";
 import FixedButtons from "@/components/FixedButtons";
 import Loader from "@/components/Loader";
+import AnimatedBackground from "@/components/AnimatedBackground";
 
 function HomePage() {
   const [loading, setLoading] = useState(true);
@@ -25,6 +26,7 @@ function HomePage() {
         <Loader setLoading={setLoading} />
       ) : (
         <>
+          <AnimatedBackground />
           <Cursor />
           <Navbar />
           <main>

@@ -231,3 +231,39 @@ button:focus {
 .btn-hover-effect:hover::after {
   @apply opacity-10;
 }
+
+/* Animated background enhancements */
+.animated-bg {
+  @apply fixed inset-0 -z-10 pointer-events-none;
+}
+
+/* Ensure sections have a slight background for better readability */
+main > section {
+  @apply relative;
+}
+
+main > section::before {
+  content: '';
+  @apply absolute inset-0 bg-background/80 backdrop-blur-[2px] -z-[5];
+}
+
+/* Enhanced card backgrounds with backdrop blur */
+.card, .project-card {
+  @apply backdrop-blur-sm bg-background/90;
+}
+
+/* Add subtle glow to headings when over animated background */
+h1, h2, h3 {
+  @apply relative;
+}
+
+h1::after, h2::after, h3::after {
+  content: '';
+  @apply absolute -inset-4 bg-primary/5 dark:bg-primary/10 blur-2xl rounded-full -z-10 opacity-0;
+  animation: subtle-glow 8s ease-in-out infinite alternate;
+}
+
+@keyframes subtle-glow {
+  0% { opacity: 0; transform: scale(0.8); }
+  100% { opacity: 0.5; transform: scale(1.2); }
+}
