@@ -15,7 +15,6 @@ import ContactSection from "@/components/ContactSection";
 import Cursor from "@/components/Cursor";
 import FixedButtons from "@/components/FixedButtons";
 import Loader from "@/components/Loader";
-import GridBackground from "@/components/GridBackground";
 
 function HomePage() {
   const [loading, setLoading] = useState(true);
@@ -26,9 +25,6 @@ function HomePage() {
         <Loader setLoading={setLoading} />
       ) : (
         <>
-          <div className="fixed inset-0 z-[-1] overflow-hidden opacity-90 bg-background/70">
-            <GridBackground />
-          </div>
           <Cursor />
           <Navbar />
           <main>

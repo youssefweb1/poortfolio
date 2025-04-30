@@ -5,7 +5,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Button } from "@/components/ui/button";
 import ThreeScene from "@/components/ThreeScene";
 import { ChevronDown } from "lucide-react";
-import { FaWhatsapp } from "react-icons/fa";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -77,15 +76,20 @@ const HeroSection: React.FC = () => {
               {t('hero.description')}
             </p>
             
-            <div className="flex hero-buttons">
+            <div className="flex space-x-4 rtl:space-x-reverse hero-buttons">
               <Button
                 asChild
-                className="bg-[#25D366] hover:bg-[#20BD5C] text-white px-6 py-3 rounded-full transform hover:-translate-y-1 transition-all shadow-lg btn-hover-effect flex items-center gap-2"
+                className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-full transform hover:-translate-y-1 transition-all shadow-lg btn-hover-effect"
               >
-                <a href="https://wa.me/+966555555555" target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="w-5 h-5 mr-1 rtl:ml-1 rtl:mr-0" />
-                  WhatsApp
-                </a>
+                <a href="#projects">{t('hero.viewWork')}</a>
+              </Button>
+
+              <Button
+                asChild
+                variant="outline"
+                className="glass border border-primary/30 text-foreground px-6 py-3 rounded-full transform hover:-translate-y-1 transition-all hover:border-primary/60 btn-hover-effect"
+              >
+                <a href="#contact">{t('hero.contact')}</a>
               </Button>
             </div>
           </div>
