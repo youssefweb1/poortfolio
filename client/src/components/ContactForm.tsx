@@ -83,8 +83,13 @@ const ContactForm: React.FC = () => {
   
   // Update the validation schema when language changes
   useEffect(() => {
-    // When language changes, just clear errors
+    const newSchema = createFormSchema(currentLanguage);
     form.clearErrors();
+    
+    // We need to update the resolver when language changes
+    form.reset({...form.getValues()}, {
+      resolver: zodResolver(newSchema)
+    });
   }, [currentLanguage, form]);
 
   const onSubmit = async (data: FormValues) => {
