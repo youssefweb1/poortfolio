@@ -434,7 +434,7 @@ const AboutSection: React.FC = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {skillCategories.map((category, index) => (
-              <div key={index} className="glass p-6 rounded-lg border border-border/40 hover:border-primary/20 transition-colors">
+              <div key={index} className="neon-card glass p-6 rounded-lg transition-colors">
                 <h4 className="text-lg font-semibold mb-4 text-center relative">
                   {/* Decorative accent */}
                   <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-primary/50 to-accent/50 rounded-full"></span>

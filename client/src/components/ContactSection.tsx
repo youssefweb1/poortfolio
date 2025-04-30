@@ -99,7 +99,7 @@ const ContactSection: React.FC = () => {
           <div className="inline-block glass px-3 py-1 rounded-full text-xs font-medium mb-4 text-primary border border-primary/20">
             {t('contact.title')}
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-2">
+          <h2 className="section-title text-3xl md:text-4xl font-bold mb-2">
             {t('contact.subtitle')}
           </h2>
           <div className="w-16 h-1 bg-primary/50 mx-auto rounded-full"></div>
