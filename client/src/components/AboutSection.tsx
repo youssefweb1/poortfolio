@@ -65,100 +65,118 @@ const AboutSection: React.FC = () => {
   useEffect(() => {
     if (!sectionRef.current) return;
 
-    // Title animation - with reduced intensity
+    // Determine if we're on a mobile device for animation optimizations
+    const isMobile = window.innerWidth < 768;
+    
+    // Batch animations to reduce reflow/repaint operations
+    // Use simpler animations with shorter durations on mobile
+    
+    // Setup common scroll trigger configuration with increased thresholds on mobile
+    // to ensure animations start when more of the element is in view (better performance)
+    const getScrollTrigger = (element: HTMLElement, startPercentage = isMobile ? 70 : 80) => ({
+      trigger: element,
+      start: `top ${startPercentage}%`,
+      once: isMobile, // Only trigger once on mobile for better performance
+    });
+    
+    // Title animation - simplified for mobile
     if (titleRef.current) {
       gsap.fromTo(
         titleRef.current,
-        { y: 30, opacity: 0 },
+        { y: isMobile ? 20 : 30, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          duration: 0.6,
-          scrollTrigger: {
-            trigger: titleRef.current,
-            start: "top 85%",
-          }
+          duration: isMobile ? 0.5 : 0.6,
+          ease: "power2.out", // Simpler easing function
+          scrollTrigger: getScrollTrigger(titleRef.current, 85)
         }
       );
     }
 
-    // Content animation
+    // Content animation - reduced staggering on mobile
     if (contentRef.current) {
       const textElements = contentRef.current.querySelectorAll("p");
       gsap.fromTo(
         textElements,
-        { y: 20, opacity: 0 },
+        { y: isMobile ? 15 : 20, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          stagger: 0.15,
-          duration: 0.6,
-          scrollTrigger: {
-            trigger: contentRef.current,
-            start: "top 75%",
-          }
+          stagger: isMobile ? 0.1 : 0.15, // Less delay between animations on mobile
+          duration: isMobile ? 0.5 : 0.6,
+          ease: "power2.out",
+          scrollTrigger: getScrollTrigger(contentRef.current, 75)
         }
       );
     }
 
-    // Image animation - with reduced intensity
+    // Image animation - simplified for mobile
     if (imageRef.current) {
       gsap.fromTo(
         imageRef.current,
-        { y: 30, opacity: 0 },
+        { y: isMobile ? 20 : 30, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          duration: 0.7,
-          scrollTrigger: {
-            trigger: imageRef.current,
-            start: "top 75%",
-          }
+          duration: isMobile ? 0.6 : 0.7,
+          ease: "power2.out",
+          scrollTrigger: getScrollTrigger(imageRef.current, 75)
         }
       );
     }
 
-    // Skills animation
+    // Skills animation - reduced number of animated items on mobile
     if (skillsRef.current) {
-      const skills = skillsRef.current.querySelectorAll(".skill-item");
+      // For mobile, only animate the category containers rather than each skill
+      const skills = skillsRef.current.querySelectorAll(isMobile ? ".skill-category" : ".skill-item");
       gsap.fromTo(
         skills,
-        { y: 15, opacity: 0 },
+        { y: isMobile ? 10 : 15, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          stagger: 0.05,
-          duration: 0.4,
-          scrollTrigger: {
-            trigger: skillsRef.current,
-            start: "top 80%",
-          }
+          stagger: isMobile ? 0.1 : 0.05, // Different stagger based on number of elements
+          duration: isMobile ? 0.3 : 0.4,
+          ease: "power1.out", // Even simpler easing for many items
+          scrollTrigger: getScrollTrigger(skillsRef.current, 80)
         }
       );
     }
 
-    // Experience cards animation
+    // Experience cards animation - simplified for mobile
     if (timelineRef.current) {
       const cards = timelineRef.current.querySelectorAll(".experience-card");
       gsap.fromTo(
         cards,
-        { y: 30, opacity: 0 },
+        { y: isMobile ? 20 : 30, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          stagger: 0.15,
-          duration: 0.6,
-          scrollTrigger: {
-            trigger: timelineRef.current,
-            start: "top 80%",
-          }
+          stagger: isMobile ? 0.1 : 0.15,
+          duration: isMobile ? 0.5 : 0.6,
+          ease: "power2.out",
+          scrollTrigger: getScrollTrigger(timelineRef.current, 80)
         }
       );
     }
 
+    // Handle resize - kill and re-init animations if window size changes significantly
+    const handleResize = () => {
+      const newIsMobile = window.innerWidth < 768;
+      if (newIsMobile !== isMobile) {
+        // If device type changed, reinitialize animations
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+        // Could call a function to reinitialize here, but we'll rely on component remounts
+      }
+    };
+    
+    window.addEventListener('resize', handleResize);
+
     return () => {
-      // Cleanup scroll triggers
+      // Cleanup scroll triggers and event listeners
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
@@ -449,7 +467,7 @@ const AboutSection: React.FC = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {skillCategories.map((category, index) => (
-              <div key={index} className="glass p-6 rounded-lg border border-border/40 hover:border-primary/20 transition-colors">
+              <div key={index} className="skill-category glass p-6 rounded-lg border border-border/40 hover:border-primary/20 transition-colors">
                 <h4 className="text-lg font-semibold mb-4 text-center relative">
                   {/* Decorative accent */}
                   <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-primary/50 to-accent/50 rounded-full"></span>

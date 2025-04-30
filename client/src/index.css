@@ -168,15 +168,28 @@
   @apply bg-primary/60;
 }
 
-/* Project card hover effect - reduced motion */
+/* Project card hover effect - optimized for device type */
 .project-card {
   @apply border border-border/40 backdrop-blur-sm bg-card/90 overflow-hidden shadow-sm;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  /* No transitions on mobile for better performance and touch experience */
+  @media (min-width: 768px) {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
 }
 
-.project-card:hover {
-  @apply border-primary/30 shadow-lg shadow-primary/10;
-  transform: translateY(-3px);
+/* Only apply hover effects on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+  .project-card:hover {
+    @apply border-primary/30 shadow-lg shadow-primary/10;
+    transform: translateY(-3px);
+  }
+}
+
+/* Alternative subtle indication for touch devices */
+@media (hover: none) {
+  .project-card:active {
+    @apply border-primary/20;
+  }
 }
 
 /* Enhanced card styling for light mode */
@@ -221,18 +234,33 @@ button:focus {
   @apply outline-none ring-0 ring-offset-0;
 }
 
-/* Button hover effect */
+/* Button hover effect - optimized for device type */
 .btn-hover-effect {
   @apply relative overflow-hidden;
 }
 
-.btn-hover-effect::after {
-  content: '';
-  @apply absolute inset-0 bg-white opacity-0 transition-opacity duration-300;
+/* Only apply effects on devices that support hover */
+@media (hover: hover) and (pointer: fine) {
+  .btn-hover-effect::after {
+    content: '';
+    @apply absolute inset-0 bg-white opacity-0 transition-opacity duration-300;
+  }
+  
+  .btn-hover-effect:hover::after {
+    @apply opacity-10;
+  }
+  
+  /* Scale buttons slightly on hover only for desktop */
+  .btn-hover-effect:hover {
+    transform: translateY(-1px);
+  }
 }
 
-.btn-hover-effect:hover::after {
-  @apply opacity-10;
+/* Alternative subtle feedback for touch devices */
+@media (hover: none) {
+  .btn-hover-effect:active {
+    @apply opacity-90;
+  }
 }
 
 /* Animated background enhancements */
@@ -262,18 +290,21 @@ main > section::before {
   @apply backdrop-blur-sm bg-background/90;
 }
 
-/* Add subtle glow to headings when over animated background */
+/* Add subtle glow to headings but only on desktop for better performance */
 h1, h2, h3 {
   @apply relative;
 }
 
-h1::after, h2::after, h3::after {
-  content: '';
-  @apply absolute -inset-4 bg-primary/5 dark:bg-primary/10 blur-2xl rounded-full -z-10 opacity-0;
-  animation: subtle-glow 8s ease-in-out infinite alternate;
+/* Conditional animation only on larger screens */
+@media (min-width: 768px) {
+  h1::after, h2::after, h3::after {
+    content: '';
+    @apply absolute -inset-4 bg-primary/5 dark:bg-primary/10 blur-2xl rounded-full -z-10 opacity-0;
+    animation: subtle-glow 10s ease-in-out infinite alternate;
+  }
 }
 
 @keyframes subtle-glow {
   0% { opacity: 0; transform: scale(0.8); }
-  100% { opacity: 0.5; transform: scale(1.2); }
+  100% { opacity: 0.4; transform: scale(1.1); }
 }
