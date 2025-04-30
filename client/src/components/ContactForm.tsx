@@ -75,12 +75,9 @@ const ContactForm: React.FC = () => {
     },
   });
   
-  // Update schema when language changes by recreating the form
+  // Update schema when language changes
   useEffect(() => {
     if (currentLanguage) {
-      const newSchema = createFormSchema(currentLanguage);
-      const resolver = zodResolver(newSchema);
-      
       // We need to keep the existing values
       const currentValues = form.getValues();
       

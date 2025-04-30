@@ -83,7 +83,7 @@ const ThreeScene: React.FC<ThreeSceneProps> = ({ className }) => {
       particlesGroupRef.current.rotation.x += 0.0005;
       
       // Animate individual particles
-      particlesGroupRef.current.children.forEach((particle) => {
+      particlesGroupRef.current.children.forEach((particle: THREE.Object3D) => {
         const time = Date.now() * (particle.userData.randomSpeed as number);
         const originalPos = particle.userData.originalPosition as THREE.Vector3;
         
@@ -130,7 +130,7 @@ const ThreeScene: React.FC<ThreeSceneProps> = ({ className }) => {
       }
       
       if (particlesGroupRef.current) {
-        particlesGroupRef.current.children.forEach((child) => {
+        particlesGroupRef.current.children.forEach((child: THREE.Object3D) => {
           if (child instanceof THREE.Mesh) {
             child.geometry.dispose();
             if (child.material instanceof THREE.Material) {
