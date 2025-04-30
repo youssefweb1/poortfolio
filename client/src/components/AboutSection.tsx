@@ -150,7 +150,7 @@ const AboutSection: React.FC = () => {
   // Skill data with categories
   const skillCategories = [
     {
-      name: "Frontend",
+      name: t('about.skillCategories.frontend'),
       skills: [
         { icon: <FaHtml5 className="w-6 h-6" />, name: "HTML5" },
         { icon: <FaCss3Alt className="w-6 h-6" />, name: "CSS3" },
@@ -163,7 +163,7 @@ const AboutSection: React.FC = () => {
       ]
     },
     {
-      name: "Backend",
+      name: t('about.skillCategories.backend'),
       skills: [
         { icon: <FaPhp className="w-6 h-6" />, name: "PHP" },
         { icon: <FaLaravel className="w-6 h-6" />, name: "Laravel" },
@@ -172,7 +172,7 @@ const AboutSection: React.FC = () => {
       ]
     },
     {
-      name: "Platforms & CMS",
+      name: t('about.skillCategories.platforms'),
       skills: [
         { icon: <FaWordpress className="w-6 h-6" />, name: "WordPress" },
         { icon: <FaCode className="w-6 h-6" />, name: "Salla" },
@@ -180,7 +180,7 @@ const AboutSection: React.FC = () => {
       ]
     },
     {
-      name: "Programming Concepts",
+      name: t('about.skillCategories.concepts'),
       skills: [
         { icon: <FaCode className="w-6 h-6" />, name: "OOP" },
         { icon: <FaCode className="w-6 h-6" />, name: "MVC Architecture" },
@@ -193,7 +193,7 @@ const AboutSection: React.FC = () => {
       ]
     },
     {
-      name: "Soft Skills",
+      name: t('about.skillCategories.softSkills'),
       skills: [
         { icon: <FaUsers className="w-6 h-6" />, name: "Team Collaboration" },
         { icon: <FaClock className="w-6 h-6" />, name: "Time Management" },
@@ -205,7 +205,7 @@ const AboutSection: React.FC = () => {
       ]
     },
     {
-      name: "Additional Skills",
+      name: t('about.skillCategories.additional'),
       skills: [
         { icon: <SiCanva className="w-6 h-6" />, name: "Canva" },
         { icon: <SiFigma className="w-6 h-6" />, name: "Figma" },

@@ -23,7 +23,15 @@
     "skills": "المهارات التقنية",
     "skillsDescription": "التقنيات والأدوات التي أعمل بها",
     "experience": "الخبرات",
-    "experienceDescription": "مسيرتي المهنية"
+    "experienceDescription": "مسيرتي المهنية",
+    "skillCategories": {
+      "frontend": "الواجهة الأمامية",
+      "backend": "الواجهة الخلفية",
+      "platforms": "المنصات وأنظمة إدارة المحتوى",
+      "concepts": "مفاهيم البرمجة",
+      "softSkills": "المهارات الشخصية",
+      "additional": "مهارات إضافية"
+    }
   },
   "projects": {
     "title": "مشاريعي",
