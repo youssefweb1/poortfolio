@@ -246,7 +246,7 @@ const ProjectsSection: React.FC = () => {
           <div className="inline-block glass px-3 py-1 rounded-full text-xs font-medium mb-4 text-primary border border-primary/20">
             {t('projects.title')}
           </div>
-          <h2 className="section-title text-3xl md:text-4xl font-bold mb-2">
+          <h2 className="text-3xl md:text-4xl font-bold mb-2">
             {t('projects.subtitle')}
           </h2>
           <div className="w-16 h-1 bg-primary/50 mx-auto rounded-full"></div>
@@ -256,28 +256,28 @@ const ProjectsSection: React.FC = () => {
           <Button 
             onClick={() => setActiveCategory("all")}
             variant={activeCategory === "all" ? "default" : "outline"}
-            className={`rounded-full ${activeCategory === "all" ? "neon-btn bg-[#00c3ff]/80 hover:bg-[#00c3ff]/90" : "neon-btn glass hover:bg-[#00c3ff]/5"}`}
+            className={`rounded-full ${activeCategory === "all" ? "bg-primary hover:bg-primary/90" : "glass border-border/30 hover:border-primary/30"}`}
           >
             {t('projects.filters.all')}
           </Button>
           <Button 
             onClick={() => setActiveCategory("frontend")}
             variant={activeCategory === "frontend" ? "default" : "outline"}
-            className={`rounded-full ${activeCategory === "frontend" ? "neon-btn bg-[#00c3ff]/80 hover:bg-[#00c3ff]/90" : "neon-btn glass hover:bg-[#00c3ff]/5"}`}
+            className={`rounded-full ${activeCategory === "frontend" ? "bg-primary hover:bg-primary/90" : "glass border-border/30 hover:border-primary/30"}`}
           >
             {t('projects.filters.frontend')}
           </Button>
           <Button 
             onClick={() => setActiveCategory("fullstack")}
             variant={activeCategory === "fullstack" ? "default" : "outline"}
-            className={`rounded-full ${activeCategory === "fullstack" ? "neon-btn bg-[#00c3ff]/80 hover:bg-[#00c3ff]/90" : "neon-btn glass hover:bg-[#00c3ff]/5"}`}
+            className={`rounded-full ${activeCategory === "fullstack" ? "bg-primary hover:bg-primary/90" : "glass border-border/30 hover:border-primary/30"}`}
           >
             {t('projects.filters.fullstack')}
           </Button>
           <Button 
             onClick={() => setActiveCategory("interactive")}
             variant={activeCategory === "interactive" ? "default" : "outline"}
-            className={`rounded-full ${activeCategory === "interactive" ? "neon-btn bg-[#00c3ff]/80 hover:bg-[#00c3ff]/90" : "neon-btn glass hover:bg-[#00c3ff]/5"}`}
+            className={`rounded-full ${activeCategory === "interactive" ? "bg-primary hover:bg-primary/90" : "glass border-border/30 hover:border-primary/30"}`}
           >
             {t('projects.filters.interactive')}
           </Button>

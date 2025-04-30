@@ -428,13 +428,13 @@ const AboutSection: React.FC = () => {
         {/* Skills Section */}
         <div ref={skillsRef} className="mb-20">
           <div className="text-center mb-10">
-            <h3 className="section-title text-2xl font-bold text-foreground mb-2">{t('about.skills')}</h3>
+            <h3 className="text-2xl font-bold text-foreground mb-2">{t('about.skills')}</h3>
             <p className="text-muted-foreground">{t('about.skillsDescription')}</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {skillCategories.map((category, index) => (
-              <div key={index} className="neon-card glass p-6 rounded-lg transition-colors">
+              <div key={index} className="glass p-6 rounded-lg border border-border/40 hover:border-primary/20 transition-colors">
                 <h4 className="text-lg font-semibold mb-4 text-center relative">
                   {/* Decorative accent */}
                   <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-primary/50 to-accent/50 rounded-full"></span>
@@ -461,7 +461,7 @@ const AboutSection: React.FC = () => {
         {/* Redesigned Experience Section */}
         <div ref={timelineRef} className="relative">
           <div className="text-center mb-12">
-            <h3 className="section-title text-2xl font-bold text-foreground mb-2">{t('about.experience')}</h3>
+            <h3 className="text-2xl font-bold text-foreground mb-2">{t('about.experience')}</h3>
             <p className="text-muted-foreground">{t('about.experienceDescription')}</p>
           </div>
           
@@ -474,7 +474,7 @@ const AboutSection: React.FC = () => {
               return (
                 <div 
                   key={index} 
-                  className="neon-card experience-card glass p-6 rounded-lg transition-all duration-300"
+                  className="experience-card glass p-6 rounded-lg border border-border/40 hover:border-primary/20 transition-all duration-300 hover:shadow-md"
                 >
                   {/* Date Badge - Positioned properly for RTL */}
                   <div className="inline-block glass px-3 py-1 rounded-full text-xs font-medium mb-3 text-primary border border-primary/20">

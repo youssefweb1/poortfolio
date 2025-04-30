@@ -252,79 +252,18 @@ main > section::before {
   @apply backdrop-blur-sm bg-background/90;
 }
 
-/* Neon glow effects for headings */
+/* Add subtle glow to headings when over animated background */
 h1, h2, h3 {
   @apply relative;
 }
 
 h1::after, h2::after, h3::after {
   content: '';
-  @apply absolute -inset-4 bg-accent/10 dark:bg-accent/15 blur-2xl rounded-full -z-10 opacity-0;
-  animation: neon-pulse 8s ease-in-out infinite alternate;
+  @apply absolute -inset-4 bg-primary/5 dark:bg-primary/10 blur-2xl rounded-full -z-10 opacity-0;
+  animation: subtle-glow 8s ease-in-out infinite alternate;
 }
 
-.section-title {
-  @apply font-bold relative inline-block;
-  text-shadow: 0 0 10px rgba(0, 195, 255, 0.3), 0 0 20px rgba(0, 195, 255, 0.2);
-}
-
-.dark .section-title {
-  text-shadow: 0 0 10px rgba(0, 195, 255, 0.5), 0 0 20px rgba(0, 195, 255, 0.3), 0 0 30px rgba(0, 195, 255, 0.2);
-}
-
-@keyframes neon-pulse {
+@keyframes subtle-glow {
   0% { opacity: 0; transform: scale(0.8); }
-  100% { opacity: 0.7; transform: scale(1.2); }
-}
-
-/* Neon card effect */
-.neon-card {
-  @apply relative overflow-hidden rounded-lg border bg-background/80;
-  box-shadow: 0 0 10px rgba(0, 195, 255, 0.1);
-  transition: all 0.3s ease;
-}
-
-.neon-card:hover {
-  box-shadow: 0 0 15px rgba(0, 195, 255, 0.3), 0 0 30px rgba(0, 195, 255, 0.2);
-  border-color: rgba(0, 195, 255, 0.3);
-}
-
-.dark .neon-card {
-  box-shadow: 0 0 10px rgba(0, 195, 255, 0.2);
-}
-
-.dark .neon-card:hover {
-  box-shadow: 0 0 20px rgba(0, 195, 255, 0.4), 0 0 40px rgba(0, 195, 255, 0.2);
-  border-color: rgba(0, 195, 255, 0.5);
-}
-
-/* Neon buttons */
-.neon-btn {
-  @apply relative overflow-hidden transition-all duration-300;
-  box-shadow: 0 0 10px rgba(0, 195, 255, 0.2);
-  border: 1px solid rgba(0, 195, 255, 0.3);
-}
-
-.neon-btn:hover, .neon-btn:focus {
-  box-shadow: 0 0 15px rgba(0, 195, 255, 0.4), 0 0 30px rgba(0, 195, 255, 0.2);
-  border-color: rgba(0, 195, 255, 0.6);
-}
-
-.dark .neon-btn {
-  box-shadow: 0 0 10px rgba(0, 195, 255, 0.3);
-}
-
-.dark .neon-btn:hover, .dark .neon-btn:focus {
-  box-shadow: 0 0 20px rgba(0, 195, 255, 0.5), 0 0 40px rgba(0, 195, 255, 0.3);
-}
-
-/* Neon text effect */
-.neon-text {
-  color: hsl(var(--primary));
-  text-shadow: 0 0 5px rgba(0, 195, 255, 0.5), 0 0 10px rgba(0, 195, 255, 0.3);
-  transition: all 0.3s ease;
-}
-
-.neon-text:hover {
-  text-shadow: 0 0 10px rgba(0, 195, 255, 0.7), 0 0 20px rgba(0, 195, 255, 0.5), 0 0 30px rgba(0, 195, 255, 0.3);
+  100% { opacity: 0.5; transform: scale(1.2); }
 }
