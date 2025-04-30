@@ -71,13 +71,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <div 
       ref={cardRef}
-      className="project-card group relative overflow-hidden rounded-xl shadow-lg bg-gradient-to-br from-white/5 to-white/10 dark:bg-gray-900/95 dark:shadow-xl dark:shadow-black/30 backdrop-blur-sm dark:backdrop-blur-lg border border-white/10 dark:border-gray-800 hover:border-primary/30 dark:hover:border-primary/20 transition-all duration-500"
+      className="neon-card project-card group relative overflow-hidden rounded-xl shadow-lg bg-gradient-to-br from-white/5 to-white/10 dark:bg-gray-900/95 backdrop-blur-sm dark:backdrop-blur-lg border border-white/10 dark:border-gray-800 transition-all duration-500"
     >
-      {/* Decorative accent for hover effect */}
-      <div className="absolute -inset-2 bg-gradient-to-r from-primary/30 via-accent/20 to-primary/30 dark:from-primary/20 dark:via-accent/10 dark:to-primary/20 rounded-xl blur-md opacity-0 group-hover:opacity-80 transition-opacity duration-700 -z-10"></div>
+      {/* Neon glow effect */}
+      <div className="absolute -inset-1 bg-gradient-to-r from-[#00c3ff]/20 via-[#00c3ff]/10 to-[#00c3ff]/20 dark:from-[#00c3ff]/30 dark:via-[#00c3ff]/20 dark:to-[#00c3ff]/30 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10"></div>
       
-      {/* Shadow effect that follows mouse movement */}
-      <div className="absolute inset-0 dark:bg-gradient-to-br dark:from-primary/5 dark:to-accent/5 opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
+      {/* Additional inner glow */}
+      <div className="absolute inset-0 dark:bg-gradient-to-br dark:from-[#00c3ff]/5 dark:to-[#4080ff]/5 opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
       
       <div className="relative h-52 overflow-hidden">
         <div className="image-container absolute inset-0 w-full h-full">
@@ -113,7 +113,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <div className="flex space-x-3 rtl:space-x-reverse mt-auto">
           <a 
             href={previewLink} 
-            className="bg-gradient-to-r from-primary/80 to-primary text-white dark:text-white px-4 py-2 rounded-full text-sm font-medium flex items-center hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 transform hover:-translate-y-1"
+            className="neon-btn bg-gradient-to-r from-[#00c3ff]/80 to-[#00c3ff]/90 text-white dark:text-white px-4 py-2 rounded-full text-sm font-medium flex items-center transition-all duration-300 transform hover:-translate-y-1"
             target="_blank" 
             rel="noopener noreferrer"
           >
@@ -123,7 +123,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           
           <a 
             href={codeLink} 
-            className="glass border border-primary/30 dark:border-white/10 text-foreground dark:text-white/80 px-4 py-2 rounded-full text-sm font-medium flex items-center hover:bg-primary/10 dark:hover:bg-primary/20 transition-all duration-300 transform hover:-translate-y-1"
+            className="neon-btn glass text-foreground dark:text-white/90 px-4 py-2 rounded-full text-sm font-medium flex items-center hover:bg-[#00c3ff]/5 dark:hover:bg-[#00c3ff]/10 transition-all duration-300 transform hover:-translate-y-1"
             target="_blank" 
             rel="noopener noreferrer"
           >

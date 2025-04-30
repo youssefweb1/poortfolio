@@ -428,7 +428,7 @@ const AboutSection: React.FC = () => {
         {/* Skills Section */}
         <div ref={skillsRef} className="mb-20">
           <div className="text-center mb-10">
-            <h3 className="text-2xl font-bold text-foreground mb-2">{t('about.skills')}</h3>
+            <h3 className="section-title text-2xl font-bold text-foreground mb-2">{t('about.skills')}</h3>
             <p className="text-muted-foreground">{t('about.skillsDescription')}</p>
           </div>
           
@@ -461,7 +461,7 @@ const AboutSection: React.FC = () => {
         {/* Redesigned Experience Section */}
         <div ref={timelineRef} className="relative">
           <div className="text-center mb-12">
-            <h3 className="text-2xl font-bold text-foreground mb-2">{t('about.experience')}</h3>
+            <h3 className="section-title text-2xl font-bold text-foreground mb-2">{t('about.experience')}</h3>
             <p className="text-muted-foreground">{t('about.experienceDescription')}</p>
           </div>
           
@@ -474,7 +474,7 @@ const AboutSection: React.FC = () => {
               return (
                 <div 
                   key={index} 
-                  className="experience-card glass p-6 rounded-lg border border-border/40 hover:border-primary/20 transition-all duration-300 hover:shadow-md"
+                  className="neon-card experience-card glass p-6 rounded-lg transition-all duration-300"
                 >
                   {/* Date Badge - Positioned properly for RTL */}
                   <div className="inline-block glass px-3 py-1 rounded-full text-xs font-medium mb-3 text-primary border border-primary/20">
