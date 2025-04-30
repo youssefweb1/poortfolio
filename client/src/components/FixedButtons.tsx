@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { ArrowUp, Share2 } from "lucide-react";
-import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaTiktok, FaWhatsapp } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useTranslation } from "react-i18next";
@@ -32,10 +32,26 @@ const FixedButtons: React.FC = () => {
   };
 
   const socialLinks = [
-    { icon: <FaGithub className="w-4 h-4" />, url: "#", label: "GitHub" },
-    { icon: <FaLinkedin className="w-4 h-4" />, url: "#", label: "LinkedIn" },
-    { icon: <FaTwitter className="w-4 h-4" />, url: "#", label: "Twitter" },
-    { icon: <FaInstagram className="w-4 h-4" />, url: "#", label: "Instagram" }
+    { 
+      icon: <FaGithub className="w-4 h-4" />, 
+      url: "https://github.com/youssefweb1", 
+      label: "GitHub" 
+    },
+    { 
+      icon: <FaLinkedin className="w-4 h-4" />, 
+      url: "https://www.linkedin.com/in/youssef-elsabbahy", 
+      label: "LinkedIn" 
+    },
+    { 
+      icon: <FaTiktok className="w-4 h-4" />, 
+      url: "https://www.tiktok.com/@yooussef.tech", 
+      label: "TikTok" 
+    },
+    { 
+      icon: <FaWhatsapp className="w-4 h-4" />, 
+      url: "https://wa.me/966582407507", 
+      label: "WhatsApp" 
+    }
   ];
 
   return (

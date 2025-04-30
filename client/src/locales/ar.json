@@ -136,12 +136,15 @@
       "location": "الموقع",
       "locationValue": "الرياض، المملكة العربية السعودية",
       "portfolio": "موقع البورتفوليو",
-      "portfolioValue": "https://youssef.com"
+      "portfolioValue": "https://yooussef.com",
+      "whatsapp": "واتساب",
+      "whatsappValue": "wa.me/966582407507"
     },
     "social": {
       "title": "تابعني على",
       "github": "https://github.com/youssefweb1",
-      "linkedin": "https://www.linkedin.com/in/youssef-elsabbahy"
+      "linkedin": "https://www.linkedin.com/in/youssef-elsabbahy",
+      "tiktok": "https://www.tiktok.com/@yooussef.tech"
     }
   },
   "footer": {

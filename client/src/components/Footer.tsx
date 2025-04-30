@@ -2,11 +2,12 @@ import { useTranslation } from "react-i18next";
 import { 
   FaGithub, 
   FaLinkedin, 
-  FaTwitter, 
+  FaTiktok, 
   FaEnvelope, 
   FaMapMarkerAlt, 
   FaCode, 
-  FaBriefcase 
+  FaBriefcase,
+  FaWhatsapp
 } from "react-icons/fa";
 import { Link } from "wouter";
 
