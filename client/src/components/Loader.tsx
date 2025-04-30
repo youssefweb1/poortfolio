@@ -9,91 +9,188 @@ interface LoaderProps {
 const Loader: React.FC<LoaderProps> = ({ setLoading }) => {
   const { t } = useTranslation();
   const [progress, setProgress] = useState(0);
+  
+  // Main container refs
   const loaderRef = useRef<HTMLDivElement>(null);
-  const svgRef = useRef<SVGSVGElement>(null);
-  const pathRef = useRef<SVGPathElement>(null);
-  const textRef = useRef<HTMLDivElement>(null);
-  const progressRef = useRef<HTMLDivElement>(null);
-  const counterRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   
+  // Code animation refs
+  const codeContainerRef = useRef<HTMLDivElement>(null);
+  const codeLinesRef = useRef<HTMLDivElement[]>([]);
+  const addCodeLineRef = (el: HTMLDivElement) => {
+    if (el && !codeLinesRef.current.includes(el)) {
+      codeLinesRef.current.push(el);
+    }
+  };
+  
+  // Particle refs
+  const particlesRef = useRef<HTMLDivElement>(null);
+  const particleElements = useRef<HTMLDivElement[]>([]);
+  const addParticleRef = (el: HTMLDivElement) => {
+    if (el && !particleElements.current.includes(el)) {
+      particleElements.current.push(el);
+    }
+  };
+  
+  // Text content refs
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const subtitleRef = useRef<HTMLParagraphElement>(null);
+  const progressBarRef = useRef<HTMLDivElement>(null);
+  const progressValueRef = useRef<HTMLDivElement>(null);
+  const counterRef = useRef<HTMLDivElement>(null);
+  
+  // Generate code lines
+  const codeLines = [
+    '<div className="portfolio">',
+    '  <Header />',
+    '  <main>',
+    '    <HeroSection />',
+    '    <AboutSection />',
+    '    <ProjectsSection />',
+    '    <ContactSection />',
+    '  </main>',
+    '  <Footer />',
+    '</div>'
+  ];
+  
+  // Generate particles
+  const particles = Array.from({ length: 15 }, (_, i) => i);
+  
+  // Update progress bar when progress changes
   useEffect(() => {
-    if (!loaderRef.current || !svgRef.current || !pathRef.current) return;
+    if (progressValueRef.current) {
+      gsap.to(progressValueRef.current, {
+        width: `${progress}%`,
+        duration: 0.4,
+        ease: "power1.out"
+      });
+    }
+  }, [progress]);
+  
+  // Main animation setup
+  useEffect(() => {
+    if (!loaderRef.current) return;
     
-    // Get the total length of the logo path for the drawing animation
-    const pathLength = pathRef.current.getTotalLength();
+    // Initialize GSAP animation
+    const mainTimeline = gsap.timeline();
     
-    // Set initial path state
-    gsap.set(pathRef.current, {
-      strokeDasharray: pathLength,
-      strokeDashoffset: pathLength,
-      opacity: 0
+    // Set initial states
+    gsap.set(particleElements.current, {
+      opacity: 0,
+      scale: 0,
+      x: () => gsap.utils.random(-100, 100),
+      y: () => gsap.utils.random(-100, 100),
+      backgroundColor: () => {
+        const colors = ['#3498db', '#2c6dbe', '#6fb1fc', '#36c2b9', '#5170ff'];
+        return colors[Math.floor(Math.random() * colors.length)];
+      }
     });
     
-    // Create main animation timeline
-    const tl = gsap.timeline();
+    gsap.set(codeLinesRef.current, {
+      opacity: 0,
+      x: -20,
+      transformOrigin: "left"
+    });
     
-    // Initial animation - fade in and draw logo
-    tl.to(loaderRef.current, {
-      backgroundColor: 'rgba(0, 0, 0, 0.95)',
-      duration: 0.5
-    })
-    .to(pathRef.current, {
-      opacity: 1,
-      duration: 0.3
-    })
-    .to(pathRef.current, {
-      strokeDashoffset: 0,
-      duration: 1.5,
+    gsap.set([titleRef.current, subtitleRef.current, progressBarRef.current, counterRef.current], {
+      opacity: 0,
+      y: 20
+    });
+    
+    // Background initial animation
+    mainTimeline.to(loaderRef.current, {
+      backgroundColor: 'rgba(10, 15, 30, 0.98)',
+      duration: 0.8,
       ease: "power2.inOut"
-    })
-    .to(svgRef.current, {
-      scale: 0.8,
-      y: -30,
+    });
+    
+    // Particles animation
+    mainTimeline.to(particleElements.current, {
+      opacity: 0.7,
+      scale: 1,
+      stagger: 0.04,
+      duration: 0.8,
+      ease: "back.out(1.7)",
+      onComplete: () => {
+        // Start continuous particle animations
+        particleElements.current.forEach(particle => {
+          gsap.to(particle, {
+            x: `+=${gsap.utils.random(-150, 150)}`,
+            y: `+=${gsap.utils.random(-150, 150)}`,
+            opacity: gsap.utils.random(0.3, 0.8),
+            scale: gsap.utils.random(0.8, 1.5),
+            duration: gsap.utils.random(10, 20),
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut"
+          });
+        });
+      }
+    }, "-=0.4");
+    
+    // Animate code container in
+    mainTimeline.to(codeContainerRef.current, {
+      opacity: 1,
+      y: 0,
       duration: 0.7,
       ease: "back.out(1.2)"
-    })
-    .from(textRef.current, {
-      y: 20,
-      opacity: 0,
-      duration: 0.5,
-      ease: "power2.out"
-    }, "-=0.2")
-    .from(progressRef.current, {
-      width: 0,
-      opacity: 0,
+    }, "-=0.7");
+    
+    // Animate code lines sequentially
+    mainTimeline.to(codeLinesRef.current, {
+      opacity: 1,
+      x: 0,
+      stagger: 0.12,
       duration: 0.5,
       ease: "power1.out"
-    }, "-=0.2")
-    .from(counterRef.current, {
-      opacity: 0,
-      y: 10,
-      duration: 0.3
-    }, "-=0.3");
+    }, "-=0.5");
     
-    // Create subtle pulse animation for the SVG
-    gsap.to(svgRef.current, {
-      y: "-=5",
-      scale: 0.83,
-      duration: 1.5,
-      repeat: -1,
-      yoyo: true,
-      ease: "sine.inOut"
-    });
+    // Animate text and progress elements
+    mainTimeline.to([titleRef.current, subtitleRef.current], {
+      opacity: 1,
+      y: 0,
+      stagger: 0.15,
+      duration: 0.6,
+      ease: "back.out(1.2)"
+    }, "-=0.8");
     
-    // Create subtle glow effect for the container
-    gsap.to(containerRef.current, {
-      boxShadow: "0 0 30px rgba(139, 92, 246, 0.3)",
-      duration: 2,
-      repeat: -1,
-      yoyo: true,
-      ease: "sine.inOut"
-    });
+    mainTimeline.to([progressBarRef.current, counterRef.current], {
+      opacity: 1,
+      y: 0,
+      stagger: 0.15,
+      duration: 0.5,
+      ease: "power2.out"
+    }, "-=0.5");
     
-    // Progress counter simulation
+    // Select a random code line to "edit" every few seconds
+    const editCodeLine = () => {
+      const randomIndex = Math.floor(Math.random() * codeLinesRef.current.length);
+      const line = codeLinesRef.current[randomIndex];
+      
+      gsap.to(line, {
+        color: "#5eead4",
+        fontWeight: "bold",
+        duration: 0.3,
+        yoyo: true,
+        repeat: 3,
+        ease: "power1.inOut",
+        onComplete: () => {
+          gsap.to(line, {
+            color: "#94a3b8",
+            fontWeight: "normal",
+            duration: 0.3
+          });
+        }
+      });
+    };
+    
+    // Start periodic code editing effect
+    const editInterval = setInterval(editCodeLine, 2000);
+    
+    // Progress counter simulation - make it slightly faster
     let loadingProgress = 0;
     const interval = setInterval(() => {
-      loadingProgress += Math.floor(Math.random() * 3) + 1;
+      loadingProgress += Math.floor(Math.random() * 4) + 2;
       
       if (loadingProgress > 100) {
         loadingProgress = 100;
@@ -102,110 +199,187 @@ const Loader: React.FC<LoaderProps> = ({ setLoading }) => {
       }
       
       setProgress(loadingProgress);
-    }, 90);
+    }, 70);
     
-    // Final animation when loading completes
+    // Final animation sequence when loading completes
     const completeLoading = () => {
-      const completeTl = gsap.timeline({
-        onComplete: () => setTimeout(() => setLoading(false), 300)
+      clearInterval(editInterval);
+      
+      const completeTl = gsap.timeline();
+      completeTl.eventCallback("onComplete", () => {
+        setTimeout(() => setLoading(false), 200);
       });
       
+      // Add completion effects
       completeTl
-        .to(svgRef.current, {
-          scale: 1.3,
-          fill: "#8b5cf6",
-          stroke: "#d946ef",
-          ease: "back.out(1.7)",
-          duration: 0.6
+        // Highlight all code lines in sequence
+        .to(codeLinesRef.current, {
+          color: "#5eead4",
+          fontWeight: "bold",
+          stagger: 0.05,
+          duration: 0.2,
         })
-        .to(progressRef.current, {
+        // Fill progress bar completely
+        .to(progressValueRef.current, {
           width: "100%",
-          backgroundColor: "#8b5cf6",
+          backgroundColor: "#5eead4",
           duration: 0.4,
+          ease: "power3.out"
+        }, "-=0.8")
+        // Highlight counter
+        .to(counterRef.current, {
+          color: "#5eead4",
+          fontWeight: "bold",
+          scale: 1.1,
+          duration: 0.3
+        }, "-=0.4")
+        // Scale up code container
+        .to(codeContainerRef.current, {
+          scale: 1.05,
+          boxShadow: "0 0 30px rgba(94, 234, 212, 0.4)",
+          duration: 0.5,
           ease: "power2.out"
         }, "-=0.3")
-        .to(counterRef.current, {
-          color: "#8b5cf6",
-          scale: 1.1,
-          fontWeight: "bold",
-          duration: 0.4
-        }, "-=0.4")
-        .to([textRef.current, progressRef.current, counterRef.current, containerRef.current], {
+        // Explode particles outward
+        .to(particleElements.current, {
+          scale: 1.5,
+          opacity: 0.9,
+          x: (i, el) => {
+            const currentX = gsap.getProperty(el, "x") as number;
+            return currentX + gsap.utils.random(-200, 200);
+          },
+          y: (i, el) => {
+            const currentY = gsap.getProperty(el, "y") as number;
+            return currentY + gsap.utils.random(-200, 200);
+          },
+          duration: 1,
+          stagger: 0.02,
+          ease: "power2.out"
+        }, "-=0.5")
+        // Fade out interface elements
+        .to([titleRef.current, subtitleRef.current, progressBarRef.current, counterRef.current], {
           opacity: 0,
           y: -20,
-          stagger: 0.1,
-          duration: 0.5,
-          delay: 0.6
-        })
-        .to(svgRef.current, {
-          y: 0,
-          scale: 15,
+          duration: 0.4,
+          stagger: 0.05,
+          ease: "power2.in"
+        }, "+=0.3")
+        // Scale code container up and fade out
+        .to(codeContainerRef.current, {
+          scale: 1.3,
           opacity: 0,
-          duration: 1,
+          duration: 0.6,
           ease: "power3.in"
         }, "-=0.2")
+        // Final particle explosion
+        .to(particleElements.current, {
+          opacity: 0,
+          scale: 3,
+          duration: 0.6,
+          stagger: 0.02,
+          ease: "power3.out"
+        }, "-=0.6")
+        // Fade out the entire loader
         .to(loaderRef.current, {
           opacity: 0,
-          duration: 0.4,
+          duration: 0.5,
           ease: "power2.inOut"
-        }, "-=0.2");
+        }, "-=0.3");
     };
     
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+    };
   }, [setLoading]);
   
   return (
     <div
       ref={loaderRef}
-      className="fixed inset-0 flex flex-col items-center justify-center bg-black/80 backdrop-blur-md z-[100] overflow-hidden"
+      className="fixed inset-0 flex flex-col items-center justify-center bg-black/90 backdrop-blur-xl z-[100] overflow-hidden"
     >
+      {/* Animated particles */}
+      <div ref={particlesRef} className="absolute inset-0 overflow-hidden pointer-events-none">
+        {particles.map((_, index) => (
+          <div
+            key={index}
+            ref={addParticleRef}
+            className="absolute rounded-full opacity-0"
+            style={{
+              width: `${Math.random() * 20 + 5}px`,
+              height: `${Math.random() * 20 + 5}px`,
+              left: `${50 + Math.random() * 10}%`,
+              top: `${50 + Math.random() * 10}%`,
+            }}
+          ></div>
+        ))}
+      </div>
+      
       <div
         ref={containerRef}
-        className="relative flex flex-col items-center max-w-md w-full px-6"
+        className="relative flex flex-col items-center max-w-md w-full px-6 z-10"
       >
-        {/* Logo SVG with animated stroke */}
-        <svg 
-          ref={svgRef}
-          width="100" 
-          height="100" 
-          viewBox="0 0 100 100"
-          className="mb-8"
+        {/* Code animation container */}
+        <div 
+          ref={codeContainerRef} 
+          className="w-full mb-8 bg-slate-900/80 rounded-lg border border-slate-700 overflow-hidden shadow-lg opacity-0 transform -translate-y-4"
         >
-          <path
-            ref={pathRef}
-            d="M50 10 C22 10 10 22 10 50 C10 78 22 90 50 90 C78 90 90 78 90 50 C90 22 78 10 50 10 Z M50 30 C38.954 30 30 38.954 30 50 C30 61.046 38.954 70 50 70 C61.046 70 70 61.046 70 50 C70 38.954 61.046 30 50 30 Z"
-            className="fill-none stroke-primary"
-            strokeWidth="4"
-            strokeLinecap="round"
-          />
-        </svg>
+          {/* Code header bar */}
+          <div className="bg-slate-800 px-4 py-2 border-b border-slate-700 flex items-center">
+            <div className="flex space-x-2 rtl:space-x-reverse">
+              <div className="w-3 h-3 rounded-full bg-red-500"></div>
+              <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+              <div className="w-3 h-3 rounded-full bg-green-500"></div>
+            </div>
+            <div className="text-xs text-slate-400 mx-auto">portfolio.tsx</div>
+          </div>
+          
+          {/* Code content */}
+          <div className="p-4 font-mono text-sm">
+            {codeLines.map((line, index) => (
+              <div 
+                key={index}
+                ref={addCodeLineRef}
+                className="mb-1 text-slate-400"
+                style={{ paddingLeft: `${line.match(/^\s+/)?.[0].length || 0}rem` }}
+              >
+                {line}
+              </div>
+            ))}
+          </div>
+        </div>
         
-        {/* Text & progress */}
-        <div className="w-full mb-8">
-          <div 
-            ref={textRef}
-            className="text-center mb-6"
-          >
-            <h2 className="text-2xl font-bold text-white mb-1">
+        {/* Text & Progress section */}
+        <div className="w-full">
+          <div className="text-center mb-6">
+            <h2 
+              ref={titleRef} 
+              className="text-2xl md:text-3xl font-bold text-white mb-2 opacity-0"
+            >
               {t('name')}
             </h2>
-            <p className="text-white/80 text-sm">
-              {t('loader.message', 'Loading amazing experiences...')}
+            <p 
+              ref={subtitleRef}
+              className="text-blue-300/80 text-sm opacity-0"
+            >
+              {t('loader.message', 'Initializing workspace environment...')}
             </p>
           </div>
           
           {/* Progress tracker */}
-          <div className="h-1 w-full bg-white/10 rounded-full mb-1 overflow-hidden">
+          <div 
+            ref={progressBarRef}
+            className="h-2 w-full bg-slate-800/80 rounded-full mb-2 overflow-hidden opacity-0 backdrop-blur-md border border-slate-700/50"
+          >
             <div 
-              ref={progressRef}
-              className="h-full bg-gradient-to-r from-primary to-accent rounded-full"
+              ref={progressValueRef}
+              className="h-full bg-gradient-to-r from-blue-600 to-blue-400 rounded-full"
               style={{ width: `${progress}%` }}
             ></div>
           </div>
           
           <div 
             ref={counterRef}
-            className="text-right text-xs font-medium text-white/70"
+            className="text-right text-sm font-medium text-blue-300/80 opacity-0"
           >
             {progress}%
           </div>

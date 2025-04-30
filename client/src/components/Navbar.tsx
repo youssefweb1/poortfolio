@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Menu, X, ChevronDown, MessageCircle } from "lucide-react";
+import { Menu, X, ChevronDown, MessageCircle, Code, CodeXml } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
 import { Button } from "@/components/ui/button";
@@ -73,10 +73,10 @@ const Navbar: React.FC = () => {
         <nav className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center">
-            <div className="relative z-10">
+            <div className="relative z-10 group">
               <div className="absolute -inset-1 bg-gradient-to-r from-primary/60 to-accent/60 rounded-full blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
-              <div className="relative font-bold text-xl lg:text-2xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
-                {t('name')}
+              <div className="relative flex items-center justify-center w-10 h-10 bg-gradient-to-r from-primary/10 to-accent/10 rounded-full border border-primary/30 p-2 group-hover:border-primary/70 transition-all duration-300">
+                <CodeXml className="w-5 h-5 text-primary group-hover:text-accent group-hover:scale-110 transition-all duration-300" />
               </div>
             </div>
             
