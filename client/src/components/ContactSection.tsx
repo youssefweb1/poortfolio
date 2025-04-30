@@ -129,8 +129,8 @@ const ContactSection: React.FC = () => {
                     <div className="text-xs font-medium text-muted-foreground mb-1">
                       {t('contact.info.email')}
                     </div>
-                    <a href="mailto:youssef@example.com" className="hover:text-primary transition-colors">
-                      youssef@example.com
+                    <a href="mailto:yooooussef@yahoo.com" className="hover:text-primary transition-colors">
+                      yooooussef@yahoo.com
                     </a>
                   </div>
                 </div>
@@ -143,8 +143,8 @@ const ContactSection: React.FC = () => {
                     <div className="text-xs font-medium text-muted-foreground mb-1">
                       {t('contact.info.phone')}
                     </div>
-                    <a href="tel:+1234567890" className="hover:text-primary transition-colors">
-                      +123 456 7890
+                    <a href="tel:+966582407507" className="hover:text-primary transition-colors">
+                      +966 582 407 507
                     </a>
                   </div>
                 </div>
@@ -162,6 +162,23 @@ const ContactSection: React.FC = () => {
                     </div>
                   </div>
                 </div>
+                
+                <div className="flex items-center group">
+                  <div className="w-12 h-12 glass border border-primary/30 group-hover:border-primary/60 transition-colors rounded-full flex items-center justify-center text-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                      <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                  </div>
+                  <div className="ms-4">
+                    <div className="text-xs font-medium text-muted-foreground mb-1">
+                      {t('contact.info.portfolio')}
+                    </div>
+                    <a href="https://youssef.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                      {t('contact.info.portfolioValue')}
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
             
@@ -172,46 +189,22 @@ const ContactSection: React.FC = () => {
               
               <div className="flex flex-wrap gap-4">
                 <a 
-                  href="#" 
+                  href="https://github.com/youssefweb1" 
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 glass border border-primary/30 hover:border-primary/60 hover:text-primary rounded-full flex items-center justify-center transition-colors"
                   aria-label="GitHub"
                 >
                   <FaGithub className="w-4 h-4" />
                 </a>
                 <a 
-                  href="#" 
+                  href="https://www.linkedin.com/in/youssef-elsabbahy" 
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 glass border border-primary/30 hover:border-primary/60 hover:text-primary rounded-full flex items-center justify-center transition-colors"
                   aria-label="LinkedIn"
                 >
                   <FaLinkedin className="w-4 h-4" />
-                </a>
-                <a 
-                  href="#" 
-                  className="w-10 h-10 glass border border-primary/30 hover:border-primary/60 hover:text-primary rounded-full flex items-center justify-center transition-colors"
-                  aria-label="Twitter"
-                >
-                  <FaTwitter className="w-4 h-4" />
-                </a>
-                <a 
-                  href="#" 
-                  className="w-10 h-10 glass border border-primary/30 hover:border-primary/60 hover:text-primary rounded-full flex items-center justify-center transition-colors"
-                  aria-label="Instagram"
-                >
-                  <FaInstagram className="w-4 h-4" />
-                </a>
-                <a 
-                  href="#" 
-                  className="w-10 h-10 glass border border-primary/30 hover:border-primary/60 hover:text-primary rounded-full flex items-center justify-center transition-colors"
-                  aria-label="Dribbble"
-                >
-                  <FaDribbble className="w-4 h-4" />
-                </a>
-                <a 
-                  href="#" 
-                  className="w-10 h-10 glass border border-primary/30 hover:border-primary/60 hover:text-primary rounded-full flex items-center justify-center transition-colors"
-                  aria-label="Behance"
-                >
-                  <FaBehance className="w-4 h-4" />
                 </a>
               </div>
             </div>

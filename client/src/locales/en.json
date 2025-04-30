@@ -1,5 +1,5 @@
 {
-  "name": "Youssef Al-Sabbahi",
+  "name": "Youssef Elsabbahy",
   "title": "Full Stack Web Developer",
   "loader": {
     "message": "Loading amazing experiences..."
@@ -18,11 +18,11 @@
   },
   "about": {
     "title": "About Me",
-    "subtitle": "Full Stack Developer & UI Designer",
-    "shortDescription": "A passionate developer focused on creating immersive web experiences with modern technologies",
+    "subtitle": "Full Stack Web Developer",
+    "shortDescription": "A passionate developer with experience in PHP, Laravel, and JavaScript technologies",
     "imageAlt": "Youssef working",
-    "paragraph1": "Hello, I'm Youssef, a Full Stack Web Developer with a passion for building exceptional digital experiences. I have extensive experience in both frontend and backend development, with a special focus on modern JavaScript technologies and creative design.",
-    "paragraph2": "My skill set includes creating smooth interactive interfaces with React and Next.js, developing robust APIs, and designing efficient databases. I am deeply interested in user experience and always strive to achieve the perfect balance between aesthetics and functionality in every project.",
+    "paragraph1": "Full Stack Web Developer with 2+ years of experience in PHP (Native) and recent Laravel projects. Skilled in Blade templating and Vanilla JavaScript (especially AJAX). Familiar with Vue.js. Proficient in WordPress, Shopify, and Salla.",
+    "paragraph2": "Domain and email configuration expert, including Gmail integration. Comfortable using Canva and AI tools for visual content. ICDL-certified in Word, Excel, and PowerPoint.",
     "skills": "Technical Skills",
     "skillsDescription": "Technologies and tools I work with",
     "experience": "Experience",
@@ -47,29 +47,61 @@
     },
     "preview": "Preview",
     "code": "Code",
-    "ecommerce": {
-      "title": "E-commerce Platform",
-      "description": "A comprehensive e-commerce platform with admin dashboard and secure payment system"
+    "project1": {
+      "title": "EcooShield – Pest Control Landing Page",
+      "description": "A modern landing page for a pest control company with animated visuals and responsive layout."
     },
-    "social": {
-      "title": "Social Media App",
-      "description": "A social networking platform with messaging, sharing, and real-time interaction features"
+    "project2": {
+      "title": "Emaar AlMsakin – Real Estate Website",
+      "description": "Complete real estate company website with property listings, contact form, and SEO-optimized pages."
     },
-    "3d": {
-      "title": "3D Interactive Website",
-      "description": "An interactive 3D website using WebGL and Three.js for an immersive experience"
+    "project3": {
+      "title": "The IOU Project – NFT Art Showcase",
+      "description": "A creative and animated site for an NFT collection, focused on storytelling and Web3 aesthetics."
     },
-    "management": {
-      "title": "Project Management App",
-      "description": "A comprehensive project management system with task tracking, member management, and reporting"
+    "project4": {
+      "title": "Giant Whale – Portfolio Website",
+      "description": "Company portfolio website showcasing design and dev services for the Saudi market."
     },
-    "delivery": {
-      "title": "Food Delivery App",
-      "description": "A complete food delivery application with interactive maps and order tracking system"
+    "project5": {
+      "title": "Ibra Academy – Arabic Educational Template",
+      "description": "An educational template built in Arabic RTL format for online courses."
     },
-    "dashboard": {
-      "title": "Interactive Dashboard",
-      "description": "An interactive analytics dashboard with charts and advanced data visualizations"
+    "project6": {
+      "title": "Fleex Task – To-Do App Interface",
+      "description": "A simple task management interface with animated interactions."
+    },
+    "project7": {
+      "title": "Helpfererhof – Austrian Tourism Website",
+      "description": "A professional tourism and booking website built for a guesthouse in Austria."
+    },
+    "project8": {
+      "title": "Bold Portfolio Template",
+      "description": "Dark-themed modern portfolio template for creative developers."
+    },
+    "project9": {
+      "title": "Yousef Portfolio (Old)",
+      "description": "A previous portfolio version with basic layout and demo projects."
+    },
+    "project10": {
+      "title": "Agricultural Talent – Job Platform",
+      "description": "A Laravel-based platform to connect agriculture companies with job seekers."
+    },
+    "project11": {
+      "title": "Estisharati – Online Consulting CRM",
+      "description": "A modern CRM to manage online consultation bookings and expert scheduling."
+    },
+    "project12": {
+      "title": "Party Wizard – Event Supplies Store",
+      "description": "An eCommerce project for renting party items online, built in Laravel."
+    },
+    "project13": {
+      "title": "KSA Lawyers – Legal Portal",
+      "description": "A legal services website in Arabic with categorized lawyers and contact tools."
+    },
+    "project14": {
+      "title": "Tmatem – Arabic Recipes & Products Store",
+      "description": "A custom Arabic food site with recipe content and WooCommerce features."
     }
   },
   "contact": {
@@ -97,17 +129,23 @@
     "info": {
       "title": "Contact Information",
       "email": "Email",
+      "emailValue": "yooooussef@yahoo.com",
       "phone": "Phone",
+      "phoneValue": "+966582407507",
       "location": "Location",
-      "locationValue": "Riyadh, Saudi Arabia"
+      "locationValue": "Riyadh, Saudi Arabia",
+      "portfolio": "Portfolio",
+      "portfolioValue": "https://youssef.com"
     },
     "social": {
-      "title": "Follow Me"
+      "title": "Follow Me",
+      "github": "https://github.com/youssefweb1",
+      "linkedin": "https://www.linkedin.com/in/youssef-elsabbahy"
     }
   },
   "footer": {
-    "copyright": "© {{year}} Youssef Al-Sabbahi. All rights reserved.",
-    "about": "A passionate full stack developer specializing in creating modern, efficient, and visually stunning web applications.",
+    "copyright": "© {{year}} Youssef Elsabbahy. All rights reserved.",
+    "about": "Full Stack Web Developer with 2+ years of experience in PHP, Laravel, and JavaScript technologies.",
     "quickLinks": "Quick Links",
     "services": "Services",
     "webDevelopment": "Web Development",

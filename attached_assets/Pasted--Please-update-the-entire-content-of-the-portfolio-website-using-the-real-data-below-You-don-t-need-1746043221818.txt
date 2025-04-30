@@ -1,0 +1,155 @@
+
+Please update the entire content of the portfolio website using the real data below. You don’t need to change the design, just replace and reformat all placeholder or incorrect content with my real details.
+Make sure the layout and structure remain clean, responsive, and make sense visually. Also, fix any language mismatches or misused class names. Handle any missing info gracefully.
+
+👤 Personal Info:
+Name: Youssef Elsabbahy
+
+Location: Riyadh, Saudi Arabia
+
+Email: yooooussef@yahoo.com
+
+Phone: +966582407507
+
+Portfolio: https://youssef.com
+
+GitHub: https://github.com/youssefweb1
+
+LinkedIn: https://www.linkedin.com/in/youssef-elsabbahy
+
+📝 Professional Summary (About Section):
+Full Stack Web Developer with 2+ years of experience in PHP (Native) and recent Laravel projects. Skilled in Blade templating and Vanilla JavaScript (especially AJAX). Familiar with Vue.js. Proficient in WordPress, Shopify, and Salla. Domain and email configuration expert, including Gmail integration. Comfortable using Canva and AI tools for visual content. ICDL-certified in Word, Excel, and PowerPoint.
+
+💼 Experience:
+Mar 2025 – Present: IT Manager at Mohamoon Saudi Arabia (Remote)
+→ Managing and maintaining WordPress-based legal portal, domains, and emails.
+
+Sep 2024 – Jan 2025: Full Stack Developer at Estisharati (UAE – Remote)
+→ Built Party Wizard (eCommerce – Laravel) & Estisharati CRM for online bookings.
+
+Jan 2023 – Nov 2024: Full Stack Developer at GiantWhale (Remote)
+→ Developed portfolio and eCommerce sites tailored for Saudi clients.
+
+Jan 2023 – Present: Web Developer at Motiv-X (Part-time)
+→ Ongoing Laravel improvements and backend optimizations.
+
+Feb 2025 – Present: Global Competition Participant (Riyadh)
+→ Led the tech side of a smart web project, focusing on performance and API integrations.
+
+Internship – Createivo:
+→ 4-month training in PHP & Laravel. Later assigned mentoring role for new trainees.
+
+🛠 Skills:
+Frontend:
+HTML5, CSS3, JavaScript (ES6), Vue.js, jQuery & Ajax, Tailwind CSS, Bootstrap, GSAP, A-Frame, WordPress, Salla
+
+Backend:
+PHP, Laravel, MySQL, RESTful APIs
+
+Programming Concepts:
+OOP, MVC, SOLID, Design Patterns, Data Structures & Algorithms, Git, Domain & Email Setup
+
+Soft Skills:
+Teamwork, Communication, Self-learning, Project Management, Attention to Detail, Time Management, Technical Support
+
+Tools & Extras:
+Canva, Figma, ICDL, Arduino (Level 1), Server Setup & Gmail Integration
+
+🚀 Projects:
+(Format projects neatly — image, title, tech stack, short description, live link if available)
+Example:
+
+EcooShield – Pest Control Landing Page
+React.js, Tailwind CSS, GSAP, Vite
+Live: https://ecooshield.vercel.app
+→ Clean, animated, SEO-optimized landing page for a pest control company.
+
+Add the rest as per this list:
+https://ecooshield.vercel.app/
+https://emaaralmsakin.com/
+https://theiouprojectt.com/
+https://gwhalea.com/en
+https://j2oe.github.io/Ibra_Academy/
+https://j2oe.github.io/task-fleex/
+https://www.helpfererhof.at/
+https://j2oe.github.io/Bold-Portfolio/
+https://yooooussef.netlify.app/
+https://agriculturaltalent.com/
+https://youssefweb1.github.io/estishaarati-v2/index.html
+https://youssefweb1.github.io/party-wizard/
+https://ksa-lawyers.com/
+https://drive.google.com/file/d/1VOmA9xKwL2fUp_8n5x_1_QRyJyD1_Coo/view?usp=sharing
+https://tmatem.sa/ar
+rojects Section – Final Data (Replace All Old Ones):
+1. EcooShield – Pest Control Landing Page
+A modern landing page for a pest control company with animated visuals and responsive layout.
+Tech Stack: React.js, Tailwind CSS, GSAP, Vite
+🔗 Live Demo
+
+2. Emaar AlMsakin – Real Estate Website
+Complete real estate company website with property listings, contact form, and SEO-optimized pages.
+Tech Stack: Laravel, Bootstrap, Blade
+🔗 Live Site
+
+3. The IOU Project – NFT Art Showcase
+A creative and animated site for an NFT collection, focused on storytelling and Web3 aesthetics.
+Tech Stack: HTML, CSS, GSAP
+🔗 Live Demo
+
+4. Giant Whale – Portfolio Website
+Company portfolio website showcasing design and dev services for the Saudi market.
+Tech Stack: WordPress (Elementor)
+🔗 Live Site
+
+5. Ibra Academy – Arabic Educational Template
+An educational template built in Arabic RTL format for online courses.
+Tech Stack: HTML, CSS
+🔗 Live Demo
+
+6. Fleex Task – To-Do App Interface
+A simple task management interface with animated interactions.
+Tech Stack: HTML, CSS, JS
+🔗 Live Demo
+
+7. Helpfererhof – Austrian Tourism Website
+A professional tourism and booking website built for a guesthouse in Austria.
+Tech Stack: WordPress
+🔗 Live Site
+
+8. Bold Portfolio Template
+Dark-themed modern portfolio template for creative developers.
+Tech Stack: HTML, CSS, GSAP
+🔗 Live Demo
+
+9. Yousef Portfolio (Old)
+A previous portfolio version with basic layout and demo projects.
+Tech Stack: HTML, CSS, JS
+🔗 Live Site
+
+10. Agricultural Talent – Job Platform
+A Laravel-based platform to connect agriculture companies with job seekers.
+Tech Stack: Laravel, Bootstrap
+🔗 Live Site
+
+11. Estisharati – Online Consulting CRM
+A modern CRM to manage online consultation bookings and expert scheduling.
+Tech Stack: Laravel, Blade
+🔗 Live Demo
+
+12. Party Wizard – Event Supplies Store
+An eCommerce project for renting party items online, built in Laravel.
+Tech Stack: Laravel, Bootstrap
+🔗 Live Demo
+
+13. KSA Lawyers – Legal Portal
+A legal services website in Arabic with categorized lawyers and contact tools.
+Tech Stack: WordPress
+🔗 Live Site
+
+15. Tmatem – Arabic Recipes & Products Store
+A custom Arabic food site with recipe content and WooCommerce features.
+Tech Stack: WordPress + WooCommerce
+🔗 Live Site
+
+Make sure all sections work well on desktop and mobile, especially the Experience section layout.
+Let me know once all real data is in place so I can review the copy and approve final fixes.
