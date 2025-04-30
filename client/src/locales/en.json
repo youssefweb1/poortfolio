@@ -101,6 +101,10 @@
       "description": "A legal services website in Arabic with categorized lawyers and contact tools."
     },
     "project14": {
+      "title": "Event Entry System with QR Code",
+      "description": "A custom event management system with QR code scanning and unique serial numbers for tickets."
+    },
+    "project15": {
       "title": "Tmatem – Arabic Recipes & Products Store",
       "description": "A custom Arabic food site with recipe content and WooCommerce features."
     }

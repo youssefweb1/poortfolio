@@ -34,7 +34,7 @@ const ProjectsSection: React.FC = () => {
       titleKey: "projects.project1.title",
       descriptionKey: "projects.project1.description",
       technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
-      previewLink: "https://ecooshield.com",
+      previewLink: "https://ecooshield.vercel.app/",
       codeLink: "https://github.com/youssefweb1"
     },
     {
@@ -44,7 +44,7 @@ const ProjectsSection: React.FC = () => {
       titleKey: "projects.project2.title",
       descriptionKey: "projects.project2.description",
       technologies: ["PHP", "MySQL", "Bootstrap", "jQuery"],
-      previewLink: "https://emaralmasakin.com",
+      previewLink: "https://emaaralmsakin.com/",
       codeLink: "https://github.com/youssefweb1"
     },
     {
@@ -54,7 +54,7 @@ const ProjectsSection: React.FC = () => {
       titleKey: "projects.project3.title",
       descriptionKey: "projects.project3.description",
       technologies: ["Three.js", "GSAP", "JavaScript"],
-      previewLink: "https://iou-studio.com",
+      previewLink: "https://theiouprojectt.com/",
       codeLink: "https://github.com/youssefweb1"
     },
     {
@@ -64,7 +64,7 @@ const ProjectsSection: React.FC = () => {
       titleKey: "projects.project4.title",
       descriptionKey: "projects.project4.description",
       technologies: ["HTML", "CSS", "JavaScript", "Tailwind CSS"],
-      previewLink: "https://giantwell.com", 
+      previewLink: "https://gwhalea.com/en", 
       codeLink: "https://github.com/youssefweb1"
     },
     {
@@ -74,7 +74,7 @@ const ProjectsSection: React.FC = () => {
       titleKey: "projects.project5.title",
       descriptionKey: "projects.project5.description",
       technologies: ["HTML", "CSS", "JavaScript", "RTL Design"],
-      previewLink: "https://ibracademy.sa",
+      previewLink: "https://j2oe.github.io/Ibra_Academy/",
       codeLink: "https://github.com/youssefweb1"
     },
     {
@@ -84,7 +84,7 @@ const ProjectsSection: React.FC = () => {
       titleKey: "projects.project6.title",
       descriptionKey: "projects.project6.description",
       technologies: ["HTML", "CSS", "JavaScript", "GSAP"],
-      previewLink: "https://fleex-task.web.app",
+      previewLink: "https://j2oe.github.io/task-fleex/",
       codeLink: "https://github.com/youssefweb1"
     },
     {
@@ -94,7 +94,7 @@ const ProjectsSection: React.FC = () => {
       titleKey: "projects.project7.title",
       descriptionKey: "projects.project7.description",
       technologies: ["PHP", "MySQL", "Bootstrap", "Booking System"],
-      previewLink: "https://helpferererhof.at",
+      previewLink: "https://www.helpfererhof.at/",
       codeLink: "https://github.com/youssefweb1"
     },
     {
@@ -104,7 +104,7 @@ const ProjectsSection: React.FC = () => {
       titleKey: "projects.project8.title",
       descriptionKey: "projects.project8.description",
       technologies: ["HTML", "CSS", "JavaScript", "Dark Mode"],
-      previewLink: "#",
+      previewLink: "https://j2oe.github.io/Bold-Portfolio/",
       codeLink: "https://github.com/youssefweb1" 
     },
     {
@@ -114,7 +114,7 @@ const ProjectsSection: React.FC = () => {
       titleKey: "projects.project9.title",
       descriptionKey: "projects.project9.description",
       technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
-      previewLink: "#",
+      previewLink: "https://yooooussef.netlify.app/",
       codeLink: "https://github.com/youssefweb1"
     },
     {
@@ -124,7 +124,7 @@ const ProjectsSection: React.FC = () => {
       titleKey: "projects.project10.title",
       descriptionKey: "projects.project10.description",
       technologies: ["Laravel", "MySQL", "Bootstrap", "jQuery"],
-      previewLink: "https://agritalent.com",
+      previewLink: "https://agriculturaltalent.com/",
       codeLink: "https://github.com/youssefweb1"
     },
     {
@@ -134,7 +134,7 @@ const ProjectsSection: React.FC = () => {
       titleKey: "projects.project11.title",
       descriptionKey: "projects.project11.description",
       technologies: ["Laravel", "MySQL", "Bootstrap", "Scheduling System"],
-      previewLink: "https://estisharati.sa",
+      previewLink: "https://youssefweb1.github.io/estishaarati-v2/index.html",
       codeLink: "https://github.com/youssefweb1"
     },
     {
@@ -144,7 +144,37 @@ const ProjectsSection: React.FC = () => {
       titleKey: "projects.project12.title",
       descriptionKey: "projects.project12.description",
       technologies: ["Laravel", "MySQL", "Bootstrap", "eCommerce"],
-      previewLink: "https://partywizard.sa",
+      previewLink: "https://youssefweb1.github.io/party-wizard/",
+      codeLink: "https://github.com/youssefweb1"
+    },
+    {
+      id: 13,
+      category: "fullstack",
+      image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73",
+      titleKey: "projects.project13.title",
+      descriptionKey: "projects.project13.description",
+      technologies: ["PHP", "MySQL", "Bootstrap", "Legal Services"],
+      previewLink: "https://ksa-lawyers.com/",
+      codeLink: "https://github.com/youssefweb1"
+    },
+    {
+      id: 14,
+      category: "fullstack",
+      image: "https://images.unsplash.com/photo-1617196035154-1e7e6e28b0db",
+      titleKey: "projects.project14.title",
+      descriptionKey: "projects.project14.description",
+      technologies: ["Laravel", "MySQL", "React", "Event Management"],
+      previewLink: "https://drive.google.com/file/d/1VOmA9xKwL2fUp_8n5x_1_QRyJyD1_Coo/view?usp=sharing",
+      codeLink: "https://github.com/youssefweb1"
+    },
+    {
+      id: 15,
+      category: "frontend",
+      image: "https://images.unsplash.com/photo-1495195134817-aeb325a55b65",
+      titleKey: "projects.project15.title",
+      descriptionKey: "projects.project15.description",
+      technologies: ["WordPress", "WooCommerce", "Arabic UI"],
+      previewLink: "https://tmatem.sa/ar",
       codeLink: "https://github.com/youssefweb1"
     }
   ];
