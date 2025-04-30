@@ -20,7 +20,7 @@ export function LanguageSwitcher({ className }: LanguageSwitcherProps) {
       variant="ghost" 
       size="icon" 
       onClick={toggleLanguage}
-      className={cn("rounded-full relative group", className)}
+      className={cn("rounded-full relative group focus:outline-none focus:ring-0 focus:ring-offset-0", className)}
       aria-label="Toggle language"
     >
       <Languages className="h-4 w-4" />
