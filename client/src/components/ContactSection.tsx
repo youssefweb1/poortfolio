@@ -192,7 +192,7 @@ const ContactSection: React.FC = () => {
                   href="https://github.com/youssefweb1" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 glass border border-primary/30 hover:border-primary/60 hover:text-primary rounded-full flex items-center justify-center transition-colors"
+                  className="w-10 h-10 glass neon-btn border-[#00c3ff]/30 hover:border-[#00c3ff]/60 hover:text-[#00c3ff] rounded-full flex items-center justify-center transition-all duration-300"
                   aria-label="GitHub"
                 >
                   <FaGithub className="w-4 h-4" />
@@ -201,7 +201,7 @@ const ContactSection: React.FC = () => {
                   href="https://www.linkedin.com/in/youssef-elsabbahy" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 glass border border-primary/30 hover:border-primary/60 hover:text-primary rounded-full flex items-center justify-center transition-colors"
+                  className="w-10 h-10 glass neon-btn border-[#00c3ff]/30 hover:border-[#00c3ff]/60 hover:text-[#00c3ff] rounded-full flex items-center justify-center transition-all duration-300"
                   aria-label="LinkedIn"
                 >
                   <FaLinkedin className="w-4 h-4" />
