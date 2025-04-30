@@ -11,6 +11,7 @@ i18n
   .use(initReactI18next)
   .init({
     debug: process.env.NODE_ENV === 'development',
+    lng: 'ar', // Force Arabic as default
     fallbackLng: 'ar',
     interpolation: {
       escapeValue: false, // not needed for React

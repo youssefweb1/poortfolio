@@ -388,7 +388,7 @@ const Loader: React.FC<LoaderProps> = ({ setLoading }) => {
           ref={taglineRef} 
           className="text-lg text-blue-300/90 mb-8 text-center font-light"
         >
-          {t('hero.profession')}
+          مطور ويب شامل
         </div>
         
         {/* Progress bar */}
