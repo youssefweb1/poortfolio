@@ -93,16 +93,87 @@ const ProjectsSection: React.FC = () => {
     ? projects 
     : projects.filter(project => project.category === activeCategory);
 
-  // Removed animations for instant content display
   useEffect(() => {
+    if (!sectionRef.current) return;
+
+    // Title animation
+    if (titleRef.current) {
+      gsap.fromTo(
+        titleRef.current,
+        { y: 50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          scrollTrigger: {
+            trigger: titleRef.current,
+            start: "top 80%",
+          }
+        }
+      );
+    }
+
+    // Filters animation
+    if (filtersRef.current) {
+      gsap.fromTo(
+        filtersRef.current,
+        { y: 20, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.5,
+          delay: 0.2,
+          scrollTrigger: {
+            trigger: filtersRef.current,
+            start: "top 80%",
+          }
+        }
+      );
+    }
+
+    // Project cards animation
+    if (projectsRef.current) {
+      const cards = projectsRef.current.querySelectorAll('.project-card');
+      gsap.fromTo(
+        cards,
+        { y: 100, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          stagger: 0.1,
+          duration: 0.8,
+          scrollTrigger: {
+            trigger: projectsRef.current,
+            start: "top 80%",
+          }
+        }
+      );
+    }
+
     return () => {
       // Cleanup scroll triggers
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
   }, []);
 
-  // Animation for filtering was removed for instant content display
-  // No animation on category changes
+  // Animate filtered projects when the category changes
+  useEffect(() => {
+    if (!projectsRef.current) return;
+    
+    const cards = projectsRef.current.querySelectorAll('.project-card');
+    
+    gsap.fromTo(
+      cards,
+      { scale: 0.95, opacity: 0 },
+      {
+        scale: 1,
+        opacity: 1,
+        stagger: 0.05,
+        duration: 0.4,
+        ease: "power1.out"
+      }
+    );
+  }, [filteredProjects]);
 
   return (
     <section 

@@ -1,6 +1,9 @@
 {
   "name": "Youssef Al-Sabbahi",
   "title": "Full Stack Web Developer",
+  "loader": {
+    "message": "Loading amazing experiences..."
+  },
   "nav": {
     "home": "Home",
     "about": "About",

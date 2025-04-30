@@ -14,8 +14,35 @@ const HeroSection: React.FC = () => {
   const textRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
 
-  // Removed animation effect for instant content display
   useEffect(() => {
+    if (!sectionRef.current || !textRef.current || !imageRef.current) return;
+
+    const textElements = textRef.current.querySelectorAll("h1, .hero-title, .hero-description, .hero-buttons");
+    
+    gsap.fromTo(
+      textElements,
+      { y: 50, opacity: 0 },
+      { 
+        y: 0, 
+        opacity: 1, 
+        duration: 1, 
+        stagger: 0.2,
+        ease: "power3.out"
+      }
+    );
+
+    gsap.fromTo(
+      imageRef.current,
+      { scale: 0.8, opacity: 0 },
+      { 
+        scale: 1, 
+        opacity: 1, 
+        duration: 1,
+        delay: 0.5,
+        ease: "back.out(1.7)"
+      }
+    );
+
     return () => {
       // Cleanup any scroll triggers
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());

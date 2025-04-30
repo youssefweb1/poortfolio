@@ -5,7 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/ui/theme-toggle";
 import { useTranslation } from "react-i18next";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
@@ -14,20 +14,29 @@ import ProjectsSection from "@/components/ProjectsSection";
 import ContactSection from "@/components/ContactSection";
 import Cursor from "@/components/Cursor";
 import FixedButtons from "@/components/FixedButtons";
+import Loader from "@/components/Loader";
 
 function HomePage() {
+  const [loading, setLoading] = useState(true);
+
   return (
     <>
-      <Cursor />
-      <Navbar />
-      <main>
-        <HeroSection />
-        <AboutSection />
-        <ProjectsSection />
-        <ContactSection />
-      </main>
-      <Footer />
-      <FixedButtons />
+      {loading ? (
+        <Loader setLoading={setLoading} />
+      ) : (
+        <>
+          <Cursor />
+          <Navbar />
+          <main>
+            <HeroSection />
+            <AboutSection />
+            <ProjectsSection />
+            <ContactSection />
+          </main>
+          <Footer />
+          <FixedButtons />
+        </>
+      )}
     </>
   );
 }
