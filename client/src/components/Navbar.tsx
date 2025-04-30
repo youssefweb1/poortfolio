@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, MessageCircle } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
 import { Button } from "@/components/ui/button";
@@ -80,18 +80,7 @@ const Navbar: React.FC = () => {
               </div>
             </div>
             
-            {isScrolled && (
-              <div className="hidden md:block ml-10">
-                <Button 
-                  variant="outline" 
-                  size="sm" 
-                  className="rounded-full text-xs border-primary/30 hover:border-primary/70 hover:bg-primary/5"
-                  onClick={() => scrollToSection("contact")}
-                >
-                  {t('hero.contact')}
-                </Button>
-              </div>
-            )}
+            {/* Removed the contact button that was here */}
           </div>
           
           {/* Desktop Navigation */}
@@ -122,10 +111,11 @@ const Navbar: React.FC = () => {
               <Button 
                 variant="default" 
                 size="sm" 
-                className="rounded-full text-xs"
+                className="rounded-full text-xs flex items-center gap-1.5 bg-[#25D366] hover:bg-[#20BD5C] text-white"
                 onClick={() => scrollToSection("contact")}
               >
-                {t('hero.contact')}
+                <MessageCircle className="h-3.5 w-3.5" />
+                WhatsApp
               </Button>
             </div>
           </div>
@@ -180,10 +170,11 @@ const Navbar: React.FC = () => {
             <Button 
               variant="default" 
               size="sm" 
-              className="w-full rounded-lg"
+              className="w-full rounded-lg flex items-center justify-center gap-1.5 bg-[#25D366] hover:bg-[#20BD5C] text-white"
               onClick={() => scrollToSection("contact")}
             >
-              {t('hero.contact')}
+              <MessageCircle className="h-3.5 w-3.5" />
+              WhatsApp
             </Button>
           </div>
         </div>
