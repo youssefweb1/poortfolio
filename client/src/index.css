@@ -4,6 +4,43 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 3D Transforms */
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.translate-z-\[calc\(16px\*0\.5\)\] {
+  transform: translateZ(calc(16px * 0.5));
+}
+
+.translate-z-\[calc\(24px\*0\.5\)\] {
+  transform: translateZ(calc(24px * 0.5));
+}
+
+.rotateY-180 {
+  transform: rotateY(180deg);
+}
+
+.rotateY-90 {
+  transform: rotateY(90deg);
+}
+
+.rotateY--90 {
+  transform: rotateY(-90deg);
+}
+
+.rotateX-90 {
+  transform: rotateX(90deg);
+}
+
+.rotateX--90 {
+  transform: rotateX(-90deg);
+}
+
 :root {
   --background: 210 30% 98%;
   --foreground: 222 47% 12%;
