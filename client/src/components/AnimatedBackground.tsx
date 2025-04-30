@@ -24,18 +24,19 @@ const AnimatedBackground = () => {
     // Handle window resize
     window.addEventListener('resize', resizeCanvas);
 
-    // Create gradient points
+    // Create gradient points - REDUCED for better performance
     let points: { x: number; y: number; vx: number; vy: number; radius: number }[] = [];
-    const pointCount = Math.min(12, Math.floor(window.innerWidth / 150)); // Adjust based on screen size
-
-    // Initialize points
+    // Significantly reduce point count based on device width
+    const pointCount = Math.min(6, Math.floor(window.innerWidth / 300)); // Much fewer points
+    
+    // Initialize points with slower movement
     for (let i = 0; i < pointCount; i++) {
       points.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.3,
-        radius: Math.random() * 150 + 100
+        vx: (Math.random() - 0.5) * 0.1, // Slower movement
+        vy: (Math.random() - 0.5) * 0.1, // Slower movement
+        radius: Math.random() * 120 + 80 // Smaller radius
       });
     }
 
@@ -61,12 +62,20 @@ const AnimatedBackground = () => {
       ];
     };
 
-    // Animation function
+    // Animation function with frame limiting for better performance
     const animate = (timestamp: number) => {
       if (!ctx || !canvas) return;
       
-      // Calculate delta time for smooth animation regardless of frame rate
+      // Calculate delta time for smooth animation
       const deltaTime = timestamp - lastTime;
+      
+      // Frame limiting - only update every ~40ms (25fps) instead of at full 60fps
+      // This significantly reduces CPU usage
+      if (deltaTime < 40) { 
+        animationFrameId = requestAnimationFrame(animate);
+        return;
+      }
+      
       lastTime = timestamp;
       
       // Clear canvas
@@ -75,36 +84,36 @@ const AnimatedBackground = () => {
       // Update and draw gradient points
       const colors = getColors();
       
-      // First draw the base gradient
+      // First draw the base gradient (simpler than before)
       const baseGradient = ctx.createRadialGradient(
         canvas.width / 2, canvas.height / 2, 0,
-        canvas.width / 2, canvas.height / 2, canvas.width * 0.7
+        canvas.width / 2, canvas.height / 2, canvas.width * 0.6
       );
       
-      baseGradient.addColorStop(0, theme === 'dark' ? 'rgba(22, 32, 50, 0.4)' : 'rgba(240, 248, 255, 0.4)');
-      baseGradient.addColorStop(1, theme === 'dark' ? 'rgba(10, 15, 25, 0.2)' : 'rgba(220, 235, 250, 0.2)');
+      baseGradient.addColorStop(0, theme === 'dark' ? 'rgba(22, 32, 50, 0.3)' : 'rgba(240, 248, 255, 0.3)');
+      baseGradient.addColorStop(1, theme === 'dark' ? 'rgba(10, 15, 25, 0.1)' : 'rgba(220, 235, 250, 0.1)');
       
       ctx.fillStyle = baseGradient;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       
-      // Update points
+      // Update points (less frequent updates = less CPU usage)
       points.forEach((point, index) => {
-        // Move the point
-        point.x += point.vx * deltaTime * 0.05;
-        point.y += point.vy * deltaTime * 0.05;
+        // Slower movement
+        point.x += point.vx * deltaTime * 0.03;
+        point.y += point.vy * deltaTime * 0.03;
         
         // Bounce off edges
         if (point.x < 0 || point.x > canvas.width) point.vx *= -1;
         if (point.y < 0 || point.y > canvas.height) point.vy *= -1;
         
-        // Draw gradient for each point
+        // Draw gradient for each point (with lower opacity)
         const gradient = ctx.createRadialGradient(
           point.x, point.y, 0,
           point.x, point.y, point.radius
         );
         
         const color = colors[index % colors.length];
-        gradient.addColorStop(0, color);
+        gradient.addColorStop(0, color.replace(/[\d.]+\)$/, '0.4)')); // Lower opacity
         gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
         
         ctx.fillStyle = gradient;
