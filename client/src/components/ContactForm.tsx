@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -16,6 +16,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { sendContactForm } from "@/lib/utils";
+import { useLanguage } from "@/hooks/useLanguage";
 import { 
   AlertDialog, 
   AlertDialogContent, 
@@ -26,25 +27,50 @@ import {
   AlertDialogAction
 } from "@/components/ui/alert-dialog";
 
-const formSchema = z.object({
-  name: z.string().min(2, {
-    message: "name.error",
-  }),
-  email: z.string().email({
-    message: "email.error",
-  }),
-  message: z.string().min(10, {
-    message: "message.error",
-  }),
-});
+// Create validation schemas for each language
+const createFormSchema = (language: string) => {
+  // Different validation messages based on language
+  const errorMessages = {
+    name: language === 'ar' 
+      ? "يجب أن يكون الاسم على الأقل حرفين" 
+      : "Name must be at least 2 characters",
+    email: language === 'ar' 
+      ? "يرجى إدخال بريد إلكتروني صحيح" 
+      : "Please enter a valid email address",
+    message: language === 'ar' 
+      ? "يجب أن تكون الرسالة على الأقل 10 أحرف" 
+      : "Message must be at least 10 characters",
+  };
 
-type FormValues = z.infer<typeof formSchema>;
+  return z.object({
+    name: z.string().min(2, {
+      message: errorMessages.name,
+    }),
+    email: z.string().email({
+      message: errorMessages.email,
+    }),
+    message: z.string().min(10, {
+      message: errorMessages.message,
+    }),
+  });
+};
+
+// Create a type for form values
+type FormValues = {
+  name: string;
+  email: string;
+  message: string;
+};
 
 const ContactForm: React.FC = () => {
   const { t } = useTranslation();
   const { toast } = useToast();
+  const { currentLanguage } = useLanguage();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccessDialog, setShowSuccessDialog] = useState(false);
+  
+  // Create schema based on current language
+  const formSchema = createFormSchema(currentLanguage);
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -54,6 +80,17 @@ const ContactForm: React.FC = () => {
       message: "",
     },
   });
+  
+  // Update the validation schema when language changes
+  useEffect(() => {
+    const newSchema = createFormSchema(currentLanguage);
+    form.clearErrors();
+    
+    // We need to update the resolver when language changes
+    form.reset({...form.getValues()}, {
+      resolver: zodResolver(newSchema)
+    });
+  }, [currentLanguage, form]);
 
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
@@ -96,7 +133,7 @@ const ContactForm: React.FC = () => {
                     className="glass border border-border/50 focus:border-primary/50 rounded-lg px-4 py-2 text-foreground placeholder:text-muted-foreground/70" 
                   />
                 </FormControl>
-                <FormMessage className="text-xs text-red-500">{t(form.formState.errors.name?.message || '')}</FormMessage>
+                <FormMessage className="text-xs text-red-500">{form.formState.errors.name?.message || ''}</FormMessage>
               </FormItem>
             )}
           />
@@ -115,7 +152,7 @@ const ContactForm: React.FC = () => {
                     className="glass border border-border/50 focus:border-primary/50 rounded-lg px-4 py-2 text-foreground placeholder:text-muted-foreground/70" 
                   />
                 </FormControl>
-                <FormMessage className="text-xs text-red-500">{t(form.formState.errors.email?.message || '')}</FormMessage>
+                <FormMessage className="text-xs text-red-500">{form.formState.errors.email?.message || ''}</FormMessage>
               </FormItem>
             )}
           />
@@ -134,7 +171,7 @@ const ContactForm: React.FC = () => {
                     className="glass border border-border/50 focus:border-primary/50 rounded-lg px-4 py-2 text-foreground placeholder:text-muted-foreground/70 resize-none" 
                   />
                 </FormControl>
-                <FormMessage className="text-xs text-red-500">{t(form.formState.errors.message?.message || '')}</FormMessage>
+                <FormMessage className="text-xs text-red-500">{form.formState.errors.message?.message || ''}</FormMessage>
               </FormItem>
             )}
           />
