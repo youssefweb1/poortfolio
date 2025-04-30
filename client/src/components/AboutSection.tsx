@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
+import { useLanguage } from "@/hooks/useLanguage";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { 
@@ -38,8 +39,22 @@ import {
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Define types for the experience data
+interface ExperienceContentItem {
+  date: string;
+  role: string;
+  company: string;
+  details: string[];
+}
+
+interface ExperienceItem {
+  en: ExperienceContentItem;
+  ar: ExperienceContentItem;
+}
+
 const AboutSection: React.FC = () => {
   const { t } = useTranslation();
+  const { currentLanguage } = useLanguage();
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -217,59 +232,123 @@ const AboutSection: React.FC = () => {
     }
   ];
 
-  // Timeline data with real experience
-  const experienceItems = [
+  // Experience data with both English and Arabic content
+  const experienceItems: ExperienceItem[] = [
     {
-      date: "March 2025 – Present",
-      role: "IT Manager",
-      company: "Mohamoon Saudi Arabia (Remote)",
-      details: [
-        "Managing the Lawyers' portal built on WordPress.",
-        "Handling servers, domains, and email configurations."
-      ]
+      en: {
+        date: "March 2025 – Present",
+        role: "IT Manager",
+        company: "Mohamoon Saudi Arabia (Remote)",
+        details: [
+          "Managing the Lawyers' portal built on WordPress.",
+          "Handling servers, domains, and email configurations."
+        ]
+      },
+      ar: {
+        date: "مارس 2025 – حتى الآن",
+        role: "مدير تكنولوجيا المعلومات (IT Manager)",
+        company: "شركة محامو السعودية (عن بُعد)",
+        details: [
+          "إدارة بوابة المحامين باستخدام ووردبريس.",
+          "إدارة الخوادم والدومينات والإيميلات."
+        ]
+      }
     },
     {
-      date: "Sep 2024 – Jan 2025",
-      role: "Full Stack Developer",
-      company: "Estisharati (UAE – Remote)",
-      details: [
-        "Developed 'Party Wizard' – an eCommerce platform using Laravel.",
-        "Built the CRM and consultation booking system 'Estisharati'."
-      ]
+      en: {
+        date: "Sep 2024 – Jan 2025",
+        role: "Full Stack Developer",
+        company: "Estisharati (UAE – Remote)",
+        details: [
+          "Developed 'Party Wizard' – an eCommerce platform using Laravel.",
+          "Built the CRM and consultation booking system 'Estisharati'."
+        ]
+      },
+      ar: {
+        date: "سبتمبر 2024 – يناير 2025",
+        role: "مطور Full Stack",
+        company: "Estisharati (الإمارات – عن بُعد)",
+        details: [
+          "تطوير نظام 'Party Wizard' – متجر إلكتروني باستخدام Laravel.",
+          "بناء نظام CRM لحجوزات الاستشارات."
+        ]
+      }
     },
     {
-      date: "Jan 2023 – Nov 2024",
-      role: "Full Stack Developer",
-      company: "GiantWhale (Remote)",
-      details: [
-        "Built multiple portfolio websites and eCommerce platforms for Saudi clients."
-      ]
+      en: {
+        date: "Jan 2023 – Nov 2024",
+        role: "Full Stack Developer",
+        company: "GiantWhale (Remote)",
+        details: [
+          "Built multiple portfolio websites and eCommerce platforms for Saudi clients."
+        ]
+      },
+      ar: {
+        date: "يناير 2023 – نوفمبر 2024",
+        role: "مطور Full Stack",
+        company: "GiantWhale (عن بُعد)",
+        details: [
+          "تطوير مواقع بورتفوليو ومنصات تجارة إلكترونية للعملاء في السعودية."
+        ]
+      }
     },
     {
-      date: "Jan 2023 – Present",
-      role: "Web Developer (Part-time)",
-      company: "Motiv-X",
-      details: [
-        "Enhanced a Laravel-based site with backend and database improvements."
-      ]
+      en: {
+        date: "Jan 2023 – Present",
+        role: "Web Developer (Part-time)",
+        company: "Motiv-X",
+        details: [
+          "Enhanced a Laravel-based site with backend and database improvements."
+        ]
+      },
+      ar: {
+        date: "يناير 2023 – حتى الآن",
+        role: "مطور ويب (دوام جزئي)",
+        company: "Motiv-X",
+        details: [
+          "تحسين موقع Laravel بإصلاحات في الخلفية وقاعدة البيانات."
+        ]
+      }
     },
     {
-      date: "Feb 2025 – Present",
-      role: "Contest Participant",
-      company: "Global Tech Contest – Riyadh",
-      details: [
-        "Leading technical side for a web-based VR football experience.",
-        "Handled performance optimization and integrations."
-      ]
+      en: {
+        date: "Feb 2025 – Present",
+        role: "Contest Participant",
+        company: "Global Tech Contest – Riyadh",
+        details: [
+          "Leading technical side for a web-based VR football experience.",
+          "Handled performance optimization and integrations."
+        ]
+      },
+      ar: {
+        date: "فبراير 2025 – حتى الآن",
+        role: "مشارك في مسابقة تقنية",
+        company: "مسابقة عالمية – الرياض",
+        details: [
+          "قيادة الجانب التقني لتجربة واقع افتراضي لمباريات كرة القدم.",
+          "تحسين الأداء والتكاملات التقنية."
+        ]
+      }
     },
     {
-      date: "2022 – 2023",
-      role: "Trainee → Mentor",
-      company: "Createivo",
-      details: [
-        "Completed an intensive Laravel + PHP training program.",
-        "Later mentored new students in advanced tasks."
-      ]
+      en: {
+        date: "2022 – 2023",
+        role: "Trainee → Mentor",
+        company: "Createivo",
+        details: [
+          "Completed an intensive Laravel + PHP training program.",
+          "Later mentored new students in advanced tasks."
+        ]
+      },
+      ar: {
+        date: "2022 – 2023",
+        role: "متدرب → مشرف",
+        company: "Createivo",
+        details: [
+          "إتمام تدريب مكثف على PHP وLaravel.",
+          "الإشراف لاحقًا على طلاب جدد في المهام المتقدمة."
+        ]
+      }
     }
   ];
 
@@ -388,53 +467,58 @@ const AboutSection: React.FC = () => {
           
           {/* New Experience Cards Layout with RTL Support */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-            {experienceItems.map((item, index) => (
-              <div 
-                key={index} 
-                className="experience-card glass p-6 rounded-lg border border-border/40 hover:border-primary/20 transition-all duration-300 hover:shadow-md"
-              >
-                {/* Date Badge - Positioned properly for RTL */}
-                <div className="inline-block glass px-3 py-1 rounded-full text-xs font-medium mb-3 text-primary border border-primary/20">
-                  {item.date}
+            {experienceItems.map((item, index) => {
+              // Get language-specific content
+              const content = currentLanguage === 'ar' ? item.ar : item.en;
+              
+              return (
+                <div 
+                  key={index} 
+                  className="experience-card glass p-6 rounded-lg border border-border/40 hover:border-primary/20 transition-all duration-300 hover:shadow-md"
+                >
+                  {/* Date Badge - Positioned properly for RTL */}
+                  <div className="inline-block glass px-3 py-1 rounded-full text-xs font-medium mb-3 text-primary border border-primary/20">
+                    {content.date}
+                  </div>
+                  
+                  {/* Role Title */}
+                  <h4 className="text-lg font-semibold mb-1 text-foreground">
+                    {content.role}
+                  </h4>
+                  
+                  {/* Company Name */}
+                  <div className="text-accent mb-4">
+                    {content.company}
+                  </div>
+                  
+                  {/* Details with Bullet Points - Uses logical properties for RTL support */}
+                  <ul className="space-y-2">
+                    {content.details.map((detail: string, detailIndex: number) => (
+                      <li key={detailIndex} className="flex items-start">
+                        <span className="inline-block text-primary me-2 mt-1.5 rtl:rotate-180">
+                          <svg 
+                            xmlns="http://www.w3.org/2000/svg" 
+                            width="10" 
+                            height="10" 
+                            viewBox="0 0 24 24" 
+                            fill="none" 
+                            stroke="currentColor" 
+                            strokeWidth="3" 
+                            strokeLinecap="round" 
+                            strokeLinejoin="round"
+                          >
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                          </svg>
+                        </span>
+                        <span className="text-muted-foreground text-sm">
+                          {detail}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                
-                {/* Role Title */}
-                <h4 className="text-lg font-semibold mb-1 text-foreground">
-                  {item.role}
-                </h4>
-                
-                {/* Company Name */}
-                <div className="text-accent mb-4">
-                  {item.company}
-                </div>
-                
-                {/* Details with Bullet Points - Uses logical properties for RTL support */}
-                <ul className="space-y-2">
-                  {item.details.map((detail, detailIndex) => (
-                    <li key={detailIndex} className="flex">
-                      <span className="inline-block text-primary me-2 mt-1.5 rtl:rotate-180">
-                        <svg 
-                          xmlns="http://www.w3.org/2000/svg" 
-                          width="10" 
-                          height="10" 
-                          viewBox="0 0 24 24" 
-                          fill="none" 
-                          stroke="currentColor" 
-                          strokeWidth="3" 
-                          strokeLinecap="round" 
-                          strokeLinejoin="round"
-                        >
-                          <polyline points="9 18 15 12 9 6"></polyline>
-                        </svg>
-                      </span>
-                      <span className="text-muted-foreground text-sm">
-                        {detail}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
