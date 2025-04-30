@@ -65,6 +65,7 @@ const ContactForm: React.FC = () => {
   // Create schema based on current language
   const formSchema = createFormSchema(currentLanguage);
 
+  // Create the form with current language schema
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -74,16 +75,19 @@ const ContactForm: React.FC = () => {
     },
   });
   
-  // Update the validation schema when language changes
+  // Update schema when language changes by recreating the form
   useEffect(() => {
-    const newSchema = createFormSchema(currentLanguage);
-    form.clearErrors();
-    
-    // We need to update the resolver when language changes
-    form.reset({...form.getValues()}, {
-      resolver: zodResolver(newSchema)
-    });
-  }, [currentLanguage, form]);
+    if (currentLanguage) {
+      const newSchema = createFormSchema(currentLanguage);
+      const resolver = zodResolver(newSchema);
+      
+      // We need to keep the existing values
+      const currentValues = form.getValues();
+      
+      // Completely reset the form with its current values
+      form.reset(currentValues);
+    }
+  }, [currentLanguage]);
 
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);

@@ -44,9 +44,9 @@ const ContactSection: React.FC = () => {
     if (formRef.current) {
       gsap.fromTo(
         formRef.current,
-        { x: -50, opacity: 0 },
+        { y: 50, opacity: 0 },
         {
-          x: 0,
+          y: 0,
           opacity: 1,
           duration: 0.8,
           delay: 0.2,
@@ -63,9 +63,9 @@ const ContactSection: React.FC = () => {
       const infoCards = infoRef.current.querySelectorAll('.info-card');
       gsap.fromTo(
         infoCards,
-        { x: 50, opacity: 0 },
+        { y: 50, opacity: 0 },
         {
-          x: 0,
+          y: 0,
           opacity: 1,
           stagger: 0.2,
           duration: 0.8,

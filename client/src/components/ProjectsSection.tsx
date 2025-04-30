@@ -323,7 +323,7 @@ const ProjectsSection: React.FC = () => {
           ref={projectsRef}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {filteredProjects.map(project => (
+          {filteredProjects.slice(0, displayLimit).map(project => (
             <ProjectCard 
               key={project.id}
               image={project.image}
@@ -335,6 +335,19 @@ const ProjectsSection: React.FC = () => {
             />
           ))}
         </div>
+        
+        {/* Show More Button */}
+        {filteredProjects.length > displayLimit && (
+          <div className="mt-12 text-center">
+            <Button
+              onClick={() => setDisplayLimit(prev => prev + 4)}
+              variant="outline"
+              className="glass border-primary/30 hover:border-primary/50 rounded-full px-8 py-2 transition-all duration-300"
+            >
+              {t('projects.showMore') || 'Show More'}
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   );
