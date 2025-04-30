@@ -108,26 +108,17 @@ const Navbar: React.FC = () => {
                 <LanguageSwitcher className="hover:bg-muted text-foreground" />
               </div>
               
-              {t('currentLanguage') === 'ar' ? (
-                <Button 
-                  variant="default" 
-                  size="sm" 
-                  className="rounded-full text-xs bg-[#25D366] hover:bg-[#20BD5C] text-slate-900 font-medium"
-                  onClick={() => scrollToSection("contact")}
-                >
-                  واتساب
-                </Button>
-              ) : (
-                <Button 
-                  variant="default" 
-                  size="sm" 
-                  className="rounded-full text-xs bg-[#25D366] hover:bg-[#20BD5C] text-white flex items-center gap-1.5"
-                  onClick={() => scrollToSection("contact")}
-                >
-                  <MessageCircle className="h-3.5 w-3.5" />
-                  WhatsApp
-                </Button>
-              )}
+              <Button 
+                variant="default" 
+                size="sm" 
+                className={`rounded-full text-xs bg-[#25D366] hover:bg-[#20BD5C] ${
+                  t('currentLanguage') === 'ar' ? 'text-slate-900 font-medium' : 'text-white flex items-center gap-1.5'
+                }`}
+                onClick={() => scrollToSection("contact")}
+              >
+                {t('currentLanguage') !== 'ar' && <MessageCircle className="h-3.5 w-3.5" />}
+                {t('currentLanguage') === 'ar' ? 'واتساب' : 'WhatsApp'}
+              </Button>
             </div>
           </div>
           
@@ -178,26 +169,17 @@ const Navbar: React.FC = () => {
           ))}
           
           <div className="pt-2 mt-2 border-t border-border/20">
-            {t('currentLanguage') === 'ar' ? (
-              <Button 
-                variant="default" 
-                size="sm" 
-                className="w-full rounded-lg bg-[#25D366] hover:bg-[#20BD5C] text-slate-900 font-medium"
-                onClick={() => scrollToSection("contact")}
-              >
-                واتساب
-              </Button>
-            ) : (
-              <Button 
-                variant="default" 
-                size="sm" 
-                className="w-full rounded-lg bg-[#25D366] hover:bg-[#20BD5C] text-white flex items-center justify-center gap-1.5"
-                onClick={() => scrollToSection("contact")}
-              >
-                <MessageCircle className="h-3.5 w-3.5" />
-                WhatsApp
-              </Button>
-            )}
+            <Button 
+              variant="default" 
+              size="sm" 
+              className={`w-full rounded-lg bg-[#25D366] hover:bg-[#20BD5C] ${
+                t('currentLanguage') === 'ar' ? 'text-slate-900 font-medium' : 'text-white flex items-center justify-center gap-1.5'
+              }`}
+              onClick={() => scrollToSection("contact")}
+            >
+              {t('currentLanguage') !== 'ar' && <MessageCircle className="h-3.5 w-3.5" />}
+              {t('currentLanguage') === 'ar' ? 'واتساب' : 'WhatsApp'}
+            </Button>
           </div>
         </div>
       </div>
