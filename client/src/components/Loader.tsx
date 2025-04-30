@@ -80,12 +80,6 @@ const Loader: React.FC<LoaderProps> = ({ setLoading }) => {
   useEffect(() => {
     if (!loaderRef.current || !containerRef.current) return;
     
-    // Check if we're on a mobile device through window width
-    const isMobile = window.innerWidth < 768;
-
-    // Simplify animations for mobile devices
-    const simplifiedMode = isMobile;
-    
     // Main Timeline
     const mainTimeline = gsap.timeline();
     
@@ -129,105 +123,95 @@ const Loader: React.FC<LoaderProps> = ({ setLoading }) => {
       scale: 0.8
     });
     
-    // Simplified and faster animations for better performance
-    
-    // Initial fade in (simplified for mobile)
+    // Initial fade in
     mainTimeline
       .to(loaderBgRef.current, {
         opacity: 1,
-        duration: 0.3, // Faster
+        duration: 0.5,
         ease: "power1.out"
       })
       .to(circleRef.current, {
         opacity: 1,
         scale: 1,
-        duration: simplifiedMode ? 0.5 : 0.8, // Faster on mobile
-        ease: simplifiedMode ? "power2.out" : "back.out(1.7)" // Simpler easing on mobile
-      }, "-=0.2")
+        duration: 0.8,
+        ease: "back.out(1.7)"
+      }, "-=0.3")
       .to(logoPiecesRef.current, {
         opacity: 1,
         scale: 1,
-        stagger: simplifiedMode ? 0.01 : 0.03, // Less stagger on mobile
-        duration: simplifiedMode ? 0.4 : 0.6, // Faster on mobile
-        ease: simplifiedMode ? "power2.out" : "back.out(2)" // Simpler easing on mobile
-      }, "-=0.3")
+        stagger: 0.03,
+        duration: 0.6,
+        ease: "back.out(2)"
+      }, "-=0.5")
       .to(textRingsRef.current, {
         opacity: 1,
         rotation: 0,
         scale: 1,
-        duration: simplifiedMode ? 0.6 : 1.2, // Faster on mobile
-        ease: simplifiedMode ? "power2.out" : "elastic.out(1, 0.8)" // Simpler easing on mobile
+        duration: 1.2,
+        ease: "elastic.out(1, 0.8)"
       }, "-=0.2")
       .to(cubeWrapperRef.current, {
         opacity: 1,
-        duration: 0.4
-      }, "-=0.6")
+        duration: 0.5
+      }, "-=1")
       .to(cubeFacesRef.current, {
         opacity: 1,
         scale: 1,
-        stagger: simplifiedMode ? 0.02 : 0.05, // Less stagger on mobile
-        duration: simplifiedMode ? 0.4 : 0.6, // Faster on mobile
-        ease: simplifiedMode ? "power2.out" : "back.out(2)" // Simpler easing on mobile
-      }, "-=0.3")
+        stagger: 0.05,
+        duration: 0.6,
+        ease: "back.out(2)"
+      }, "-=0.4")
       .to([nameRef.current, taglineRef.current], {
         opacity: 1,
         y: 0,
         stagger: 0.1,
-        duration: simplifiedMode ? 0.4 : 0.6, // Faster on mobile
-        ease: simplifiedMode ? "power2.out" : "back.out(1.7)" // Simpler easing on mobile
-      }, "-=0.4")
+        duration: 0.6,
+        ease: "back.out(1.7)"
+      }, "-=0.6")
       .to([progressBarRef.current, progressTextRef.current], {
         opacity: 1,
         y: 0,
         stagger: 0.1,
-        duration: 0.4,
+        duration: 0.5,
         ease: "power2.out"
-      }, "-=0.3");
+      }, "-=0.4");
     
-    // Start continuous animations - optimized for performance
+    // Start continuous animations
     
-    // Logo pieces pulsing - fewer animations on mobile
-    const animatePieces = simplifiedMode ? 
-      // On mobile, only animate every other piece for better performance
-      logoPiecesRef.current.filter((_, i) => i % 2 === 0) : 
-      logoPiecesRef.current;
-    
-    animatePieces.forEach((piece, index) => {
+    // Logo pieces pulsing
+    logoPiecesRef.current.forEach((piece, index) => {
       gsap.to(piece, {
         scale: 0.9 + Math.random() * 0.2,
         opacity: 0.7 + Math.random() * 0.3,
-        duration: simplifiedMode ? 1.5 : (1 + Math.random() * 2), // Less variation on mobile
+        duration: 1 + Math.random() * 2,
         repeat: -1,
         yoyo: true,
         ease: "sine.inOut",
-        delay: simplifiedMode ? (index * 0.2) : (index * 0.1) // Less animations running at once
+        delay: index * 0.1
       });
     });
     
-    // Rotating 3D cube - slower on mobile for better performance
+    // Rotating 3D cube
     gsap.to(cubeRef.current, {
       rotationY: 360,
       rotationX: 360,
-      duration: simplifiedMode ? 30 : 20, // Slower rotation on mobile
+      duration: 20,
       repeat: -1,
       ease: "none"
     });
     
-    // Rotating text rings - slower on mobile for better performance
+    // Rotating text rings
     gsap.to(textRingsRef.current, {
       rotation: 360,
-      duration: simplifiedMode ? 40 : 30, // Slower rotation on mobile
+      duration: 30,
       repeat: -1,
       ease: "none"
     });
     
-    // Progress counter simulation - faster to reduce loading time
+    // Progress counter simulation
     let loadingProgress = 0;
-    const loadingIncrement = simplifiedMode ? 2 : 1; // Faster progress on mobile
-    
     const interval = setInterval(() => {
-      // Increase by a more consistent amount with less randomness
-      loadingProgress += Math.floor(Math.random() * 2) + loadingIncrement;
+      loadingProgress += Math.floor(Math.random() * 3) + 1;
       
       if (loadingProgress > 100) {
         loadingProgress = 100;
@@ -236,7 +220,7 @@ const Loader: React.FC<LoaderProps> = ({ setLoading }) => {
       }
       
       setProgress(loadingProgress);
-    }, simplifiedMode ? 50 : 80); // Faster updates on mobile
+    }, 80);
     
     // Final animation when loading completes
     const completeLoading = () => {
@@ -245,91 +229,80 @@ const Loader: React.FC<LoaderProps> = ({ setLoading }) => {
       
       const completeTl = gsap.timeline();
       completeTl.eventCallback("onComplete", () => {
-        // Transition out faster
-        setTimeout(() => setLoading(false), simplifiedMode ? 200 : 300);
+        setTimeout(() => setLoading(false), 300);
       });
       
-      // Final animation sequence - simplified for mobile
+      // Final animation sequence
       completeTl
         // Scale up logo
         .to(circleRef.current, {
           scale: 1.2,
           boxShadow: "0 0 30px rgba(59, 130, 246, 0.7)",
-          duration: simplifiedMode ? 0.5 : 0.7,
-          ease: simplifiedMode ? "power2.out" : "back.out(1.7)"
+          duration: 0.7,
+          ease: "back.out(1.7)"
         })
-        // Spin logo pieces outward - simplified for mobile
+        // Spin logo pieces outward
         .to(logoPiecesRef.current, {
           x: (_, target) => {
             const piece = target as HTMLElement;
             const currentTranslateX = parseFloat(piece.getAttribute('data-translate-x') || '0');
-            // Less movement on mobile
-            return currentTranslateX * (simplifiedMode ? 2 : 2.5);
+            return currentTranslateX * 2.5;
           },
           y: (_, target) => {
             const piece = target as HTMLElement;
             const currentTranslateY = parseFloat(piece.getAttribute('data-translate-y') || '0');
-            // Less movement on mobile
-            return currentTranslateY * (simplifiedMode ? 2 : 2.5);
+            return currentTranslateY * 2.5;
           },
           opacity: 0,
-          scale: simplifiedMode ? 1.3 : 1.5,
-          duration: simplifiedMode ? 0.6 : 0.8,
-          stagger: simplifiedMode ? 0.02 : 0.03,
+          scale: 1.5,
+          duration: 0.8,
+          stagger: 0.03,
           ease: "power2.out"
-        }, "-=0.4")
+        }, "-=0.5")
         // Scale and fade text elements
         .to([nameRef.current, taglineRef.current, progressBarRef.current, progressTextRef.current], {
           y: -20,
           opacity: 0,
-          stagger: simplifiedMode ? 0.03 : 0.05,
-          duration: simplifiedMode ? 0.4 : 0.5,
+          stagger: 0.05,
+          duration: 0.5,
           ease: "power2.in"
-        }, "-=0.5")
+        }, "-=0.6")
         // Scale up text rings
         .to(textRingsRef.current, {
-          scale: simplifiedMode ? 1.3 : 1.5,
+          scale: 1.5,
           opacity: 0,
-          duration: simplifiedMode ? 0.5 : 0.7,
+          duration: 0.7,
           ease: "power2.in"
-        }, "-=0.4")
+        }, "-=0.5")
         // Spin and scale the 3D cube
         .to(cubeRef.current, {
           rotationY: "+=120",
           rotationX: "+=120",
-          duration: simplifiedMode ? 0.5 : 0.7,
+          duration: 0.7,
           ease: "power2.inOut"
-        }, "-=0.5")
+        }, "-=0.7")
         .to(cubeWrapperRef.current, {
           scale: 0,
           opacity: 0,
-          duration: 0.4,
+          duration: 0.5,
           ease: "power3.in"
-        }, "-=0.3")
+        }, "-=0.4")
         // Final flash and fade out
         .to(circleRef.current, {
-          scale: simplifiedMode ? 10 : 15, // Less scaling on mobile
+          scale: 15,
           opacity: 0,
-          duration: simplifiedMode ? 0.6 : 0.8,
+          duration: 0.8,
           ease: "power3.in"
-        }, "-=0.2")
+        }, "-=0.3")
         .to(loaderRef.current, {
           opacity: 0,
-          duration: 0.4,
+          duration: 0.5,
           ease: "power2.inOut"
-        }, "-=0.2");
+        }, "-=0.3");
     };
     
     return () => {
       clearInterval(interval);
-      
-      // Kill all animations when unmounting for performance
-      if (cubeRef.current) gsap.killTweensOf(cubeRef.current);
-      if (textRingsRef.current) gsap.killTweensOf(textRingsRef.current);
-      
-      logoPiecesRef.current.forEach(piece => {
-        gsap.killTweensOf(piece);
-      });
     };
   }, [setLoading]);
   

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -69,16 +69,11 @@ const ContactForm: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccessDialog, setShowSuccessDialog] = useState(false);
   
-  // Create schema reference that will be used for validation
-  const formSchemaRef = useRef(createFormSchema(currentLanguage));
-  
-  // Update schema reference when language changes
-  useEffect(() => {
-    formSchemaRef.current = createFormSchema(currentLanguage);
-  }, [currentLanguage]);
+  // Create schema based on current language
+  const formSchema = createFormSchema(currentLanguage);
 
   const form = useForm<FormValues>({
-    resolver: zodResolver(formSchemaRef.current),
+    resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
       email: "",
@@ -88,10 +83,13 @@ const ContactForm: React.FC = () => {
   
   // Update the validation schema when language changes
   useEffect(() => {
-    if (currentLanguage) {
-      // Just clear errors when language changes
-      form.clearErrors();
-    }
+    const newSchema = createFormSchema(currentLanguage);
+    form.clearErrors();
+    
+    // We need to update the resolver when language changes
+    form.reset({...form.getValues()}, {
+      resolver: zodResolver(newSchema)
+    });
   }, [currentLanguage, form]);
 
   const onSubmit = async (data: FormValues) => {

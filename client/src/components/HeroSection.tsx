@@ -1,11 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Button } from "@/components/ui/button";
 import ThreeScene from "@/components/ThreeScene";
 import { ChevronDown } from "lucide-react";
-import { useIsMobile } from "@/hooks/use-mobile";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,61 +13,41 @@ const HeroSection: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
-  const isMobile = useIsMobile();
-  const [isAnimated, setIsAnimated] = useState(false);
 
   useEffect(() => {
-    // Skip animations on mobile for better performance
-    if (isMobile) {
-      // Still set elements to be visible without animation
-      if (textRef.current) {
-        const textElements = textRef.current.querySelectorAll("h1, .hero-title, .hero-description, .hero-buttons");
-        gsap.set(textElements, { opacity: 1, y: 0 });
-      }
-      if (imageRef.current) {
-        gsap.set(imageRef.current, { opacity: 1, scale: 1 });
-      }
-      setIsAnimated(true);
-      return;
-    }
+    if (!sectionRef.current || !textRef.current || !imageRef.current) return;
 
-    // Only run animations on non-mobile devices and if not already animated
-    if (!isAnimated && !isMobile && textRef.current && imageRef.current) {
-      const textElements = textRef.current.querySelectorAll("h1, .hero-title, .hero-description, .hero-buttons");
-      
-      // Simpler, faster animations for desktop
-      gsap.fromTo(
-        textElements,
-        { y: 30, opacity: 0 },  // Less movement
-        { 
-          y: 0, 
-          opacity: 1, 
-          duration: 0.8,        // Faster
-          stagger: 0.15,        // Less delay between elements
-          ease: "power2.out"    // Simpler easing
-        }
-      );
+    const textElements = textRef.current.querySelectorAll("h1, .hero-title, .hero-description, .hero-buttons");
+    
+    gsap.fromTo(
+      textElements,
+      { y: 50, opacity: 0 },
+      { 
+        y: 0, 
+        opacity: 1, 
+        duration: 1, 
+        stagger: 0.2,
+        ease: "power3.out"
+      }
+    );
 
-      gsap.fromTo(
-        imageRef.current,
-        { scale: 0.9, opacity: 0 }, // Less scaling
-        { 
-          scale: 1, 
-          opacity: 1, 
-          duration: 0.8,         // Faster
-          delay: 0.3,            // Less delay
-          ease: "back.out(1.5)"  // Less extreme easing
-        }
-      );
-      
-      setIsAnimated(true);
-    }
+    gsap.fromTo(
+      imageRef.current,
+      { scale: 0.8, opacity: 0 },
+      { 
+        scale: 1, 
+        opacity: 1, 
+        duration: 1,
+        delay: 0.5,
+        ease: "back.out(1.7)"
+      }
+    );
 
     return () => {
       // Cleanup any scroll triggers
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
-  }, [isMobile, isAnimated]);
+  }, []);
 
   return (
     <section 
