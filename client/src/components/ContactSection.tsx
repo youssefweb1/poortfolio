@@ -22,8 +22,63 @@ const ContactSection: React.FC = () => {
   const formRef = useRef<HTMLDivElement>(null);
   const infoRef = useRef<HTMLDivElement>(null);
 
-  // Removed animations for instant content display
   useEffect(() => {
+    if (!sectionRef.current) return;
+
+    // Title animation
+    if (titleRef.current) {
+      gsap.fromTo(
+        titleRef.current,
+        { y: 50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          scrollTrigger: {
+            trigger: titleRef.current,
+            start: "top 80%",
+          }
+        }
+      );
+    }
+
+    // Form animation
+    if (formRef.current) {
+      gsap.fromTo(
+        formRef.current,
+        { x: -50, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 0.8,
+          delay: 0.2,
+          scrollTrigger: {
+            trigger: formRef.current,
+            start: "top 75%",
+          }
+        }
+      );
+    }
+
+    // Info animation
+    if (infoRef.current) {
+      const infoCards = infoRef.current.querySelectorAll('.info-card');
+      gsap.fromTo(
+        infoCards,
+        { x: 50, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          stagger: 0.2,
+          duration: 0.8,
+          scrollTrigger: {
+            trigger: infoRef.current,
+            start: "top 75%",
+          }
+        }
+      );
+    }
+
     return () => {
       // Cleanup scroll triggers
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
