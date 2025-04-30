@@ -3,18 +3,37 @@ import { useTranslation } from "react-i18next";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { 
-  FaReact, 
-  FaNodeJs, 
+  FaHtml5, 
+  FaCss3Alt, 
+  FaPhp,
+  FaVuejs,
+  FaWordpress,
+  FaLaravel,
+  FaCode,
+  FaGitAlt,
   FaServer,
   FaDatabase,
-  FaCode,
-  FaFigma
+  FaUsers,
+  FaClock,
+  FaComments,
+  FaBookOpen,
+  FaSearch,
+  FaTasks,
+  FaHeadset
 } from "react-icons/fa";
 import { 
-  SiTailwindcss, 
-  SiTypescript, 
-  SiGraphql,
-  SiNextdotjs
+  SiTailwindcss,
+  SiBootstrap, 
+  SiJavascript, 
+  SiJquery,
+
+  SiMysql,
+  SiAframe,
+  SiCanva,
+  SiFigma,
+  SiGithub,
+  SiGitlab,
+  SiArduino
 } from "react-icons/si";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -133,27 +152,66 @@ const AboutSection: React.FC = () => {
     {
       name: "Frontend",
       skills: [
-        { icon: <FaReact className="w-6 h-6" />, name: "React" },
-        { icon: <SiNextdotjs className="w-6 h-6" />, name: "Next.js" },
-        { icon: <SiTailwindcss className="w-6 h-6" />, name: "Tailwind" },
-        { icon: <SiTypescript className="w-6 h-6" />, name: "TypeScript" }
+        { icon: <FaHtml5 className="w-6 h-6" />, name: "HTML5" },
+        { icon: <FaCss3Alt className="w-6 h-6" />, name: "CSS3" },
+        { icon: <SiJavascript className="w-6 h-6" />, name: "JavaScript (ES6)" },
+        { icon: <FaVuejs className="w-6 h-6" />, name: "Vue.js" },
+        { icon: <SiJquery className="w-6 h-6" />, name: "jQuery & Ajax" },
+        { icon: <SiTailwindcss className="w-6 h-6" />, name: "Tailwind CSS" },
+        { icon: <SiBootstrap className="w-6 h-6" />, name: "Bootstrap" },
+        { icon: <FaCode className="w-6 h-6" />, name: "GSAP" }
       ]
     },
     {
       name: "Backend",
       skills: [
-        { icon: <FaNodeJs className="w-6 h-6" />, name: "Node.js" },
-        { icon: <FaServer className="w-6 h-6" />, name: "Express" },
-        { icon: <SiGraphql className="w-6 h-6" />, name: "GraphQL" },
-        { icon: <FaDatabase className="w-6 h-6" />, name: "MongoDB" }
+        { icon: <FaPhp className="w-6 h-6" />, name: "PHP" },
+        { icon: <FaLaravel className="w-6 h-6" />, name: "Laravel" },
+        { icon: <SiMysql className="w-6 h-6" />, name: "MySQL" },
+        { icon: <FaServer className="w-6 h-6" />, name: "RESTful API" }
       ]
     },
     {
-      name: "Other",
+      name: "Platforms & CMS",
       skills: [
-        { icon: <FaCode className="w-6 h-6" />, name: "Three.js" },
-        { icon: <FaFigma className="w-6 h-6" />, name: "Figma" },
-        { icon: <FaCode className="w-6 h-6" />, name: "Git" }
+        { icon: <FaWordpress className="w-6 h-6" />, name: "WordPress" },
+        { icon: <FaCode className="w-6 h-6" />, name: "Salla" },
+        { icon: <SiAframe className="w-6 h-6" />, name: "A-Frame" }
+      ]
+    },
+    {
+      name: "Programming Concepts",
+      skills: [
+        { icon: <FaCode className="w-6 h-6" />, name: "OOP" },
+        { icon: <FaCode className="w-6 h-6" />, name: "MVC Architecture" },
+        { icon: <FaCode className="w-6 h-6" />, name: "SOLID Principles" },
+        { icon: <FaCode className="w-6 h-6" />, name: "Design Patterns" },
+        { icon: <FaDatabase className="w-6 h-6" />, name: "Data Structures" },
+        { icon: <FaGitAlt className="w-6 h-6" />, name: "Git" },
+        { icon: <SiGithub className="w-6 h-6" />, name: "GitHub" },
+        { icon: <SiGitlab className="w-6 h-6" />, name: "GitLab" }
+      ]
+    },
+    {
+      name: "Soft Skills",
+      skills: [
+        { icon: <FaUsers className="w-6 h-6" />, name: "Team Collaboration" },
+        { icon: <FaClock className="w-6 h-6" />, name: "Time Management" },
+        { icon: <FaComments className="w-6 h-6" />, name: "Communication" },
+        { icon: <FaBookOpen className="w-6 h-6" />, name: "Self-Learning" },
+        { icon: <FaSearch className="w-6 h-6" />, name: "Attention to Detail" },
+        { icon: <FaTasks className="w-6 h-6" />, name: "Project Management" },
+        { icon: <FaHeadset className="w-6 h-6" />, name: "Technical Support" }
+      ]
+    },
+    {
+      name: "Additional Skills",
+      skills: [
+        { icon: <SiCanva className="w-6 h-6" />, name: "Canva" },
+        { icon: <SiFigma className="w-6 h-6" />, name: "Figma" },
+        { icon: <FaCode className="w-6 h-6" />, name: "ICDL Certified" },
+        { icon: <SiArduino className="w-6 h-6" />, name: "Arduino Level 1" },
+        { icon: <FaServer className="w-6 h-6" />, name: "Domain & Server Setup" }
       ]
     }
   ];
@@ -257,17 +315,24 @@ const AboutSection: React.FC = () => {
             <p className="text-muted-foreground">{t('about.skillsDescription')}</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {skillCategories.map((category, index) => (
               <div key={index} className="glass p-6 rounded-lg border border-border/40 hover:border-primary/20 transition-colors">
-                <h4 className="text-lg font-semibold text-primary mb-4 text-center">{category.name}</h4>
-                <div className="grid grid-cols-2 gap-4">
+                <h4 className="text-lg font-semibold text-primary mb-4 text-center relative">
+                  {/* Decorative accent */}
+                  <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-10 h-1 bg-gradient-to-r from-primary/30 to-accent/30 rounded-full"></span>
+                  {category.name}
+                </h4>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-6">
                   {category.skills.map((skill, skillIndex) => (
-                    <div key={skillIndex} className="skill-item flex flex-col items-center p-3 rounded-lg hover:bg-primary/5 transition-colors">
-                      <div className="text-primary mb-2">
+                    <div 
+                      key={skillIndex} 
+                      className="skill-item flex flex-col items-center p-3 rounded-lg hover:bg-primary/5 transition-colors group"
+                    >
+                      <div className="text-primary mb-2 group-hover:scale-110 transition-transform">
                         {skill.icon}
                       </div>
-                      <div className="text-sm font-medium">{skill.name}</div>
+                      <div className="text-sm font-medium text-center">{skill.name}</div>
                     </div>
                   ))}
                 </div>

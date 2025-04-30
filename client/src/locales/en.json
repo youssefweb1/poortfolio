@@ -23,7 +23,15 @@
     "skills": "Technical Skills",
     "skillsDescription": "Technologies and tools I work with",
     "experience": "Experience",
-    "experienceDescription": "My professional journey"
+    "experienceDescription": "My professional journey",
+    "skillCategories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "platforms": "Platforms & CMS",
+      "concepts": "Programming Concepts",
+      "softSkills": "Soft Skills",
+      "additional": "Additional Skills"
+    }
   },
   "projects": {
     "title": "My Projects",
