@@ -420,6 +420,21 @@ const AboutSection: React.FC = () => {
                 <p className="text-foreground leading-relaxed">
                   {t('about.paragraph2')}
                 </p>
+                <div className="pt-2">
+                  <a 
+                    href="https://drive.google.com/file/d/1Y586PhlCAK6zNgGkyRn-RQjRm4-MR5In/view?usp=drivesdk"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground px-5 py-2.5 rounded-full transition-all duration-300"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                      <polyline points="7 10 12 15 17 10" />
+                      <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    {t('about.downloadCV')}
+                  </a>
+                </div>
               </div>
             </div>
           </div>
