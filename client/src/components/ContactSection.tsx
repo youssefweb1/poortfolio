@@ -106,7 +106,7 @@ const ContactSection: React.FC = () => {
         </div>
         
         <div className="flex flex-col md:flex-row gap-10">
-          <div ref={formRef} className="md:w-1/2 glass border border-border/50 rounded-2xl shadow-lg p-8">
+          <div ref={formRef} className="md:w-1/2 neon-card glass rounded-2xl p-8">
             <h3 className="text-xl font-bold mb-6 text-primary">
               {t('contact.form.title')}
             </h3>
@@ -115,14 +115,14 @@ const ContactSection: React.FC = () => {
           </div>
           
           <div ref={infoRef} className="md:w-1/2 space-y-8">
-            <div className="info-card glass border border-border/50 rounded-2xl shadow-lg p-8">
+            <div className="info-card neon-card glass rounded-2xl p-8">
               <h3 className="text-xl font-bold mb-6 text-primary">
                 {t('contact.info.title')}
               </h3>
               
               <div className="space-y-6">
                 <div className="flex items-center group">
-                  <div className="w-12 h-12 glass border border-primary/30 group-hover:border-primary/60 transition-colors rounded-full flex items-center justify-center text-primary">
+                  <div className="w-12 h-12 glass neon-btn border-[#00c3ff]/30 group-hover:border-[#00c3ff]/60 transition-all duration-300 rounded-full flex items-center justify-center text-[#00c3ff]">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div className="ms-4">
@@ -136,7 +136,7 @@ const ContactSection: React.FC = () => {
                 </div>
                 
                 <div className="flex items-center group">
-                  <div className="w-12 h-12 glass border border-primary/30 group-hover:border-primary/60 transition-colors rounded-full flex items-center justify-center text-primary">
+                  <div className="w-12 h-12 glass neon-btn border-[#00c3ff]/30 group-hover:border-[#00c3ff]/60 transition-all duration-300 rounded-full flex items-center justify-center text-[#00c3ff]">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div className="ms-4">
@@ -150,7 +150,7 @@ const ContactSection: React.FC = () => {
                 </div>
                 
                 <div className="flex items-center group">
-                  <div className="w-12 h-12 glass border border-primary/30 group-hover:border-primary/60 transition-colors rounded-full flex items-center justify-center text-primary">
+                  <div className="w-12 h-12 glass neon-btn border-[#00c3ff]/30 group-hover:border-[#00c3ff]/60 transition-all duration-300 rounded-full flex items-center justify-center text-[#00c3ff]">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div className="ms-4">
@@ -164,7 +164,7 @@ const ContactSection: React.FC = () => {
                 </div>
                 
                 <div className="flex items-center group">
-                  <div className="w-12 h-12 glass border border-primary/30 group-hover:border-primary/60 transition-colors rounded-full flex items-center justify-center text-primary">
+                  <div className="w-12 h-12 glass neon-btn border-[#00c3ff]/30 group-hover:border-[#00c3ff]/60 transition-all duration-300 rounded-full flex items-center justify-center text-[#00c3ff]">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
                       <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                       <polyline points="9 22 9 12 15 12 15 22"></polyline>
@@ -182,7 +182,7 @@ const ContactSection: React.FC = () => {
               </div>
             </div>
             
-            <div className="info-card glass border border-border/50 rounded-2xl shadow-lg p-8">
+            <div className="info-card neon-card glass rounded-2xl p-8">
               <h3 className="text-xl font-bold mb-6 text-primary">
                 {t('contact.social.title')}
               </h3>
