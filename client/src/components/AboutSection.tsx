@@ -122,17 +122,17 @@ const AboutSection: React.FC = () => {
       );
     }
 
-    // Timeline animation
+    // Experience cards animation
     if (timelineRef.current) {
-      const items = timelineRef.current.querySelectorAll(".timeline-item");
+      const cards = timelineRef.current.querySelectorAll(".experience-card");
       gsap.fromTo(
-        items,
-        { x: -20, opacity: 0 },
+        cards,
+        { y: 30, opacity: 0 },
         {
-          x: 0,
+          y: 0,
           opacity: 1,
-          stagger: 0.2,
-          duration: 0.5,
+          stagger: 0.15,
+          duration: 0.6,
           scrollTrigger: {
             trigger: timelineRef.current,
             start: "top 80%",
@@ -218,26 +218,58 @@ const AboutSection: React.FC = () => {
   ];
 
   // Timeline data with real experience
-  const timelineItems = [
+  const experienceItems = [
     {
-      year: "2023 - Present",
-      title: "Freelance Full Stack Developer",
-      company: "Self-employed"
+      date: "March 2025 – Present",
+      role: "IT Manager",
+      company: "Mohamoon Saudi Arabia (Remote)",
+      details: [
+        "Managing the Lawyers' portal built on WordPress.",
+        "Handling servers, domains, and email configurations."
+      ]
     },
     {
-      year: "2022 - 2023",
-      title: "Frontend Developer",
-      company: "Giant Well"
+      date: "Sep 2024 – Jan 2025",
+      role: "Full Stack Developer",
+      company: "Estisharati (UAE – Remote)",
+      details: [
+        "Developed 'Party Wizard' – an eCommerce platform using Laravel.",
+        "Built the CRM and consultation booking system 'Estisharati'."
+      ]
     },
     {
-      year: "2021 - 2022",
-      title: "Web Developer & Digital Marketing",
-      company: "Agrital Talent"
+      date: "Jan 2023 – Nov 2024",
+      role: "Full Stack Developer",
+      company: "GiantWhale (Remote)",
+      details: [
+        "Built multiple portfolio websites and eCommerce platforms for Saudi clients."
+      ]
     },
     {
-      year: "2020 - 2021",
-      title: "WordPress Developer",
-      company: "Freelance Projects"
+      date: "Jan 2023 – Present",
+      role: "Web Developer (Part-time)",
+      company: "Motiv-X",
+      details: [
+        "Enhanced a Laravel-based site with backend and database improvements."
+      ]
+    },
+    {
+      date: "Feb 2025 – Present",
+      role: "Contest Participant",
+      company: "Global Tech Contest – Riyadh",
+      details: [
+        "Leading technical side for a web-based VR football experience.",
+        "Handled performance optimization and integrations."
+      ]
+    },
+    {
+      date: "2022 – 2023",
+      role: "Trainee → Mentor",
+      company: "Createivo",
+      details: [
+        "Completed an intensive Laravel + PHP training program.",
+        "Later mentored new students in advanced tasks."
+      ]
     }
   ];
 
@@ -347,31 +379,60 @@ const AboutSection: React.FC = () => {
           </div>
         </div>
         
-        {/* Experience Timeline */}
+        {/* Redesigned Experience Section */}
         <div ref={timelineRef} className="relative">
-          <div className="text-center mb-10">
+          <div className="text-center mb-12">
             <h3 className="text-2xl font-bold text-foreground mb-2">{t('about.experience')}</h3>
             <p className="text-muted-foreground">{t('about.experienceDescription')}</p>
           </div>
           
-          {/* Timeline line */}
-          <div className="absolute left-0 md:left-1/2 top-[4.5rem] bottom-10 w-px bg-border/50 transform md:translate-x-px"></div>
-          
-          {/* Timeline items */}
-          <div className="space-y-12 relative">
-            {timelineItems.map((item, index) => (
-              <div key={index} className="timeline-item relative md:w-1/2 md:odd:ml-auto md:odd:pl-8 md:even:pr-8 md:odd:text-left md:even:text-right">
-                {/* Timeline dot */}
-                <div className="absolute top-0 md:top-2 left-0 md:left-0 md:odd:left-0 md:even:right-0 w-4 h-4 rounded-full bg-primary transform -translate-x-1/2 md:odd:-translate-x-1/2 md:even:translate-x-1/2"></div>
-                
-                {/* Timeline content */}
-                <div className="ml-6 md:ml-0 pt-1 md:pt-0">
-                  <div className="glass px-4 py-4 rounded-lg border border-border/40 hover:border-primary/20 transition-colors">
-                    <div className="text-sm text-accent font-medium">{item.year}</div>
-                    <div className="text-lg font-semibold">{item.title}</div>
-                    <div className="text-muted-foreground text-sm">{item.company}</div>
-                  </div>
+          {/* New Experience Cards Layout with RTL Support */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+            {experienceItems.map((item, index) => (
+              <div 
+                key={index} 
+                className="experience-card glass p-6 rounded-lg border border-border/40 hover:border-primary/20 transition-all duration-300 hover:shadow-md"
+              >
+                {/* Date Badge - Positioned properly for RTL */}
+                <div className="inline-block glass px-3 py-1 rounded-full text-xs font-medium mb-3 text-primary border border-primary/20">
+                  {item.date}
                 </div>
+                
+                {/* Role Title */}
+                <h4 className="text-lg font-semibold mb-1 text-foreground">
+                  {item.role}
+                </h4>
+                
+                {/* Company Name */}
+                <div className="text-accent mb-4">
+                  {item.company}
+                </div>
+                
+                {/* Details with Bullet Points - Uses logical properties for RTL support */}
+                <ul className="space-y-2">
+                  {item.details.map((detail, detailIndex) => (
+                    <li key={detailIndex} className="flex">
+                      <span className="inline-block text-primary me-2 mt-1.5 rtl:rotate-180">
+                        <svg 
+                          xmlns="http://www.w3.org/2000/svg" 
+                          width="10" 
+                          height="10" 
+                          viewBox="0 0 24 24" 
+                          fill="none" 
+                          stroke="currentColor" 
+                          strokeWidth="3" 
+                          strokeLinecap="round" 
+                          strokeLinejoin="round"
+                        >
+                          <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                      </span>
+                      <span className="text-muted-foreground text-sm">
+                        {detail}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>

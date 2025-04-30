@@ -1,0 +1,77 @@
+
+🎯 Please redesign the Experience section completely, both in terms of content and responsive behavior, especially when switching to Arabic (RTL).
+
+🔧 Issues:
+
+The content is inaccurate and doesn’t reflect my real work experience.
+
+The responsive layout breaks badly in Arabic view – alignments, text wrapping, and layout all get distorted.
+
+✅ What to do:
+
+Replace the entire content with the real professional experiences listed below.
+
+Ensure RTL compatibility: use proper flex, grid, or logical CSS (margin-inline, padding-inline, etc.) to support both English and Arabic.
+
+Maintain a clean, professional visual hierarchy with dates, company names, role titles, and bullet points.
+
+Make sure it works perfectly on both desktop and mobile views.
+
+🧠 Experience Content (Replace current content with this):
+json
+Copy
+Edit
+[
+  {
+    "date": "March 2025 – Present",
+    "role": "IT Manager",
+    "company": "Mohamoon Saudi Arabia (Remote)",
+    "details": [
+      "Managing the Lawyers' portal built on WordPress.",
+      "Handling servers, domains, and email configurations."
+    ]
+  },
+  {
+    "date": "Sep 2024 – Jan 2025",
+    "role": "Full Stack Developer",
+    "company": "Estisharati (UAE – Remote)",
+    "details": [
+      "Developed 'Party Wizard' – an eCommerce platform using Laravel.",
+      "Built the CRM and consultation booking system 'Estisharati'."
+    ]
+  },
+  {
+    "date": "Jan 2023 – Nov 2024",
+    "role": "Full Stack Developer",
+    "company": "GiantWhale (Remote)",
+    "details": [
+      "Built multiple portfolio websites and eCommerce platforms for Saudi clients."
+    ]
+  },
+  {
+    "date": "Jan 2023 – Present",
+    "role": "Web Developer (Part-time)",
+    "company": "Motiv-X",
+    "details": [
+      "Enhanced a Laravel-based site with backend and database improvements."
+    ]
+  },
+  {
+    "date": "Feb 2025 – Present",
+    "role": "Contest Participant",
+    "company": "Global Tech Contest – Riyadh",
+    "details": [
+      "Leading technical side for a web-based VR football experience.",
+      "Handled performance optimization and integrations."
+    ]
+  },
+  {
+    "date": "2022 – 2023",
+    "role": "Trainee → Mentor",
+    "company": "Createivo",
+    "details": [
+      "Completed an intensive Laravel + PHP training program.",
+      "Later mentored new students in advanced tasks."
+    ]
+  }
+]
