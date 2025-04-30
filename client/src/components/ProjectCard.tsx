@@ -71,10 +71,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <div 
       ref={cardRef}
-      className="project-card group relative overflow-hidden rounded-xl shadow-lg bg-gradient-to-br from-white/5 to-white/10 dark:from-primary/5 dark:via-purple-900/10 dark:to-accent/5 backdrop-blur-sm dark:backdrop-blur-lg border border-white/10 dark:border-primary/10 hover:border-primary/30 transition-all duration-500"
+      className="project-card group relative overflow-hidden rounded-xl shadow-lg bg-gradient-to-br from-white/5 to-white/10 dark:bg-gray-900/95 dark:shadow-xl dark:shadow-black/30 backdrop-blur-sm dark:backdrop-blur-lg border border-white/10 dark:border-gray-800 hover:border-primary/30 dark:hover:border-primary/20 transition-all duration-500"
     >
-      {/* Decorative accent */}
-      <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-xl blur-md opacity-0 group-hover:opacity-80 transition-opacity duration-700 -z-10"></div>
+      {/* Decorative accent for hover effect */}
+      <div className="absolute -inset-2 bg-gradient-to-r from-primary/30 via-accent/20 to-primary/30 dark:from-primary/20 dark:via-accent/10 dark:to-primary/20 rounded-xl blur-md opacity-0 group-hover:opacity-80 transition-opacity duration-700 -z-10"></div>
+      
+      {/* Shadow effect that follows mouse movement */}
+      <div className="absolute inset-0 dark:bg-gradient-to-br dark:from-primary/5 dark:to-accent/5 opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
       
       <div className="relative h-52 overflow-hidden">
         <div className="image-container absolute inset-0 w-full h-full">
