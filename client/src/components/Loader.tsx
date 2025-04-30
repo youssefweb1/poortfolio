@@ -81,19 +81,12 @@ const Loader: React.FC<LoaderProps> = ({ setLoading }) => {
       ease: "sine.inOut"
     });
     
-    // Create subtle glow effect for the container
-    gsap.to(containerRef.current, {
-      boxShadow: "0 0 30px rgba(139, 92, 246, 0.3)",
-      duration: 2,
-      repeat: -1,
-      yoyo: true,
-      ease: "sine.inOut"
-    });
+    // No shadow animation for the container
     
     // Progress counter simulation
     let loadingProgress = 0;
     const interval = setInterval(() => {
-      loadingProgress += Math.floor(Math.random() * 3) + 1;
+      loadingProgress += Math.floor(Math.random() * 8) + 3;
       
       if (loadingProgress > 100) {
         loadingProgress = 100;
@@ -102,13 +95,15 @@ const Loader: React.FC<LoaderProps> = ({ setLoading }) => {
       }
       
       setProgress(loadingProgress);
-    }, 90);
+    }, 50);
     
     // Final animation when loading completes
     const completeLoading = () => {
-      const completeTl = gsap.timeline({
-        onComplete: () => setTimeout(() => setLoading(false), 300)
+      gsap.delayedCall(0.3, () => {
+        setLoading(false);
       });
+      
+      const completeTl = gsap.timeline();
       
       completeTl
         .to(svgRef.current, {

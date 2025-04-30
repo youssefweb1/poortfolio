@@ -71,7 +71,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <div 
       ref={cardRef}
-      className="project-card group relative overflow-hidden rounded-xl shadow-lg bg-gradient-to-br from-white/5 to-white/10 dark:from-primary/5 dark:via-purple-900/10 dark:to-accent/5 backdrop-blur-sm dark:backdrop-blur-lg border border-white/10 dark:border-primary/10 hover:border-primary/30 transition-all duration-500"
+      className="project-card group relative overflow-hidden rounded-xl shadow-lg bg-gradient-to-br from-white/5 to-white/10 dark:from-black/70 dark:to-black/50 backdrop-blur-sm dark:backdrop-blur-lg border border-white/10 dark:border-primary/10 hover:border-primary/30 transition-all duration-500"
     >
       {/* Decorative accent */}
       <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-xl blur-md opacity-0 group-hover:opacity-80 transition-opacity duration-700 -z-10"></div>
