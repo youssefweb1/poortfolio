@@ -125,7 +125,8 @@
       "sending": "Sending...",
       "success": {
         "title": "Message Sent",
-        "message": "Thanks for reaching out! I'll get back to you soon."
+        "message": "Thanks for reaching out! I'll get back to you soon.",
+        "buttonText": "OK"
       },
       "error": {
         "title": "Error",

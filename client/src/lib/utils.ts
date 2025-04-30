@@ -11,21 +11,32 @@ export const sendContactForm = async (formData: {
   message: string;
 }) => {
   try {
-    const response = await fetch('/api/contact', {
+    // Create a FormData object for Web3Forms
+    const web3FormData = new FormData();
+    web3FormData.append('access_key', '2abc227c-88da-447c-93ae-1b36d7fb7781');
+    web3FormData.append('name', formData.name);
+    web3FormData.append('email', formData.email);
+    web3FormData.append('message', formData.message);
+    web3FormData.append('from_name', 'Portfolio Contact Form');
+    web3FormData.append('subject', 'New Contact Form Submission');
+    
+    // Send the form data to Web3Forms
+    const response = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
+      body: web3FormData,
     });
     
-    if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(errorData.message || 'An error occurred');
-    }
+    // Parse the JSON response
+    const result = await response.json();
     
-    return await response.json();
+    // Check if the submission was successful
+    if (result.success) {
+      return result;
+    } else {
+      throw new Error(result.message || 'Failed to send message');
+    }
   } catch (error) {
+    console.error('Error sending form:', error);
     throw error;
   }
 };
