@@ -6,10 +6,8 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import { 
   FaGithub, 
   FaLinkedin, 
-  FaTwitter, 
-  FaInstagram, 
-  FaDribbble, 
-  FaBehance 
+  FaTiktok, 
+  FaWhatsapp
 } from "react-icons/fa";
 import ContactForm from "@/components/ContactForm";
 
@@ -174,8 +172,8 @@ const ContactSection: React.FC = () => {
                     <div className="text-xs font-medium text-muted-foreground mb-1">
                       {t('contact.info.portfolio')}
                     </div>
-                    <a href="https://youssef.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-                      {t('contact.info.portfolioValue')}
+                    <a href="https://yooussef.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                      yooussef.com
                     </a>
                   </div>
                 </div>
@@ -205,6 +203,24 @@ const ContactSection: React.FC = () => {
                   aria-label="LinkedIn"
                 >
                   <FaLinkedin className="w-4 h-4" />
+                </a>
+                <a 
+                  href="https://www.tiktok.com/@yooussef.tech" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 glass border border-primary/30 hover:border-primary/60 hover:text-primary rounded-full flex items-center justify-center transition-colors"
+                  aria-label="TikTok"
+                >
+                  <FaTiktok className="w-4 h-4" />
+                </a>
+                <a 
+                  href="https://wa.me/966582407507" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 glass border border-primary/30 hover:border-primary/60 hover:text-primary rounded-full flex items-center justify-center transition-colors"
+                  aria-label="WhatsApp"
+                >
+                  <FaWhatsapp className="w-4 h-4" />
                 </a>
               </div>
             </div>

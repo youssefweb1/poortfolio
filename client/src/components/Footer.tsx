@@ -35,7 +35,7 @@ const Footer: React.FC = () => {
             <div className="mt-auto">
               <div className="flex space-x-3 rtl:space-x-reverse">
                 <a 
-                  href="https://github.com" 
+                  href="https://github.com/youssefweb1" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-8 h-8 glass border border-white/20 hover:border-primary/60 hover:text-primary rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
                   <FaGithub className="w-3.5 h-3.5" />
                 </a>
                 <a 
-                  href="https://linkedin.com" 
+                  href="https://www.linkedin.com/in/youssef-elsabbahy" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-8 h-8 glass border border-white/20 hover:border-primary/60 hover:text-primary rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
@@ -53,13 +53,13 @@ const Footer: React.FC = () => {
                   <FaLinkedin className="w-3.5 h-3.5" />
                 </a>
                 <a 
-                  href="https://twitter.com" 
+                  href="https://www.tiktok.com/@yooussef.tech" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-8 h-8 glass border border-white/20 hover:border-primary/60 hover:text-primary rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
-                  aria-label="Twitter"
+                  aria-label="TikTok"
                 >
-                  <FaTwitter className="w-3.5 h-3.5" />
+                  <FaTiktok className="w-3.5 h-3.5" />
                 </a>
               </div>
             </div>
@@ -131,11 +131,33 @@ const Footer: React.FC = () => {
             <ul className="space-y-3">
               <li className="text-white/70 flex items-start gap-3">
                 <FaEnvelope className="text-primary w-4 h-4 mt-1" />
-                <span>contact@youssefalsabbahi.com</span>
+                <span>yooooussef@yahoo.com</span>
               </li>
               <li className="text-white/70 flex items-start gap-3">
                 <FaMapMarkerAlt className="text-primary w-4 h-4 mt-1" />
                 <span>{t('contact.info.locationValue')}</span>
+              </li>
+              <li className="text-white/70 flex items-start gap-3">
+                <FaCode className="text-primary w-4 h-4 mt-1" />
+                <a 
+                  href="https://yooussef.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors"
+                >
+                  yooussef.com
+                </a>
+              </li>
+              <li className="text-white/70 flex items-start gap-3">
+                <FaWhatsapp className="text-primary w-4 h-4 mt-1" />
+                <a 
+                  href="https://wa.me/966582407507"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors"
+                >
+                  +966582407507
+                </a>
               </li>
             </ul>
           </div>
