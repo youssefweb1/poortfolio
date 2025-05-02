@@ -65,7 +65,6 @@ const HeroSection: React.FC = () => {
       ref={sectionRef}
       className="relative min-h-screen flex items-center overflow-hidden bg-pattern"
     >
-      {/* <ThreeScene className="opacity-60" /> */}
       <div className="hero-overlay"></div>
       
       <div className="container mx-auto px-6 py-20 relative z-10">

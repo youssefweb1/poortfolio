@@ -1,4 +1,3 @@
 User-agent: *
-Disallow: /admin/
 Allow: /
 Sitemap: https://yooussef.com/sitemap.xml
