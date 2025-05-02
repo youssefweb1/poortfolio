@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-secondary/80 backdrop-blur-xl pt-12 pb-6 border-t border-border/30 relative overflow-hidden">
+    <footer className="bg-secondary/80 backdrop-blur-xl pt-12 pb-[100px] border-t border-border/30 relative overflow-hidden">
       {/* Decorative element */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full filter blur-[100px] -z-10"></div>

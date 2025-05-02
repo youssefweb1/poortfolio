@@ -1,0 +1,23 @@
+{
+    "name": "يوسف الصباحي - مطور ويب شامل",
+    "short_name": "يوسف الصباحي",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0f172a",
+    "theme_color": "#0f172a",
+    "lang": "ar",
+    "orientation": "portrait",
+    "icons": [
+      {
+        "src": "/public/images/favicon.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "/public/images/favicon.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }
+  

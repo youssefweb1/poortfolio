@@ -21,17 +21,16 @@ interface Project {
 const ProjectsSection: React.FC = () => {
   const { t } = useTranslation();
   const [activeCategory, setActiveCategory] = useState("all");
-  const [displayLimit, setDisplayLimit] = useState(4);
+  const [displayLimit, setDisplayLimit] = useState(3);
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
   const filtersRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
 
-  const projects: Project[] = [
+  const baseProjects = [
     {
       id: 1,
       category: "frontend",
-      image: "https://images.unsplash.com/photo-1553877522-43269d4ea984",
       titleKey: "projects.project1.title",
       descriptionKey: "projects.project1.description",
       technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
@@ -41,7 +40,7 @@ const ProjectsSection: React.FC = () => {
     {
       id: 2,
       category: "fullstack",
-      image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa",
+      image: "https://images.pexels.com/photos/276452/pexels-photo-276452.jpeg?auto=compress&cs=tinysrgb&w=600",
       titleKey: "projects.project2.title",
       descriptionKey: "projects.project2.description",
       technologies: ["PHP", "MySQL", "Bootstrap", "jQuery"],
@@ -50,8 +49,18 @@ const ProjectsSection: React.FC = () => {
     },
     {
       id: 3,
+      category: "frontend",
+      image: "https://images.pexels.com/photos/276452/pexels-photo-276452.jpeg?auto=compress&cs=tinysrgb&w=600",
+      titleKey: "projects.project15.title",
+      descriptionKey: "projects.project15.description",
+      technologies: ["Salla", "Custom Code", "Arabic UI"],
+      previewLink: "https://tmatem.sa/ar",
+      codeLink: "https://github.com/youssefweb1"
+    },
+    {
+      id: 15,
       category: "interactive",
-      image: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7",
+      image: "https://images.pexels.com/photos/276452/pexels-photo-276452.jpeg?auto=compress&cs=tinysrgb&w=600",
       titleKey: "projects.project3.title",
       descriptionKey: "projects.project3.description",
       technologies: ["Three.js", "GSAP", "JavaScript"],
@@ -61,7 +70,7 @@ const ProjectsSection: React.FC = () => {
     {
       id: 4,
       category: "frontend",
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978",
+      image: "https://images.pexels.com/photos/276452/pexels-photo-276452.jpeg?auto=compress&cs=tinysrgb&w=600",
       titleKey: "projects.project4.title",
       descriptionKey: "projects.project4.description",
       technologies: ["HTML", "CSS", "JavaScript", "Tailwind CSS"],
@@ -71,7 +80,7 @@ const ProjectsSection: React.FC = () => {
     {
       id: 5,
       category: "frontend",
-      image: "https://images.unsplash.com/photo-1610484826917-0f191a211f59",
+      image: "https://images.pexels.com/photos/276452/pexels-photo-276452.jpeg?auto=compress&cs=tinysrgb&w=600",
       titleKey: "projects.project5.title",
       descriptionKey: "projects.project5.description",
       technologies: ["HTML", "CSS", "JavaScript", "RTL Design"],
@@ -81,7 +90,7 @@ const ProjectsSection: React.FC = () => {
     {
       id: 6,
       category: "frontend",
-      image: "https://images.unsplash.com/photo-1586473219010-2ffc57b0d282",
+      image: "https://images.pexels.com/photos/276452/pexels-photo-276452.jpeg?auto=compress&cs=tinysrgb&w=600",
       titleKey: "projects.project6.title",
       descriptionKey: "projects.project6.description",
       technologies: ["HTML", "CSS", "JavaScript", "GSAP"],
@@ -91,7 +100,7 @@ const ProjectsSection: React.FC = () => {
     {
       id: 7,
       category: "fullstack",
-      image: "https://images.unsplash.com/photo-1506102383123-c8ef1e872756",
+      image: "https://images.pexels.com/photos/276452/pexels-photo-276452.jpeg?auto=compress&cs=tinysrgb&w=600",
       titleKey: "projects.project7.title",
       descriptionKey: "projects.project7.description",
       technologies: ["PHP", "MySQL", "Bootstrap", "Booking System"],
@@ -101,7 +110,7 @@ const ProjectsSection: React.FC = () => {
     {
       id: 8,
       category: "frontend",
-      image: "https://images.unsplash.com/photo-1558655146-605d86becbc2",
+      image: "https://images.pexels.com/photos/276452/pexels-photo-276452.jpeg?auto=compress&cs=tinysrgb&w=600",
       titleKey: "projects.project8.title",
       descriptionKey: "projects.project8.description",
       technologies: ["HTML", "CSS", "JavaScript", "Dark Mode"],
@@ -111,7 +120,7 @@ const ProjectsSection: React.FC = () => {
     {
       id: 9,
       category: "frontend",
-      image: "https://images.unsplash.com/photo-1517430816045-df4b7de11d1d",
+      image: "https://images.pexels.com/photos/276452/pexels-photo-276452.jpeg?auto=compress&cs=tinysrgb&w=600",
       titleKey: "projects.project9.title",
       descriptionKey: "projects.project9.description",
       technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
@@ -168,17 +177,13 @@ const ProjectsSection: React.FC = () => {
       previewLink: "https://drive.google.com/file/d/1VOmA9xKwL2fUp_8n5x_1_QRyJyD1_Coo/view?usp=sharing",
       codeLink: "https://github.com/youssefweb1"
     },
-    {
-      id: 15,
-      category: "frontend",
-      image: "https://images.unsplash.com/photo-1495195134817-aeb325a55b65",
-      titleKey: "projects.project15.title",
-      descriptionKey: "projects.project15.description",
-      technologies: ["WordPress", "WooCommerce", "Arabic UI"],
-      previewLink: "https://tmatem.sa/ar",
-      codeLink: "https://github.com/youssefweb1"
-    }
+   
   ];
+
+  const projects: Project[] = baseProjects.map(project => ({
+    ...project,
+    image: "https://images.pexels.com/photos/276452/pexels-photo-276452.jpeg?auto=compress&cs=tinysrgb&w=600"
+  }));
 
   const filteredProjects = activeCategory === "all" 
     ? projects 
@@ -186,7 +191,7 @@ const ProjectsSection: React.FC = () => {
 
   // Reset display limit when category changes
   useEffect(() => {
-    setDisplayLimit(4);
+    setDisplayLimit(3);
   }, [activeCategory]);
 
   useEffect(() => {
@@ -340,7 +345,7 @@ const ProjectsSection: React.FC = () => {
         {filteredProjects.length > displayLimit && (
           <div className="mt-12 text-center">
             <Button
-              onClick={() => setDisplayLimit(prev => prev + 4)}
+              onClick={() => setDisplayLimit(prev => prev + 3)}
               variant="outline"
               className="glass border-primary/30 hover:border-primary/50 rounded-full px-8 py-2 transition-all duration-300"
             >

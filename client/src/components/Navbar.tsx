@@ -76,7 +76,11 @@ const Navbar: React.FC = () => {
             <div className="relative z-10 group">
               <div className="absolute -inset-1 bg-gradient-to-r from-primary/60 to-accent/60 rounded-full blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
               <div className="relative flex items-center justify-center w-10 h-10 bg-gradient-to-r from-primary/10 to-accent/10 rounded-full border border-primary/30 p-2 group-hover:border-primary/70 transition-all duration-300">
-                <CodeXml className="w-5 h-5 text-primary group-hover:text-accent group-hover:scale-110 transition-all duration-300" />
+               <img
+                src="images/logo.png"
+                alt="Logo"
+                className="mt-1 w-6 h-6 rounded-full"
+                ></img>
               </div>
             </div>
             
@@ -114,7 +118,7 @@ const Navbar: React.FC = () => {
                 className={`rounded-full text-xs bg-[#25D366] hover:bg-[#20BD5C] ${
                   t('currentLanguage') === 'ar' ? 'text-slate-900 font-medium' : 'text-white flex items-center gap-1.5'
                 }`}
-                onClick={() => scrollToSection("contact")}
+                onClick={() => window.open('https://wa.me/966582407507', '_blank')}
               >
                 {t('currentLanguage') !== 'ar' && <MessageCircle className="h-3.5 w-3.5" />}
                 {t('currentLanguage') === 'ar' ? 'واتساب' : 'WhatsApp'}
@@ -175,7 +179,7 @@ const Navbar: React.FC = () => {
               className={`w-full rounded-lg bg-[#25D366] hover:bg-[#20BD5C] ${
                 t('currentLanguage') === 'ar' ? 'text-slate-900 font-medium' : 'text-white flex items-center justify-center gap-1.5'
               }`}
-              onClick={() => scrollToSection("contact")}
+              onClick={() => window.open('https://wa.me/966582407507', '_blank')}
             >
               {t('currentLanguage') !== 'ar' && <MessageCircle className="h-3.5 w-3.5" />}
               {t('currentLanguage') === 'ar' ? 'واتساب' : 'WhatsApp'}
