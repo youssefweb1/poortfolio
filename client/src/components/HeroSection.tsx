@@ -125,19 +125,18 @@ const HeroSection: React.FC = () => {
           </div>
         </div>
       </div>
-      <button
-        onClick={() => scrollToSection('about')}
-        >
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
-        <button
-          onClick={() => scrollToSection('about')}
-          className="cursor-pointer glass flex items-center justify-center w-12 h-12 rounded-full text-primary hover:text-primary/80 transition-all duration-300 hover:scale-110 hover:shadow-[0_0_20px_rgba(0,128,255,0.5)] dark:hover:shadow-[0_0_20px_rgba(0,128,255,0.3)] border border-primary/30 hover:border-primary/60"
-          aria-label={t('nav.about')}
-        >
-          <ChevronDown className="w-6 h-6 animate-bounce" />
-        </button>
-      </div>
-      </button>
+      <div onClick={() => scrollToSection('about')}>
+  <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
+    <button
+      onClick={() => scrollToSection('about')}
+      className="cursor-pointer glass flex items-center justify-center w-12 h-12 rounded-full text-primary hover:text-primary/80 transition-all duration-300 hover:scale-110 hover:shadow-[0_0_20px_rgba(0,128,255,0.5)] dark:hover:shadow-[0_0_20px_rgba(0,128,255,0.3)] border border-primary/30 hover:border-primary/60"
+      aria-label={t('nav.about')}
+    >
+      <ChevronDown className="w-6 h-6 animate-bounce" />
+    </button>
+  </div>
+</div>
+
     </section>
   );
 };
